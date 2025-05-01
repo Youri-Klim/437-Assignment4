@@ -1,0 +1,49 @@
+# Ignore build outputs
+bin/
+obj/
+out/
+
+# User-specific files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.swp
+
+# Ignore Rider / JetBrains / VS Code settings
+.idea/
+*.csproj.user
+.vscode/
+*.vscode/
+
+# Ignore package manager directories
+node_modules/
+packages/
+wwwroot/lib/
+wwwroot/dist/
+
+# Ignore logs and cache files
+logs/
+*.log
+*.cache
+
+# Ignore compiled DLLs and PDBs
+*.dll
+*.pdb
+*.exe
+
+
+# Ignore Environment Configs
+.env
+appsettings*.json
+
+# Ignore test results
+TestResults/
+coverage/
+
+# Ignore publish artifacts
+publish/
+*.publishsettings
+*.deploy
+*.deploy.cmd
