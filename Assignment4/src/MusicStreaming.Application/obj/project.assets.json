@@ -112,6 +112,16 @@
         "build": {
           "buildTransitive/net6.0/_._": {}
         }
+      },
+      "MusicStreaming.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/MusicStreaming.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MusicStreaming.Core.dll": {}
+        }
       }
     }
   },
@@ -295,13 +305,19 @@
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "MusicStreaming.Core/1.0.0": {
+      "type": "project",
+      "path": "../MusicStreaming.Core/MusicStreaming.Core.csproj",
+      "msbuildProject": "../MusicStreaming.Core/MusicStreaming.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "AutoMapper >= 14.0.0",
       "FluentValidation >= 11.11.0",
-      "MediatR >= 12.5.0"
+      "MediatR >= 12.5.0",
+      "MusicStreaming.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -334,7 +350,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {
+              "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
