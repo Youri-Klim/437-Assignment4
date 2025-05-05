@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-
 namespace MusicStreaming.Application.Common.Models
 {
     public class Result
@@ -27,9 +24,9 @@ namespace MusicStreaming.Application.Common.Models
 
     public class Result<T> : Result
     {
-        public T Data { get; set; }
+        public T? Data { get; set; }  // Make Data nullable with ?
 
-        protected Result(T data, bool succeeded, IEnumerable<string> errors) 
+        protected Result(T? data, bool succeeded, IEnumerable<string> errors) 
             : base(succeeded, errors)
         {
             Data = data;
