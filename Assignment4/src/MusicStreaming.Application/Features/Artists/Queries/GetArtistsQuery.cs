@@ -9,6 +9,7 @@ namespace MusicStreaming.Application.Features.Artists.Queries
 {
     public class GetArtistsQuery : IRequest<IReadOnlyList<ArtistDto>>
     {
+        // No parameters needed as we're retrieving all artists
     }
 
     public class GetArtistsQueryHandler : IRequestHandler<GetArtistsQuery, IReadOnlyList<ArtistDto>>

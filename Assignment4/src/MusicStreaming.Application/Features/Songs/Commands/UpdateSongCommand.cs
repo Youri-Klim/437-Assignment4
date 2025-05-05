@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace MusicStreaming.Application.Features.Songs.Commands
 {
-    public class CreateSongCommand : IRequest<int>
+    public class UpdateSongCommand : IRequest<bool>
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public int DurationInSeconds { get; set; }
         public DateTime ReleaseDate { get; set; }
@@ -17,10 +18,13 @@ namespace MusicStreaming.Application.Features.Songs.Commands
         public int AlbumId { get; set; }
     }
 
-    public class CreateSongCommandValidator : AbstractValidator<CreateSongCommand>
+    public class UpdateSongCommandValidator : AbstractValidator<UpdateSongCommand>
     {
-        public CreateSongCommandValidator()
+        public UpdateSongCommandValidator()
         {
+            RuleFor(x => x.Id)
+                .GreaterThan(0).WithMessage("A valid song ID is required");
+                
             RuleFor(x => x.Title)
                 .NotEmpty().WithMessage("Title is required")
                 .MaximumLength(100).WithMessage("Title cannot exceed 100 characters");
@@ -42,27 +46,29 @@ namespace MusicStreaming.Application.Features.Songs.Commands
         }
     }
 
-    public class CreateSongCommandHandler : IRequestHandler<CreateSongCommand, int>
+    public class UpdateSongCommandHandler : IRequestHandler<UpdateSongCommand, bool>
     {
         private readonly ISongRepository _songRepository;
         
-        public CreateSongCommandHandler(ISongRepository songRepository)
+        public UpdateSongCommandHandler(ISongRepository songRepository)
         {
             _songRepository = songRepository;
         }
         
-        public async Task<int> Handle(CreateSongCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateSongCommand request, CancellationToken cancellationToken)
         {
-            var songDto = new CreateSongDto
+            var songDto = new UpdateSongDto
             {
+                Id = request.Id,
                 Title = request.Title,
                 DurationInSeconds = request.DurationInSeconds,
                 ReleaseDate = request.ReleaseDate,
                 Genre = request.Genre,
                 AlbumId = request.AlbumId
             };
-                
-            return await _songRepository.AddAsync(songDto);
+            
+            await _songRepository.UpdateAsync(songDto);
+            return true;
         }
     }
 }

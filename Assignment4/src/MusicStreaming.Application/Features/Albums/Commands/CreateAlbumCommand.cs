@@ -24,9 +24,8 @@ namespace MusicStreaming.Application.Features.Albums.Commands
                 .MaximumLength(100).WithMessage("Title cannot exceed 100 characters");
                 
             RuleFor(x => x.ReleaseYear)
-                .NotEmpty().WithMessage("Release year is required")
-                .GreaterThan(1900).WithMessage("Release year must be after 1900")
-                .LessThanOrEqualTo(System.DateTime.Now.Year).WithMessage("Release year cannot be in the future");
+                .GreaterThanOrEqualTo(1900).WithMessage("Release year cannot be earlier than 1900")
+                .LessThanOrEqualTo(2100).WithMessage("Release year cannot be later than 2100");
                 
             RuleFor(x => x.Genre)
                 .NotEmpty().WithMessage("Genre is required")
@@ -55,7 +54,7 @@ namespace MusicStreaming.Application.Features.Albums.Commands
                 Genre = request.Genre,
                 ArtistId = request.ArtistId
             };
-                
+            
             return await _albumRepository.AddAsync(albumDto);
         }
     }

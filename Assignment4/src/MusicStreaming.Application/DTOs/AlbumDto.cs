@@ -11,5 +11,6 @@ namespace MusicStreaming.Application.DTOs
         public int ArtistId { get; set; }
         public string ArtistName { get; set; }
         public IList<SongDto> Songs { get; set; } = new List<SongDto>();
+
     }
 }

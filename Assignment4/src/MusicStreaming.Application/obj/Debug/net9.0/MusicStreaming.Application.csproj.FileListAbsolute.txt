@@ -1,6 +1,0 @@
-C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Application\obj\Debug\net9.0\MusicStreaming.Application.csproj.AssemblyReference.cache
-C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Application\obj\Debug\net9.0\MusicStreaming.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Application\obj\Debug\net9.0\MusicStreaming.Application.AssemblyInfoInputs.cache
-C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Application\obj\Debug\net9.0\MusicStreaming.Application.AssemblyInfo.cs
-C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Application\obj\Debug\net9.0\MusicStreaming.Application.csproj.CoreCompileInputs.cache
-C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Application\obj\Debug\net9.0\MusicStreaming.Application.sourcelink.json

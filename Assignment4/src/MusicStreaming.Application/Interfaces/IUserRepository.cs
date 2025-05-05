@@ -9,5 +9,7 @@ namespace MusicStreaming.Application.Interfaces.Repositories
         Task<UserDto> GetByUsernameAsync(string username);
         Task<string> CreateAsync(string username, string email, string password);
         Task UpdateAsync(UserDto user);
+        Task<IReadOnlyList<UserDto>> ListAllAsync();
+        Task<bool> DeleteAsync(string id);
     }
 }

@@ -13,6 +13,7 @@ namespace MusicStreaming.Application.Features.Albums.Commands
         public string Title { get; set; }
         public int ReleaseYear { get; set; }
         public string Genre { get; set; }
+        public int ArtistId { get; set; }
     }
 
     public class UpdateAlbumCommandValidator : AbstractValidator<UpdateAlbumCommand>
@@ -34,6 +35,9 @@ namespace MusicStreaming.Application.Features.Albums.Commands
             RuleFor(x => x.Genre)
                 .NotEmpty().WithMessage("Genre is required")
                 .MaximumLength(50).WithMessage("Genre cannot exceed 50 characters");
+                
+            RuleFor(x => x.ArtistId)
+                .GreaterThan(0).WithMessage("A valid artist ID is required");
         }
     }
 
@@ -53,7 +57,8 @@ namespace MusicStreaming.Application.Features.Albums.Commands
                 Id = request.Id,
                 Title = request.Title,
                 ReleaseYear = request.ReleaseYear,
-                Genre = request.Genre
+                Genre = request.Genre,
+                ArtistId = request.ArtistId
             };
             
             await _albumRepository.UpdateAsync(albumDto);

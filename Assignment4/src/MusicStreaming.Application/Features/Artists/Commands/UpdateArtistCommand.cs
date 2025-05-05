@@ -22,7 +22,7 @@ namespace MusicStreaming.Application.Features.Artists.Commands
                 .GreaterThan(0).WithMessage("A valid artist ID is required");
                 
             RuleFor(x => x.Name)
-                .NotEmpty().WithMessage("Artist name is required")
+                .NotEmpty().WithMessage("Name is required")
                 .MaximumLength(100).WithMessage("Name cannot exceed 100 characters");
                 
             RuleFor(x => x.Genre)

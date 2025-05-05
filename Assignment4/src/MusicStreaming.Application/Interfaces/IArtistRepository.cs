@@ -8,6 +8,7 @@ namespace MusicStreaming.Application.Interfaces.Repositories
     {
         Task<ArtistDto> GetByIdAsync(int id);
         Task<IReadOnlyList<ArtistDto>> ListAllAsync();
+        Task<IReadOnlyList<ArtistDto>> GetArtistsWithAlbumsAsync();
         Task<int> AddAsync(CreateArtistDto artist);
         Task UpdateAsync(UpdateArtistDto artist);
         Task DeleteAsync(int id);
