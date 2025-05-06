@@ -1,13 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MusicStreaming.Web.Models
+namespace MusicStreaming.Web.ViewModels
 {
     public class CreateAlbumWithSongViewModel
     {
         // Album properties
         [Required]
         [MaxLength(100)]
-        public string Title { get; set; }
+        public required string Title { get; set; }
         
         [Required]
         [Range(1900, 2100)]
@@ -15,7 +15,7 @@ namespace MusicStreaming.Web.Models
         
         [Required]
         [MaxLength(50)]
-        public string Genre { get; set; }
+        public required string Genre { get; set; }
         
         [Required]
         public int ArtistId { get; set; }
@@ -23,7 +23,7 @@ namespace MusicStreaming.Web.Models
         // Initial song properties
         [Required]
         [MaxLength(100)]
-        public string SongTitle { get; set; }
+        public required string SongTitle { get; set; }
         
         [Required]
         [Range(1, 1800)]
@@ -31,6 +31,6 @@ namespace MusicStreaming.Web.Models
         
         [Required]
         [MaxLength(50)]
-        public string SongGenre { get; set; }
+        public required string SongGenre { get; set; }
     }
 }

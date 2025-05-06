@@ -10,9 +10,9 @@ namespace MusicStreaming.Application.Features.Albums.Commands
     public class UpdateAlbumCommand : IRequest<bool>
     {
         public int Id { get; set; }
-        public string Title { get; set; }
+        public required string Title { get; set; }
         public int ReleaseYear { get; set; }
-        public string Genre { get; set; }
+        public required string Genre { get; set; }
         public int ArtistId { get; set; }
     }
 

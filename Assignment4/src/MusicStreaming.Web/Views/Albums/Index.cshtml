@@ -1,0 +1,39 @@
+@model IEnumerable<MusicStreaming.Web.ViewModels.AlbumViewModel>
+
+@{
+    ViewData["Title"] = "Albums";
+}
+
+<h2>Albums</h2>
+
+<p>
+    <a asp-controller="Albums" asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Release Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var album in Model) {
+            <tr>
+                <td>@album.Title</td>
+                <td>@album.ArtistName</td>
+                <td>@album.Genre</td>
+                <td>@album.ReleaseYear</td>
+                <td>
+                    <a asp-controller="Albums" asp-action="Edit" asp-route-id="@album.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-controller="Albums" asp-action="Details" asp-route-id="@album.Id" class="btn btn-sm btn-info">Details</a>
+                    <a asp-controller="Albums" asp-action="Delete" asp-route-id="@album.Id" class="btn btn-sm btn-danger" 
+                       onclick="return confirm('Are you sure you want to delete this album?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

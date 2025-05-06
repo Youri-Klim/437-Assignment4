@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace MusicStreaming.Application.Features.Albums.Queries
 {
-    public class GetAlbumWithSongsQuery : IRequest<AlbumDto>
+    public class GetAlbumWithSongsQuery : IRequest<AlbumDto?>
     {
         public int Id { get; set; }
     }
 
-    public class GetAlbumWithSongsQueryHandler : IRequestHandler<GetAlbumWithSongsQuery, AlbumDto>
+    public class GetAlbumWithSongsQueryHandler : IRequestHandler<GetAlbumWithSongsQuery, AlbumDto?>
     {
         private readonly IAlbumRepository _albumRepository;
         private readonly ISongRepository _songRepository;
@@ -24,7 +24,7 @@ namespace MusicStreaming.Application.Features.Albums.Queries
             _songRepository = songRepository;
         }
         
-        public async Task<AlbumDto> Handle(GetAlbumWithSongsQuery request, CancellationToken cancellationToken)
+        public async Task<AlbumDto?> Handle(GetAlbumWithSongsQuery request, CancellationToken cancellationToken)
         {
             var album = await _albumRepository.GetByIdAsync(request.Id);
             if (album != null)

@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "inAsdFK+TPoof93AOmTP3tHI/BRB4Hxi3U8dKSf7SN0=",
+  "Hash": "ScrMB24BHxLMZJqn5XpaUbHJwCuOl0P9J6NuLzTesm4=",
   "Source": "MusicStreaming.Web",
   "BasePath": "_content/MusicStreaming.Web",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MusicStreaming.Web\\wwwroot",
+      "Source": "MusicStreaming.Web",
+      "ContentRoot": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\wwwroot\\",
+      "BasePath": "_content/MusicStreaming.Web",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [
     {
       "Identity": "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.4\\staticwebassets\\V5\\css\\site.css",
@@ -1752,6 +1760,27 @@
       "OriginalItemSpec": "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.4\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
+      "Identity": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\obj\\Debug\\net9.0\\compressed\\fx1gje4pyr-m7zbbr3am4.gz",
+      "SourceId": "MusicStreaming.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MusicStreaming.Web",
+      "RelativePath": "css/styles#[.{fingerprint=m7zbbr3am4}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\wwwroot\\css\\styles.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "1ms8frv2sn",
+      "Integrity": "J5LSLapIsFuDYZlSABJkQ7dMmdPqWcvb8rOku3g9Wd8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\wwwroot\\css\\styles.css"
+    },
+    {
       "Identity": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\obj\\Debug\\net9.0\\compressed\\h9vwtoirpy-j5mq2jizvt.gz",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
@@ -2632,6 +2661,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.4\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Identity": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\wwwroot\\css\\styles.css",
+      "SourceId": "MusicStreaming.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\wwwroot\\",
+      "BasePath": "_content/MusicStreaming.Web",
+      "RelativePath": "css/styles#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m7zbbr3am4",
+      "Integrity": "/pHsmi2cAFDfQLe8vIuuBFPhfAoyS9UcFd8ER93/P88=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
     }
   ],
   "Endpoints": [
@@ -2669,6 +2719,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.css",
+      "AssetFile": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\obj\\Debug\\net9.0\\compressed\\fx1gje4pyr-m7zbbr3am4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001237623762"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "807"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J5LSLapIsFuDYZlSABJkQ7dMmdPqWcvb8rOku3g9Wd8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 14:20:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"/pHsmi2cAFDfQLe8vIuuBFPhfAoyS9UcFd8ER93/P88=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/pHsmi2cAFDfQLe8vIuuBFPhfAoyS9UcFd8ER93/P88="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.css",
+      "AssetFile": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\wwwroot\\css\\styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2301"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/pHsmi2cAFDfQLe8vIuuBFPhfAoyS9UcFd8ER93/P88=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 14:20:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/pHsmi2cAFDfQLe8vIuuBFPhfAoyS9UcFd8ER93/P88="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.css.gz",
+      "AssetFile": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\obj\\Debug\\net9.0\\compressed\\fx1gje4pyr-m7zbbr3am4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "807"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J5LSLapIsFuDYZlSABJkQ7dMmdPqWcvb8rOku3g9Wd8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 14:20:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-J5LSLapIsFuDYZlSABJkQ7dMmdPqWcvb8rOku3g9Wd8="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.m7zbbr3am4.css",
+      "AssetFile": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\obj\\Debug\\net9.0\\compressed\\fx1gje4pyr-m7zbbr3am4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001237623762"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "807"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J5LSLapIsFuDYZlSABJkQ7dMmdPqWcvb8rOku3g9Wd8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 14:20:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"/pHsmi2cAFDfQLe8vIuuBFPhfAoyS9UcFd8ER93/P88=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m7zbbr3am4"
+        },
+        {
+          "Name": "label",
+          "Value": "css/styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/pHsmi2cAFDfQLe8vIuuBFPhfAoyS9UcFd8ER93/P88="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.m7zbbr3am4.css",
+      "AssetFile": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\wwwroot\\css\\styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2301"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/pHsmi2cAFDfQLe8vIuuBFPhfAoyS9UcFd8ER93/P88=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 14:20:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m7zbbr3am4"
+        },
+        {
+          "Name": "label",
+          "Value": "css/styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/pHsmi2cAFDfQLe8vIuuBFPhfAoyS9UcFd8ER93/P88="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.m7zbbr3am4.css.gz",
+      "AssetFile": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Web\\obj\\Debug\\net9.0\\compressed\\fx1gje4pyr-m7zbbr3am4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "807"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J5LSLapIsFuDYZlSABJkQ7dMmdPqWcvb8rOku3g9Wd8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 14:20:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m7zbbr3am4"
+        },
+        {
+          "Name": "label",
+          "Value": "css/styles.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J5LSLapIsFuDYZlSABJkQ7dMmdPqWcvb8rOku3g9Wd8="
         }
       ]
     },

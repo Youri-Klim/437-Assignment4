@@ -1,0 +1,38 @@
+@model MusicStreaming.Web.ViewModels.SongViewModel
+
+@{
+    ViewData["Title"] = "Song Details";
+}
+
+<h2>@Model.Title</h2>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <dl class="row">
+            <dt class="col-sm-3">Genre:</dt>
+            <dd class="col-sm-9">@Model.Genre</dd>
+            
+            <dt class="col-sm-3">Duration:</dt>
+            <dd class="col-sm-9">@Model.DurationFormatted</dd>
+            
+            @if (Model.AlbumTitle != null)
+            {
+                <dt class="col-sm-3">Album:</dt>
+                <dd class="col-sm-9">
+                    <a asp-controller="Albums" asp-action="Details" asp-route-id="@Model.AlbumId">@Model.AlbumTitle</a>
+                </dd>
+                
+                @if (Model.ArtistName != null)
+                {
+                    <dt class="col-sm-3">Artist:</dt>
+                    <dd class="col-sm-9">@Model.ArtistName</dd>
+                }
+            }
+        </dl>
+        
+        <div class="form-group text-center">
+            <a asp-controller="Songs" asp-action="Index" class="btn btn-secondary">Back to Songs</a>
+            <a asp-controller="Songs" asp-action="AddToPlaylist" asp-route-id="@Model.Id" class="btn btn-primary">Add to Playlist</a>
+        </div>
+    </div>
+</div>

@@ -13,7 +13,7 @@ using MusicStreaming.Application.Features.Albums.Queries;
 using MusicStreaming.Application.Features.Albums.Commands;
 using MusicStreaming.Application.Features.Artists.Queries;
 using MusicStreaming.Application.Features.Artists.Commands;
-using MusicStreaming.Web.Models;
+using MusicStreaming.Web.ViewModels;
 using AutoMapper;
 
 namespace MusicStreaming.Web.Controllers

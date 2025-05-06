@@ -9,7 +9,7 @@ namespace MusicStreaming.Application.Features.Playlists.Queries
 {
     public class GetPlaylistsByUserQuery : IRequest<IReadOnlyList<PlaylistDto>>
     {
-        public string UserId { get; set; }
+        public required string UserId { get; set; }
     }
 
     public class GetPlaylistsByUserQueryHandler : IRequestHandler<GetPlaylistsByUserQuery, IReadOnlyList<PlaylistDto>>

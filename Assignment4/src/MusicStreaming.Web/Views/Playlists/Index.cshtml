@@ -1,0 +1,31 @@
+@model IEnumerable<MusicStreaming.Web.ViewModels.PlaylistViewModel>
+
+@{
+    ViewData["Title"] = "Playlists";
+}
+
+<h2>Playlists</h2>
+<a asp-action="Create" class="btn btn-primary">Create New</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">User</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var playlist in Model) {
+            <tr>
+                <td class="text-center">@playlist.Title</td>
+                <td class="text-center">@playlist.UserName</td>
+                <td class="text-center">
+                    <div style="display: flex; justify-content: center;"> 
+                        <a asp-action="Edit" asp-route-id="@playlist.Id" class="btn btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@playlist.Id" class="btn btn-danger">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

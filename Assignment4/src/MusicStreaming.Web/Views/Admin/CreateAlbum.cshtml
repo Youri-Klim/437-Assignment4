@@ -1,0 +1,63 @@
+@model MusicStreaming.Web.ViewModels.CreateAlbumWithSongViewModel
+
+@{
+    ViewData["Title"] = "Create Album";
+}
+
+<h2>Create New Album</h2>
+
+<form asp-action="CreateAlbum" method="post">
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Album Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="ReleaseYear" class="control-label">Release Year</label>
+        <input asp-for="ReleaseYear" class="form-control" />
+        <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Genre" class="control-label">Genre</label>
+        <input asp-for="Genre" class="form-control" />
+        <span asp-validation-for="Genre" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="ArtistId" class="control-label">Artist</label>
+        <select asp-for="ArtistId" class="form-control" asp-items="@(new SelectList(ViewBag.Artists, "Id", "Name"))">
+            <option value="">-- Select Artist --</option>
+        </select>
+        <span asp-validation-for="ArtistId" class="text-danger"></span>
+    </div>
+    
+    <hr />
+    <h4>First Song</h4>
+    
+    <div class="form-group">
+        <label asp-for="SongTitle" class="control-label">Song Title</label>
+        <input asp-for="SongTitle" class="form-control" />
+        <span asp-validation-for="SongTitle" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="SongDurationInSeconds" class="control-label">Duration (seconds)</label>
+        <input asp-for="SongDurationInSeconds" class="form-control" />
+        <span asp-validation-for="SongDurationInSeconds" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="SongGenre" class="control-label">Genre</label>
+        <input asp-for="SongGenre" class="form-control" />
+        <span asp-validation-for="SongGenre" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Create Album</button>
+    <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

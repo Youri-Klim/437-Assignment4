@@ -1,0 +1,19 @@
+@model MusicStreaming.Web.ViewModels.PlaylistViewModel
+
+@{
+    ViewData["Title"] = "Delete Playlist";
+}
+
+<h2>Delete Playlist</h2>
+
+<div class="alert alert-danger">
+    <p>Are you sure you want to delete the playlist "@Model.Title"?</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    @Html.AntiForgeryToken()
+    
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

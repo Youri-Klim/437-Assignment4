@@ -7,7 +7,7 @@ using AutoMapper;
 using Microsoft.Extensions.Logging;
 using MusicStreaming.Application.Features.Artists.Queries;
 using MusicStreaming.Application.Features.Artists.Commands;
-using MusicStreaming.Web.Models;
+using MusicStreaming.Web.ViewModels;
 
 namespace MusicStreaming.Web.Controllers
 {

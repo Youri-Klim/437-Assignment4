@@ -1,0 +1,44 @@
+@model MusicStreaming.Web.ViewModels.EditAlbumViewModel
+
+@{
+    ViewData["Title"] = "Edit Album";
+}
+
+<h2>Edit Album</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Genre" class="control-label"></label>
+        <input asp-for="Genre" class="form-control" />
+        <span asp-validation-for="Genre" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="ReleaseYear" class="control-label"></label>
+        <input asp-for="ReleaseYear" class="form-control" />
+        <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="ArtistId" class="control-label">Artist</label>
+        <select asp-for="ArtistId" class="form-control" asp-items="@(new SelectList(ViewBag.Artists, "Id", "Name"))"></select>
+        <span asp-validation-for="ArtistId" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

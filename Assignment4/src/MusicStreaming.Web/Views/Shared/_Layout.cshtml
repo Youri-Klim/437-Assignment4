@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Music Streaming</title>
+    <link rel="stylesheet" href="~/css/styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">MusicStream</div>
+        <ul class="nav-links">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-controller="Songs" asp-action="Index">Songs</a></li>
+            <li><a asp-controller="Albums" asp-action="Index">Albums</a></li>
+            <li><a asp-controller="Artists" asp-action="Index">Artists</a></li>
+            <li><a asp-controller="Playlists" asp-action="Index">My Playlists</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <p>&copy; 2025 MusicStream. All rights reserved.</p>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -9,8 +9,8 @@ namespace MusicStreaming.Application.Features.Playlists.Commands
 {
     public class CreatePlaylistCommand : IRequest<int>
     {
-        public string Title { get; set; }
-        public string UserId { get; set; }
+        public required string Title { get; set; }
+        public required string UserId { get; set; }
     }
 
     public class CreatePlaylistCommandValidator : AbstractValidator<CreatePlaylistCommand>

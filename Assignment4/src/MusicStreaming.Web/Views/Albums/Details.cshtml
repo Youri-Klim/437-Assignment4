@@ -1,0 +1,36 @@
+@model MusicStreaming.Web.ViewModels.AlbumDetailViewModel
+
+@{
+    ViewData["Title"] = "Album Details";
+}
+
+<div style="text-align: center;"> 
+    <h2>@Model.Title</h2>
+
+    <p><strong>Artist:</strong> @Model.ArtistName</p>
+    <p><strong>Release Year:</strong> @Model.ReleaseYear</p>
+    <p><strong>Genre:</strong> @Model.Genre</p>
+</div>
+
+<h3 style="text-align: center;">Songs in this Album</h3>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px auto;">
+    <thead>
+        <tr>
+            <th style="text-align: center; border: 1px solid #ddd; padding: 8px;">Title</th>
+            <th style="text-align: center; border: 1px solid #ddd; padding: 8px;">Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var song in Model.Songs) {
+            <tr>
+                <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">@song.Title</td>
+                <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">@song.DurationFormatted</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div style="text-align: center;">
+    <a asp-controller="Albums" asp-action="Index">Back to Albums</a>
+</div>

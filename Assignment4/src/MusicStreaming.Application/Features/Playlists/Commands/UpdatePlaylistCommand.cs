@@ -10,7 +10,7 @@ namespace MusicStreaming.Application.Features.Playlists.Commands
     public class UpdatePlaylistCommand : IRequest<bool>
     {
         public int Id { get; set; }
-        public string Title { get; set; }
+        public required string Title { get; set; }
     }
 
     public class UpdatePlaylistCommandValidator : AbstractValidator<UpdatePlaylistCommand>

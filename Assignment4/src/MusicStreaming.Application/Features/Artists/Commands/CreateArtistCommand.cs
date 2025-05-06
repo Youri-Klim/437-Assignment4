@@ -9,8 +9,8 @@ namespace MusicStreaming.Application.Features.Artists.Commands
 {
     public class CreateArtistCommand : IRequest<int>
     {
-        public string Name { get; set; }
-        public string Genre { get; set; }
+        public required string Name { get; set; }
+        public required string Genre { get; set; }
     }
 
     public class CreateArtistCommandValidator : AbstractValidator<CreateArtistCommand>

@@ -5,8 +5,8 @@ namespace MusicStreaming.Application.DTOs
     public class ArtistDto
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Genre { get; set; }
+        public required string Name { get; set; }
+        public required string Genre { get; set; }
         public IList<AlbumDto> Albums { get; set; } = new List<AlbumDto>();
     }
 }

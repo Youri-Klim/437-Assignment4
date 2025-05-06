@@ -7,7 +7,7 @@ namespace MusicStreaming.Application.Features.Users.Commands
 {
     public class DeleteUserCommand : IRequest<bool>
     {
-        public string Id { get; set; }
+        public required string Id { get; set; }
     }
 
     public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, bool>

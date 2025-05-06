@@ -1,0 +1,28 @@
+@model MusicStreaming.Web.ViewModels.CreateArtistViewModel
+
+@{
+    ViewData["Title"] = "Add New Artist";
+}
+
+<h2>Add New Artist</h2>
+
+<form asp-action="CreateArtist" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Genre" class="control-label">Genre</label>
+        <input asp-for="Genre" class="form-control" />
+        <span asp-validation-for="Genre" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Create Artist</button>
+    <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

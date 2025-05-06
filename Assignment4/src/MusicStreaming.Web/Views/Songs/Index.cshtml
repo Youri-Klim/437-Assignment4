@@ -1,0 +1,68 @@
+@model IEnumerable<MusicStreaming.Web.ViewModels.SongViewModel>
+
+@{
+    ViewData["Title"] = "Songs List";
+}
+
+<h2>Songs</h2>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <input type="text" id="searchInput" placeholder="Search songs by title, artist or album..." class="form-control" />
+    </div>
+    <div class="col-md-6 text-right">
+        <a asp-controller="Songs" asp-action="Create" class="btn btn-primary">Create New</a>
+    </div>
+</div>
+
+<table id="songsTable" class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Duration</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var song in Model) {
+            <tr class="song-row">
+                <td>@song.Title</td>
+                <td>@song.ArtistName</td>
+                <td>@song.AlbumTitle</td>
+                <td>@song.DurationFormatted</td>
+                <td>
+                    <a asp-controller="Songs" asp-action="Details" asp-route-id="@song.Id" class="btn btn-sm btn-info">Details</a>
+                    <a asp-controller="Songs" asp-action="Edit" asp-route-id="@song.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-controller="Songs" asp-action="AddToPlaylist" asp-route-id="@song.Id" class="btn btn-sm btn-primary">Add to Playlist</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const rows = document.querySelectorAll('#songsTable tbody tr.song-row');
+            
+            rows.forEach(row => {
+                const title = row.cells[0].textContent.toLowerCase();
+                const artist = row.cells[1].textContent.toLowerCase();
+                const album = row.cells[2].textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || 
+                    artist.includes(searchTerm) || 
+                    album.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>

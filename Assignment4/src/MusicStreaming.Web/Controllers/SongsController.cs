@@ -9,7 +9,7 @@ using MusicStreaming.Application.Features.Songs.Commands;
 using MusicStreaming.Application.Features.Albums.Queries; // Added for GetAlbumsQuery
 using MusicStreaming.Application.Features.Playlists.Queries;
 using MusicStreaming.Application.Features.Playlists.Commands;
-using MusicStreaming.Web.Models;
+using MusicStreaming.Web.ViewModels;
 using MusicStreaming.Application.DTOs; // Added for AlbumDto
 using AutoMapper;
 using System.Collections.Generic;

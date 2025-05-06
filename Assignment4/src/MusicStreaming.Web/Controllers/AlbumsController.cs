@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using MusicStreaming.Application.Features.Albums.Queries;
 using MusicStreaming.Application.Features.Albums.Commands;
 using MusicStreaming.Application.Features.Artists.Queries; // Added missing using
-using MusicStreaming.Web.Models;
+using MusicStreaming.Web.ViewModels;
 using MusicStreaming.Application.DTOs;
 
 namespace MusicStreaming.Web.Controllers

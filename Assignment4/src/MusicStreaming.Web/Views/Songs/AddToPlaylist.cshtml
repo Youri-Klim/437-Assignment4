@@ -1,0 +1,41 @@
+@model MusicStreaming.Web.ViewModels.SongViewModel
+
+@{
+    ViewData["Title"] = "Add Song to Playlist";
+}
+
+<h2>Add "@Model.Title" to a Playlist</h2>
+
+<form method="post" asp-action="AddToPlaylist" onsubmit="return validateSelection()">
+    <input type="hidden" name="songId" value="@Model.Id" />
+
+    <div class="form-group">
+        <label>Select a Playlist:</label>
+        <select name="playlistId" id="playlistSelect" class="form-control">
+            <option value="">-- Select a Playlist --</option>
+            @foreach (var playlist in ViewBag.Playlists)
+            {
+                <option value="@playlist.Id">@playlist.Title</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<p id="error-message" style="color: red; display: none;">Please select a playlist before adding.</p>
+
+<a asp-controller="Songs" asp-action="Index" class="btn btn-secondary">Back to Songs</a>
+
+<script>
+    function validateSelection() {
+        let selectBox = document.getElementById("playlistSelect");
+        let errorMessage = document.getElementById("error-message");
+
+        if (selectBox.value === "") {
+            errorMessage.style.display = "block";
+            return false;
+        }
+        return true;
+    }
+</script>

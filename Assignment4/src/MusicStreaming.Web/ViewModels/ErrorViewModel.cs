@@ -1,11 +1,11 @@
 using System;
 
-namespace MusicStreaming.Web.Models
+namespace MusicStreaming.Web.ViewModels
 {
     public class ErrorViewModel
     {
-        public string RequestId { get; set; }
-        public string ErrorMessage { get; set; }
+        public required string RequestId { get; set; }
+        public required string ErrorMessage { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }

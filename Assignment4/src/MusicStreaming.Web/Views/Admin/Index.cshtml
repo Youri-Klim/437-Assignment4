@@ -1,0 +1,132 @@
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<h2>Admin Panel</h2>
+
+<h3>Create Album</h3>
+<a asp-controller="Admin" asp-action="CreateAlbum" class="btn btn-primary">Create New Album</a>
+
+<h3>Manage Users</h3>
+@if (ViewBag.Users == null)
+{
+    <div class="alert alert-warning">Unable to load users data. Please try again later.</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var hasNonAdminUsers = false; }
+            @foreach (var user in ViewBag.Users)
+            {
+                @if (user.Id != "1") // Skip the admin user
+                {
+                    hasNonAdminUsers = true;
+                    <tr>
+                        <td>@(user.Username ?? "Unknown")</td>
+                        <td>@(user.Email ?? "No email")</td>
+                        <td>
+                            <form asp-action="DeleteUser" method="post">
+                                <input type="hidden" name="id" value="@user.Id" />
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+            @if (!hasNonAdminUsers)
+            {
+                <tr><td colspan="3">No non-admin users found.</td></tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h3>Manage Songs</h3>
+<div style="margin-bottom: 10px;">
+    <a asp-controller="Admin" asp-action="CreateSong" class="btn btn-primary">Add New Song</a>
+</div>
+@if (ViewBag.Songs == null)
+{
+    <div class="alert alert-warning">Unable to load songs data. Please try again later.</div>
+}
+else if (ViewBag.Songs.Count == 0)
+{
+    <div class="alert alert-info">No songs found. Please add songs using the button above.</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Album</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var song in ViewBag.Songs)
+            {
+                <tr>
+                    <td>@(song.Title ?? "Untitled")</td>
+                    <td>@(song.Genre ?? "Unknown")</td>
+                    <td>@(song.AlbumTitle ?? "No album")</td>
+                    <td>
+                        <form asp-controller="Songs" asp-action="Delete" method="post" style="display: inline-block;">
+                            <input type="hidden" name="id" value="@song.Id" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h3>Manage Artists</h3>
+<div style="margin-bottom: 10px;">
+    <a asp-controller="Admin" asp-action="CreateArtist" class="btn btn-primary">Add New Artist</a>
+</div>
+@if (ViewBag.Artists == null)
+{
+    <div class="alert alert-warning">Unable to load artists data. Please try again later.</div>
+}
+else if (ViewBag.Artists.Count == 0)
+{
+    <div class="alert alert-info">No artists found. Please add artists using the button above.</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var artist in ViewBag.Artists)
+            {
+                <tr>
+                    <td>@(artist.Name ?? "Unknown Artist")</td>
+                    <td>@(artist.Genre ?? "Unknown")</td>
+                    <td>
+                        <form asp-controller="Artists" asp-action="Delete" method="post" style="display: inline-block;">
+                            <input type="hidden" name="id" value="@artist.Id" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

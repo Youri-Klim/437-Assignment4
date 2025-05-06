@@ -169,6 +169,8 @@ C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignmen
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\MusicStreaming.Web.csproj.CoreCompileInputs.cache
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\MusicStreaming.Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\MusicStreaming.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\MusicStreaming.Web.RazorAssemblyInfo.cache
+C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\MusicStreaming.Web.RazorAssemblyInfo.cs
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\MusicStreaming.Web.sourcelink.json
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\scopedcss\bundle\MusicStreaming.Web.styles.css
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\compressed\ofa40bqe71-b9sayid5wm.gz
@@ -248,3 +250,4 @@ C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignmen
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\MusicStreaming.Web.pdb
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\MusicStreaming.Web.genruntimeconfig.cache
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\ref\MusicStreaming.Web.dll
+C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\compressed\fx1gje4pyr-m7zbbr3am4.gz

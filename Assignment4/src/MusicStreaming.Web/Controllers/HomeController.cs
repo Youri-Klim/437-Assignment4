@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MusicStreaming.Web.Models;
+using MusicStreaming.Web.ViewModels;
 
 namespace MusicStreaming.Web.Controllers
 {

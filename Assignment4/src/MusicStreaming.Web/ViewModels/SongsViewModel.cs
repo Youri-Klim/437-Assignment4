@@ -1,19 +1,19 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MusicStreaming.Web.Models
+namespace MusicStreaming.Web.ViewModels
 {
     public class SongViewModel
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public int DurationInSeconds { get; set; }
-        public string DurationFormatted { get; set; }
+        public required string Title { get; set; }
+        public int Duration { get; set; }
+        public required string DurationFormatted { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public string Genre { get; set; }
+        public required string Genre { get; set; }
         public int AlbumId { get; set; }
-        public string AlbumTitle { get; set; }
-        public string ArtistName { get; set; }
+        public required string AlbumTitle { get; set; }
+        public required string ArtistName { get; set; }
     }
     
     public class SongDetailViewModel : SongViewModel
@@ -25,11 +25,11 @@ namespace MusicStreaming.Web.Models
     {
         [Required]
         [MaxLength(100)]
-        public string Title { get; set; }
+        public required string Title { get; set; }
         
         [Required]
         [Range(1, 1800)]
-        public int DurationInSeconds { get; set; }
+        public int Duration { get; set; }
         
         [Required]
         [DataType(DataType.Date)]
@@ -37,7 +37,7 @@ namespace MusicStreaming.Web.Models
         
         [Required]
         [MaxLength(50)]
-        public string Genre { get; set; }
+        public required string Genre { get; set; }
         
         [Required]
         public int AlbumId { get; set; }
@@ -49,11 +49,11 @@ namespace MusicStreaming.Web.Models
         
         [Required]
         [MaxLength(100)]
-        public string Title { get; set; }
+        public required string Title { get; set; }
         
         [Required]
         [Range(1, 1800)]
-        public int DurationInSeconds { get; set; }
+        public int Duration { get; set; }
         
         [Required]
         [DataType(DataType.Date)]
@@ -61,7 +61,7 @@ namespace MusicStreaming.Web.Models
         
         [Required]
         [MaxLength(50)]
-        public string Genre { get; set; }
+        public required string Genre { get; set; }
         
         [Required]
         public int AlbumId { get; set; }

@@ -4,7 +4,7 @@ using MusicStreaming.Application.Features.Songs.Commands;
 using MusicStreaming.Application.Features.Albums.Commands;
 using MusicStreaming.Application.Features.Artists.Commands;
 using MusicStreaming.Application.Features.Playlists.Commands;
-using MusicStreaming.Web.Models;
+using MusicStreaming.Web.ViewModels;
 
 namespace MusicStreaming.Web.Mapping
 {

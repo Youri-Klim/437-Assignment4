@@ -1,0 +1,60 @@
+@model MusicStreaming.Web.ViewModels.EditPlaylistViewModel
+
+@{
+    ViewData["Title"] = "Edit Playlist";
+}
+
+<h2>Edit Playlist</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Playlist Name:</label>
+        <input asp-for="Title" class="form-control" required />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Update Name</button>
+</form>
+
+<h3>Songs in this Playlist</h3>
+
+@if (Model.Songs?.Any() == true)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var song in Model.Songs)
+            {
+                <tr>
+                    <td>@song.Title</td>
+                    <td>@song.ArtistName</td>
+                    <td>@song.AlbumTitle</td>
+                    <td>
+                        <form asp-action="RemoveSong" method="post" onsubmit="return confirm('Remove this song from playlist?');">
+                            <input type="hidden" name="playlistId" value="@Model.Id" />
+                            <input type="hidden" name="songId" value="@song.Id" />
+                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>This playlist is empty.</p>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

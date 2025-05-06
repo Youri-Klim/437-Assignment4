@@ -11,15 +11,15 @@ namespace MusicStreaming.Application.Features.Albums.Commands
     public class CreateAlbumWithSongCommand : IRequest<int>
     {
         // Album properties
-        public string Title { get; set; }
+        public required string Title { get; set; }
         public int ReleaseYear { get; set; }
-        public string Genre { get; set; }
+        public required string Genre { get; set; }
         public int ArtistId { get; set; }
         
         // Song properties
-        public string SongTitle { get; set; }
+        public required string SongTitle { get; set; }
         public int SongDurationInSeconds { get; set; }
-        public string SongGenre { get; set; }
+        public required string SongGenre { get; set; }
         public DateTime SongReleaseDate { get; set; }
     }
 
