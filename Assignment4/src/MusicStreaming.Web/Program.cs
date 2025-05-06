@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.UI; // Add this
-using Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore; // Add this
+using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore;
 using MusicStreaming.Application;
 using MusicStreaming.Application.Interfaces.Repositories;
 using MusicStreaming.Application.Features.Songs.Queries;
@@ -12,8 +12,6 @@ using MusicStreaming.Infrastructure.Data;
 using MusicStreaming.Infrastructure.Repositories;
 using MusicStreaming.Web.Mapping;
 using System;
-using FluentValidation;
-using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -39,16 +37,14 @@ builder.Services.AddAutoMapper(
     typeof(MusicStreaming.Web.Mapping.WebMappingProfile)
 );
 
-// Register Fluent Validation
-builder.Services.AddValidatorsFromAssembly(typeof(GetSongsQuery).Assembly);
-builder.Services.AddFluentValidationAutoValidation();
+// REMOVED: FluentValidation configuration to fix errors
 
 // Add Identity - UPDATED to use your User class
 builder.Services.AddDefaultIdentity<IdentityUser>(options => 
     options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<MusicStreamingDbContext>();
 
-// Add MVC services
+// Add MVC services with standard validation
 builder.Services.AddControllersWithViews();
 
 // Add Razor Pages
@@ -86,10 +82,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<MusicStreamingDbContext>();
-        if (context.Database.IsSqlServer())
-        {
-            context.Database.Migrate();
-        }
+        context.Database.Migrate();
     }
     catch (Exception ex)
     {
