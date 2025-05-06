@@ -27,7 +27,7 @@ namespace MusicStreaming.Web.ViewModels
         
         [Required]
         [Range(1, 1800)]
-        public int SongDurationInSeconds { get; set; }
+        public int SongDuration { get; set; }
         
         [Required]
         [MaxLength(50)]

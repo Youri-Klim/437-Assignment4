@@ -123,7 +123,7 @@ namespace MusicStreaming.Web.Controllers
                     Genre = viewModel.Genre,
                     ArtistId = viewModel.ArtistId,
                     SongTitle = viewModel.SongTitle,
-                    SongDurationInSeconds = viewModel.SongDurationInSeconds,
+                    SongDuration = viewModel.SongDuration,
                     SongGenre = viewModel.SongGenre,
                     SongReleaseDate = DateTime.Now // Default to current date
                 };
