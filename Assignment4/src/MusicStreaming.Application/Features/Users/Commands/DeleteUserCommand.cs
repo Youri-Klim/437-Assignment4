@@ -21,7 +21,10 @@ namespace MusicStreaming.Application.Features.Users.Commands
         
         public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            return await _userRepository.DeleteAsync(request.Id);
+            // Since DeleteAsync returns void, we'll call it and then return true 
+            // to indicate successful completion
+            await _userRepository.DeleteAsync(request.Id);
+            return true;
         }
     }
 }

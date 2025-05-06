@@ -1,6 +1,7 @@
 using FluentValidation;
 using MediatR;
 using MusicStreaming.Application.Interfaces.Repositories;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace MusicStreaming.Application.Features.Users.Commands
         public required string Username { get; set; }
         public required string Email { get; set; }
         public required string Password { get; set; }
+        public DateTime DateOfBirth { get; set; }
     }
 
     public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
@@ -29,6 +31,9 @@ namespace MusicStreaming.Application.Features.Users.Commands
             RuleFor(x => x.Password)
                 .NotEmpty().WithMessage("Password is required")
                 .MinimumLength(6).WithMessage("Password must be at least 6 characters");
+                
+            RuleFor(x => x.DateOfBirth)
+                .NotEmpty().WithMessage("Date of Birth is required");
         }
     }
 
@@ -43,7 +48,11 @@ namespace MusicStreaming.Application.Features.Users.Commands
         
         public async Task<string> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            return await _userRepository.CreateAsync(request.Username, request.Email, request.Password);
+            return await _userRepository.CreateAsync(
+                request.Username, 
+                request.Email, 
+                request.Password, 
+                request.DateOfBirth);
         }
     }
 }

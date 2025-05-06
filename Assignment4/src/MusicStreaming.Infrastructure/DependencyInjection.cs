@@ -15,9 +15,9 @@ namespace MusicStreaming.Infrastructure
         {
             // Database context
             services.AddDbContext<MusicStreamingDbContext>(options =>
-                options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(MusicStreamingDbContext).Assembly.FullName)));
+                options.UseSqlite(
+                configuration.GetConnectionString("DefaultConnection"),
+                b => b.MigrationsAssembly(typeof(MusicStreamingDbContext).Assembly.FullName)));
             
             // Repositories
             services.AddScoped<ISongRepository, SongRepository>();

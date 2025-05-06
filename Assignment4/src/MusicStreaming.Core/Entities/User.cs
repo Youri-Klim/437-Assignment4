@@ -2,17 +2,29 @@ namespace MusicStreaming.Core.Entities
 {
     public class User
     {
-
+        public string? Id { get; set; }
+        public string? Username { get; set; }
+        public string? Email { get; set; }
+        // Add Password property
+        public string? Password { get; set; }
+        public DateTime DateOfBirth { get; set; }
         
-        public string? Id { get; private set; }
-        public string? Username { get; private set; }
-        public string? Email { get; private set; }
-        public DateTime DateOfBirth { get; private set; }
-        private readonly List<Playlist> _playlists = new();
-        public IReadOnlyCollection<Playlist> Playlists => _playlists.AsReadOnly();
+        // Replace private collection with public collection for EF Core
+        public ICollection<Playlist> Playlists { get; set; } = new List<Playlist>();
         
-        private User() { } // For EF Core
+        public User() { } // For EF Core
         
+        // Update constructor to include Password
+        public User(string id, string username, string email, string password, DateTime dateOfBirth)
+        {
+            Id = id;
+            Username = username;
+            Email = email;
+            Password = password;
+            DateOfBirth = dateOfBirth;
+        }
+        
+        // Keep the old constructor for backward compatibility
         public User(string id, string username, string email, DateTime dateOfBirth)
         {
             Id = id;

@@ -12,7 +12,7 @@ namespace MusicStreaming.Application.Features.Songs.Commands
     {
         public int Id { get; set; }
         public required string Title { get; set; }
-        public int DurationInSeconds { get; set; }
+        public int Duration { get; set; }
         public DateTime ReleaseDate { get; set; }
         public required string Genre { get; set; }
         public int AlbumId { get; set; }
@@ -29,7 +29,7 @@ namespace MusicStreaming.Application.Features.Songs.Commands
                 .NotEmpty().WithMessage("Title is required")
                 .MaximumLength(100).WithMessage("Title cannot exceed 100 characters");
                 
-            RuleFor(x => x.DurationInSeconds)
+            RuleFor(x => x.Duration)
                 .GreaterThan(0).WithMessage("Duration must be greater than 0 seconds")
                 .LessThan(3 * 60 * 60).WithMessage("Duration cannot exceed 3 hours");
                 
@@ -61,7 +61,7 @@ namespace MusicStreaming.Application.Features.Songs.Commands
             {
                 Id = request.Id,
                 Title = request.Title,
-                DurationInSeconds = request.DurationInSeconds,
+                Duration = request.Duration,
                 ReleaseDate = request.ReleaseDate,
                 Genre = request.Genre,
                 AlbumId = request.AlbumId

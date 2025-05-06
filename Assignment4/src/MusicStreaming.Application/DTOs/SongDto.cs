@@ -6,8 +6,8 @@ namespace MusicStreaming.Application.DTOs
     {
         public int Id { get; set; }
         public required string Title { get; set; }
-        public int DurationInSeconds { get; set; }
-        public string DurationFormatted => TimeSpan.FromSeconds(DurationInSeconds).ToString(@"mm\:ss");
+        public int Duration { get; set; }
+        public string DurationFormatted => TimeSpan.FromSeconds(Duration).ToString(@"mm\:ss");
         public DateTime ReleaseDate { get; set; }
         public required string Genre { get; set; }
         public int AlbumId { get; set; }

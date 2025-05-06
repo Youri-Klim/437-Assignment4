@@ -55,7 +55,7 @@ namespace MusicStreaming.Infrastructure.Repositories
         {
             var song = new Song(
                 songDto.Title,
-                songDto.DurationInSeconds,
+                songDto.Duration,
                 songDto.ReleaseDate,
                 songDto.Genre,
                 songDto.AlbumId);
@@ -77,7 +77,7 @@ namespace MusicStreaming.Infrastructure.Repositories
             _context.Entry(song).CurrentValues.SetValues(new
             {
                 songDto.Title,
-                songDto.DurationInSeconds,
+                songDto.Duration,
                 songDto.ReleaseDate,
                 songDto.Genre,
                 songDto.AlbumId

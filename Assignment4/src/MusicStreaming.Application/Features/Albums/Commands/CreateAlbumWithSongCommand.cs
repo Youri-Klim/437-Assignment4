@@ -18,7 +18,7 @@ namespace MusicStreaming.Application.Features.Albums.Commands
         
         // Song properties
         public required string SongTitle { get; set; }
-        public int SongDurationInSeconds { get; set; }
+        public int SongDuration { get; set; }
         public required string SongGenre { get; set; }
         public DateTime SongReleaseDate { get; set; }
     }
@@ -48,7 +48,7 @@ namespace MusicStreaming.Application.Features.Albums.Commands
                 .NotEmpty().WithMessage("Song title is required")
                 .MaximumLength(100).WithMessage("Song title cannot exceed 100 characters");
                 
-            RuleFor(x => x.SongDurationInSeconds)
+            RuleFor(x => x.SongDuration)
                 .GreaterThan(0).WithMessage("Song duration must be greater than 0 seconds")
                 .LessThan(3600).WithMessage("Song duration cannot exceed 1 hour");
                 
@@ -88,7 +88,7 @@ namespace MusicStreaming.Application.Features.Albums.Commands
                 var songDto = new CreateSongDto
                 {
                     Title = request.SongTitle,
-                    DurationInSeconds = request.SongDurationInSeconds,
+                    Duration = request.SongDuration,
                     ReleaseDate = request.SongReleaseDate,
                     Genre = request.SongGenre,
                     AlbumId = albumId
