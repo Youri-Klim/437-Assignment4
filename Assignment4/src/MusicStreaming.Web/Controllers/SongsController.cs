@@ -6,13 +6,15 @@ using System.Diagnostics;
 using Microsoft.Extensions.Logging;
 using MusicStreaming.Application.Features.Songs.Queries;
 using MusicStreaming.Application.Features.Songs.Commands;
-using MusicStreaming.Application.Features.Albums.Queries; // Added for GetAlbumsQuery
+using MusicStreaming.Application.Features.Albums.Queries;
 using MusicStreaming.Application.Features.Playlists.Queries;
 using MusicStreaming.Application.Features.Playlists.Commands;
 using MusicStreaming.Web.ViewModels;
-using MusicStreaming.Application.DTOs; // Added for AlbumDto
+using MusicStreaming.Application.DTOs;
 using AutoMapper;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 
 namespace MusicStreaming.Web.Controllers
 {
@@ -38,9 +40,22 @@ namespace MusicStreaming.Web.Controllers
 
         public async Task<IActionResult> Create()
         {
+            var model = new CreateSongViewModel
+            {
+                Title = string.Empty,    // Initialize required property
+                Genre = string.Empty,    // Initialize required property
+                ReleaseDate = DateTime.Today // Default to today's date
+            };
+    
+            // Populate album dropdown options
             var albums = await _mediator.Send(new GetAlbumsQuery());
-            ViewBag.Albums = albums ?? new List<AlbumDto>(); // Fixed nullability warning
-            return View();
+            model.AlbumOptions = albums.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.Title
+            }).ToList();
+    
+            return View(model);
         }
 
         [HttpPost]
@@ -57,19 +72,45 @@ namespace MusicStreaming.Web.Controllers
                 ModelState.AddModelError("", "Failed to create song");
             }
             
-            // If we got here, something failed - redisplay form
+            // If we got here, something failed - redisplay form with album options
             var albums = await _mediator.Send(new GetAlbumsQuery());
-            ViewBag.Albums = albums ?? new List<AlbumDto>(); // Fixed nullability warning
+            songViewModel.AlbumOptions = albums.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.Title
+            }).ToList();
+            
             return View(songViewModel);
         }
 
         public async Task<IActionResult> Edit(int id)
         {
-            var song = await _mediator.Send(new GetSongByIdQuery { Id = id });
-            if (song == null) return NotFound();
-            
-            var songViewModel = _mapper.Map<EditSongViewModel>(song);
-            return View(songViewModel);
+            try
+            {
+                var song = await _mediator.Send(new GetSongByIdQuery { Id = id });
+                
+                if (song == null)
+                {
+                    return NotFound();
+                }
+                
+                var viewModel = _mapper.Map<EditSongViewModel>(song);
+                
+                // Populate album dropdown options
+                var albums = await _mediator.Send(new GetAlbumsQuery());
+                viewModel.AlbumOptions = albums.Select(a => new SelectListItem
+                {
+                    Value = a.Id.ToString(),
+                    Text = a.Title
+                }).ToList();
+                
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving song for edit with ID {Id}", id);
+                return View("Error");
+            }
         }
 
         [HttpPost]
@@ -85,6 +126,15 @@ namespace MusicStreaming.Web.Controllers
                     
                 ModelState.AddModelError("", "Failed to update song");
             }
+            
+            // If we got here, repopulate the album options dropdown
+            var albums = await _mediator.Send(new GetAlbumsQuery());
+            songViewModel.AlbumOptions = albums.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.Title
+            }).ToList();
+            
             return View(songViewModel);
         }
 
@@ -101,7 +151,7 @@ namespace MusicStreaming.Web.Controllers
 
             // In a real app, get the current user ID - for now using hardcoded value
             var playlists = await _mediator.Send(new GetPlaylistsByUserQuery { UserId = "1" });
-            ViewBag.Playlists = playlists ?? new List<PlaylistDto>(); // Fixed nullability warning
+            ViewBag.Playlists = playlists ?? new List<PlaylistDto>();
             
             return View(_mapper.Map<SongViewModel>(song));
         }

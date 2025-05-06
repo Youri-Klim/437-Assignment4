@@ -1,5 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace MusicStreaming.Web.ViewModels
 {
@@ -41,6 +43,9 @@ namespace MusicStreaming.Web.ViewModels
         
         [Required]
         public int AlbumId { get; set; }
+        
+        // Add dropdown options for Create view as well
+        public List<SelectListItem>? AlbumOptions { get; set; }
     }
     
     public class EditSongViewModel
@@ -65,5 +70,6 @@ namespace MusicStreaming.Web.ViewModels
         
         [Required]
         public int AlbumId { get; set; }
+        public List<SelectListItem>? AlbumOptions { get; set; }
     }
 }
