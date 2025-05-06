@@ -7,7 +7,9 @@ using AutoMapper;
 using Microsoft.Extensions.Logging;
 using MusicStreaming.Application.Features.Albums.Queries;
 using MusicStreaming.Application.Features.Albums.Commands;
+using MusicStreaming.Application.Features.Artists.Queries; // Added missing using
 using MusicStreaming.Web.Models;
+using MusicStreaming.Application.DTOs;
 
 namespace MusicStreaming.Web.Controllers
 {
@@ -33,9 +35,18 @@ namespace MusicStreaming.Web.Controllers
 
         public async Task<IActionResult> Create()
         {
-            var artists = await _mediator.Send(new GetArtistsQuery());
-            ViewBag.Artists = artists;
-            return View();
+            try
+            {
+                var artists = await _mediator.Send(new GetArtistsQuery());
+                ViewBag.Artists = artists ?? new List<ArtistDto>(); // Fix nullability warning
+                return View();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error loading artists for album creation");
+                ModelState.AddModelError("", "Could not load artist data. Please try again.");
+                return View();
+            }
         }
 
         [HttpPost]
@@ -43,31 +54,47 @@ namespace MusicStreaming.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var command = _mapper.Map<CreateAlbumCommand>(viewModel);
-                var result = await _mediator.Send(command);
-                
-                if (result > 0)
-                    return RedirectToAction(nameof(Index));
-                
-                ModelState.AddModelError("", "Failed to create album");
+                try
+                {
+                    var command = _mapper.Map<CreateAlbumCommand>(viewModel);
+                    var result = await _mediator.Send(command);
+                    
+                    if (result > 0)
+                        return RedirectToAction(nameof(Index));
+                    
+                    ModelState.AddModelError("", "Failed to create album");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error creating album");
+                    ModelState.AddModelError("", "An error occurred while creating the album.");
+                }
             }
             
             var artists = await _mediator.Send(new GetArtistsQuery());
-            ViewBag.Artists = artists;
+            ViewBag.Artists = artists ?? new List<ArtistDto>(); // Fix nullability warning
             return View(viewModel);
         }
 
         public async Task<IActionResult> Edit(int id)
         {
-            var album = await _mediator.Send(new GetAlbumByIdQuery { Id = id });
-            if (album == null) return NotFound();
-            
-            var viewModel = _mapper.Map<EditAlbumViewModel>(album);
-            
-            var artists = await _mediator.Send(new GetArtistsQuery());
-            ViewBag.Artists = artists;
-            
-            return View(viewModel);
+            try
+            {
+                var album = await _mediator.Send(new GetAlbumByIdQuery { Id = id });
+                if (album == null) return NotFound();
+                
+                var viewModel = _mapper.Map<EditAlbumViewModel>(album);
+                
+                var artists = await _mediator.Send(new GetArtistsQuery());
+                ViewBag.Artists = artists ?? new List<ArtistDto>(); // Fix nullability warning
+                
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error loading album for editing");
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         [HttpPost]
@@ -75,33 +102,58 @@ namespace MusicStreaming.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var command = _mapper.Map<UpdateAlbumCommand>(viewModel);
-                var result = await _mediator.Send(command);
-                
-                if (result)
-                    return RedirectToAction(nameof(Index));
-                
-                ModelState.AddModelError("", "Failed to update album");
+                try
+                {
+                    var command = _mapper.Map<UpdateAlbumCommand>(viewModel);
+                    var result = await _mediator.Send(command);
+                    
+                    if (result)
+                        return RedirectToAction(nameof(Index));
+                    
+                    ModelState.AddModelError("", "Failed to update album");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error updating album");
+                    ModelState.AddModelError("", "An error occurred while updating the album.");
+                }
             }
             
             var artists = await _mediator.Send(new GetArtistsQuery());
-            ViewBag.Artists = artists;
+            ViewBag.Artists = artists ?? new List<ArtistDto>(); // Fix nullability warning
             return View(viewModel);
         }
 
         public async Task<IActionResult> Delete(int id)
         {
-            await _mediator.Send(new DeleteAlbumCommand { Id = id });
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await _mediator.Send(new DeleteAlbumCommand { Id = id });
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting album");
+                TempData["ErrorMessage"] = "Failed to delete the album.";
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         public async Task<IActionResult> Details(int id)
         {
-            var album = await _mediator.Send(new GetAlbumWithSongsQuery { Id = id });
-            if (album == null) return NotFound();
-            
-            var viewModel = _mapper.Map<AlbumDetailViewModel>(album);
-            return View(viewModel);
+            try
+            {
+                var album = await _mediator.Send(new GetAlbumWithSongsQuery { Id = id });
+                if (album == null) return NotFound();
+                
+                var viewModel = _mapper.Map<AlbumDetailViewModel>(album);
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error loading album details");
+                return RedirectToAction(nameof(Index));
+            }
         }
     }
 }

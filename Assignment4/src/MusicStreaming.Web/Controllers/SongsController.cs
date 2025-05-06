@@ -6,9 +6,11 @@ using System.Diagnostics;
 using Microsoft.Extensions.Logging;
 using MusicStreaming.Application.Features.Songs.Queries;
 using MusicStreaming.Application.Features.Songs.Commands;
+using MusicStreaming.Application.Features.Albums.Queries; // Added for GetAlbumsQuery
 using MusicStreaming.Application.Features.Playlists.Queries;
 using MusicStreaming.Application.Features.Playlists.Commands;
 using MusicStreaming.Web.Models;
+using MusicStreaming.Application.DTOs; // Added for AlbumDto
 using AutoMapper;
 using System.Collections.Generic;
 
@@ -37,7 +39,7 @@ namespace MusicStreaming.Web.Controllers
         public async Task<IActionResult> Create()
         {
             var albums = await _mediator.Send(new GetAlbumsQuery());
-            ViewBag.Albums = albums;
+            ViewBag.Albums = albums ?? new List<AlbumDto>(); // Fixed nullability warning
             return View();
         }
 
@@ -57,7 +59,7 @@ namespace MusicStreaming.Web.Controllers
             
             // If we got here, something failed - redisplay form
             var albums = await _mediator.Send(new GetAlbumsQuery());
-            ViewBag.Albums = albums;
+            ViewBag.Albums = albums ?? new List<AlbumDto>(); // Fixed nullability warning
             return View(songViewModel);
         }
 
@@ -99,7 +101,7 @@ namespace MusicStreaming.Web.Controllers
 
             // In a real app, get the current user ID - for now using hardcoded value
             var playlists = await _mediator.Send(new GetPlaylistsByUserQuery { UserId = "1" });
-            ViewBag.Playlists = playlists;
+            ViewBag.Playlists = playlists ?? new List<PlaylistDto>(); // Fixed nullability warning
             
             return View(_mapper.Map<SongViewModel>(song));
         }

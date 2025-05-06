@@ -1,52 +1,52 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using MusicStreaming.Infrastructure.Persistence;
+using Microsoft.AspNetCore.Identity.UI; // Add this
+using Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore; // Add this
+using MusicStreaming.Application;
 using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Features.Songs.Queries;
+using MusicStreaming.Application.Mapping;
+using MusicStreaming.Core.Entities;
+using MusicStreaming.Infrastructure;
+using MusicStreaming.Infrastructure.Data;
 using MusicStreaming.Infrastructure.Repositories;
 using MusicStreaming.Web.Mapping;
-using MusicStreaming.Application.Features.Songs.Queries;
-using MusicStreaming.Core.Entities;
-using System.Reflection;
+using System;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
-using MusicStreaming.Application.Mapping;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-// Configure DbContext
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
+// Add Infrastructure layer services
+builder.Services.AddInfrastructure(builder.Configuration);
 
-// Add Identity services (if you're using ASP.NET Core Identity)
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<AppDbContext>();
+// Add Application layer services
+builder.Services.AddApplication();
 
 // Register MediatR
 builder.Services.AddMediatR(cfg => {
     cfg.RegisterServicesFromAssembly(typeof(GetSongsQuery).Assembly);
 });
 
-// Register AutoMapper - UPDATED TO INCLUDE BOTH PROFILES
+// Register AutoMapper - Both profiles
 builder.Services.AddAutoMapper(
-    typeof(MusicStreaming.Application.Mapping.MappingProfile),  // Application profile
-    typeof(MusicStreaming.Web.Mapping.WebMappingProfile)        // Web profile
+    typeof(MusicStreaming.Application.Mapping.MappingProfile),
+    typeof(MusicStreaming.Web.Mapping.WebMappingProfile)
 );
 
 // Register Fluent Validation
 builder.Services.AddValidatorsFromAssembly(typeof(GetSongsQuery).Assembly);
 builder.Services.AddFluentValidationAutoValidation();
 
-// Register repositories
-builder.Services.AddScoped<ISongRepository, SongRepository>();
-builder.Services.AddScoped<IAlbumRepository, AlbumRepository>();
-builder.Services.AddScoped<IArtistRepository, ArtistRepository>();
-builder.Services.AddScoped<IPlaylistRepository, PlaylistRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+// Add Identity - UPDATED to use your User class
+builder.Services.AddDefaultIdentity<IdentityUser>(options => 
+    options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<MusicStreamingDbContext>();
 
 // Add MVC services
 builder.Services.AddControllersWithViews();
@@ -56,4 +56,46 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// The rest of the file remains unchanged
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    app.UseMigrationsEndPoint();
+}
+else
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapRazorPages();
+
+// Seed database if needed
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<MusicStreamingDbContext>();
+        if (context.Database.IsSqlServer())
+        {
+            context.Database.Migrate();
+        }
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred during database initialization.");
+    }
+}
+
+app.Run();

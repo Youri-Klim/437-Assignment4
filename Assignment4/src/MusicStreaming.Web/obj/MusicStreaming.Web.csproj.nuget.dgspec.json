@@ -59,11 +59,19 @@
             },
             "FluentValidation": {
               "target": "Package",
-              "version": "[11.11.0, )"
+              "version": "[12.0.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[12.0.0, )"
             },
             "MediatR": {
               "target": "Package",
               "version": "[12.5.0, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[9.0.4, )"
             }
           },
           "imports": [
@@ -130,6 +138,93 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj",
+        "projectName": "MusicStreaming.Infrastructure",
+        "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj": {
+                "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj"
+              },
+              "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {
+                "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -179,6 +274,9 @@
             "projectReferences": {
               "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj": {
                 "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj"
+              },
+              "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj"
               }
             }
           }
@@ -199,6 +297,26 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.2, )"
