@@ -6,8 +6,8 @@ namespace MusicStreaming.Application.Interfaces.Repositories
 {
     public interface IPlaylistRepository
     {
-        Task<PlaylistDto> GetByIdAsync(int id);
-        Task<PlaylistDto> GetWithSongsAsync(int id);
+        Task<PlaylistDto?> GetByIdAsync(int id);
+        Task<PlaylistDto?> GetWithSongsAsync(int id);
         Task<IReadOnlyList<PlaylistDto>> ListAllAsync();
         Task<IReadOnlyList<PlaylistDto>> GetByUserIdAsync(string userId);
         Task<int> AddAsync(CreatePlaylistDto playlist);

@@ -83,7 +83,8 @@ namespace MusicStreaming.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        [ActionName("DeleteConfirmed")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _mediator.Send(new DeleteArtistCommand { Id = id });
             return RedirectToAction(nameof(Index));

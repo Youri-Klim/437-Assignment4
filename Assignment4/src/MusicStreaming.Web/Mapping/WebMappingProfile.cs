@@ -46,9 +46,11 @@ namespace MusicStreaming.Web.Mapping
             
             // Playlist mappings
             CreateMap<PlaylistDto, PlaylistViewModel>();
-            CreateMap<PlaylistDto, EditPlaylistViewModel>(); // ADD THIS LINE
-            CreateMap<EditPlaylistViewModel, UpdatePlaylistCommand>(); // ADD THIS LINE
-            CreateMap<CreatePlaylistViewModel, CreatePlaylistCommand>(); // ADD THIS LINE
+            CreateMap<PlaylistDto, PlaylistDetailViewModel>()
+                .ForMember(dest => dest.Songs, opt => opt.MapFrom(src => src.Songs));
+            CreateMap<PlaylistDto, EditPlaylistViewModel>();
+            CreateMap<EditPlaylistViewModel, UpdatePlaylistCommand>();
+            CreateMap<CreatePlaylistViewModel, CreatePlaylistCommand>();
             
             // User mappings
             CreateMap<UserDto, UserViewModel>();

@@ -136,12 +136,14 @@ namespace MusicStreaming.Infrastructure.Data
     modelBuilder.Entity<Album>()
         .HasOne(a => a.Artist)
         .WithMany(a => a.Albums)
-        .IsRequired();
+        .HasForeignKey(a => a.ArtistId)
+        .OnDelete(DeleteBehavior.Cascade);
 
     modelBuilder.Entity<Song>()
         .HasOne(s => s.Album)
         .WithMany(a => a.Songs)
-        .IsRequired();
+        .HasForeignKey(s => s.AlbumId)
+        .OnDelete(DeleteBehavior.Cascade);
 }
     }
 }

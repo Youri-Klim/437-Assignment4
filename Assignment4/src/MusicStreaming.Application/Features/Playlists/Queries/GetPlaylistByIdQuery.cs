@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MusicStreaming.Application.Features.Playlists.Queries
 {
-    public class GetPlaylistByIdQuery : IRequest<PlaylistDto>
+    public class GetPlaylistByIdQuery : IRequest<PlaylistDto?>
     {
         public int Id { get; set; }
     }
 
-    public class GetPlaylistByIdQueryHandler : IRequestHandler<GetPlaylistByIdQuery, PlaylistDto>
+    public class GetPlaylistByIdQueryHandler : IRequestHandler<GetPlaylistByIdQuery, PlaylistDto?>
     {
         private readonly IPlaylistRepository _playlistRepository;
         
@@ -20,7 +20,7 @@ namespace MusicStreaming.Application.Features.Playlists.Queries
             _playlistRepository = playlistRepository;
         }
         
-        public async Task<PlaylistDto> Handle(GetPlaylistByIdQuery request, CancellationToken cancellationToken)
+        public async Task<PlaylistDto?> Handle(GetPlaylistByIdQuery request, CancellationToken cancellationToken)
         {
             return await _playlistRepository.GetByIdAsync(request.Id);
         }

@@ -22,7 +22,7 @@ namespace MusicStreaming.Infrastructure.Repositories
             _mapper = mapper;
         }
 
-        public async Task<PlaylistDto> GetByIdAsync(int id)
+        public async Task<PlaylistDto?> GetByIdAsync(int id)
         {
             var playlist = await _context.Playlists
                 .Include(p => p.User)
@@ -31,18 +31,49 @@ namespace MusicStreaming.Infrastructure.Repositories
             return _mapper.Map<PlaylistDto>(playlist);
         }
 
-        public async Task<PlaylistDto> GetWithSongsAsync(int id)
+        public async Task<PlaylistDto?> GetWithSongsAsync(int id)
+{
+    var playlist = await _context.Playlists
+        .Include(p => p.User)
+        .Include(p => p.PlaylistSongs)
+            .ThenInclude(ps => ps.Song)
+                .ThenInclude(s => s.Album)
+                    .ThenInclude(a => a.Artist)
+        .FirstOrDefaultAsync(p => p.Id == id);
+        
+    if (playlist == null)
+        return null;
+        
+    // Basic mapping
+    var playlistDto = _mapper.Map<PlaylistDto>(playlist);
+    
+    // Manually populate songs
+    playlistDto.Songs = new List<SongDto>();
+    if (playlist.PlaylistSongs != null)
+    {
+        foreach (var ps in playlist.PlaylistSongs)
         {
-            var playlist = await _context.Playlists
-                .Include(p => p.User)
-                .Include(p => p.PlaylistSongs)
-                    .ThenInclude(ps => ps.Song)
-                        .ThenInclude(s => s.Album)
-                            .ThenInclude(a => a.Artist)
-                .FirstOrDefaultAsync(p => p.Id == id);
+            if (ps.Song != null)
+            {
+                var songDto = new SongDto
+                {
+                    Id = ps.Song.Id,
+                    Title = ps.Song.Title,
+                    Duration = ps.Song.Duration,
+                    Genre = ps.Song.Genre,
+                    ReleaseDate = ps.Song.ReleaseDate,
+                    AlbumId = ps.Song.AlbumId,
+                    AlbumTitle = ps.Song.Album?.Title ?? "Unknown Album",
+                    ArtistName = ps.Song.Album?.Artist?.Name ?? "Unknown Artist"
+                };
                 
-            return _mapper.Map<PlaylistDto>(playlist);
+                playlistDto.Songs.Add(songDto);
+            }
         }
+    }
+    
+    return playlistDto;
+}
 
         public async Task<IReadOnlyList<PlaylistDto>> ListAllAsync()
         {
@@ -101,10 +132,23 @@ namespace MusicStreaming.Infrastructure.Repositories
 
         public async Task AddSongAsync(int playlistId, int songId)
         {
-            // Use parameterized constructor
-            var playlistSong = new PlaylistSong(playlistId, songId);
+            // First check if the song is already in the playlist
+            var exists = await _context.PlaylistSongs
+                .AnyAsync(ps => ps.PlaylistId == playlistId && ps.SongId == songId);
+                
+            if (exists)
+            {
+                // Song is already in the playlist, just return
+                return;
+            }
             
-            _context.PlaylistSongs.Add(playlistSong);
+            // Add the song if it's not already in the playlist
+            _context.PlaylistSongs.Add(new PlaylistSong
+            {
+                PlaylistId = playlistId,
+                SongId = songId
+            });
+            
             await _context.SaveChangesAsync();
         }
 

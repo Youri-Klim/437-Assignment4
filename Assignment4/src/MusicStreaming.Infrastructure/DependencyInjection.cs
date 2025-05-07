@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using MusicStreaming.Application.Interfaces.Repositories;
 using MusicStreaming.Infrastructure.Data;
 using MusicStreaming.Infrastructure.Repositories;
-
 namespace MusicStreaming.Infrastructure
 {
     public static class DependencyInjection

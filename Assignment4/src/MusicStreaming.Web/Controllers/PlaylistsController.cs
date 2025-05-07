@@ -32,39 +32,31 @@ namespace MusicStreaming.Web.Controllers
         }
 
         public IActionResult Create()
-        {
-            return View();
-        }
+{
+    var model = new CreatePlaylistViewModel
+    {
+        Title = string.Empty,
+        // Default to the first user ID in a real app, you'd use the current user
+        UserId = "1" 
+    };
+    return View(model);
+}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CreatePlaylistViewModel viewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    var command = new CreatePlaylistCommand
-                    {
-                        Title = viewModel.Title,
-                        UserId = "1" // Hardcoded for now, would normally come from authentication
-                    };
-                    
-                    var result = await _mediator.Send(command);
-                    
-                    if (result > 0)
-                        return RedirectToAction(nameof(Index));
-                        
-                    ModelState.AddModelError("", "Failed to create playlist");
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "Error creating playlist");
-                    ModelState.AddModelError("", "Error creating playlist: " + ex.Message);
-                }
-            }
-            return View(viewModel);
-        }
+[HttpPost]
+public async Task<IActionResult> Create(CreatePlaylistViewModel viewModel)
+{
+    if (ModelState.IsValid)
+    {
+        var command = _mapper.Map<CreatePlaylistCommand>(viewModel);
+        var result = await _mediator.Send(command);
+        
+        if (result > 0)
+            return RedirectToAction(nameof(Index));
+            
+        ModelState.AddModelError("", "Failed to create playlist");
+    }
+    return View(viewModel);
+}
 
         public async Task<IActionResult> Edit(int id)
         {
@@ -121,5 +113,28 @@ namespace MusicStreaming.Web.Controllers
             await _mediator.Send(command);
             return RedirectToAction("Edit", new { id = playlistId });
         }
+        
+        public async Task<IActionResult> Details(int id)
+{
+    try
+    {
+        // Make sure you have a query handler for GetPlaylistWithSongsQuery
+        var playlist = await _mediator.Send(new GetPlaylistWithSongsQuery { Id = id });
+        
+        if (playlist == null)
+            return NotFound();
+            
+        _logger.LogInformation("Playlist {PlaylistId} loaded with {SongCount} songs", 
+            id, playlist.Songs?.Count ?? 0);
+
+        var viewModel = _mapper.Map<PlaylistDetailViewModel>(playlist);
+        return View(viewModel);
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "Error retrieving playlist with ID {Id}", id);
+        return View("Error");
+    }
+}
     }
 }

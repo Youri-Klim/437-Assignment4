@@ -17,7 +17,10 @@
     <tbody>
         @foreach (var playlist in Model) {
             <tr>
-                <td class="text-center">@playlist.Title</td>
+                <td class="text-center">
+                    <!-- Make the playlist title clickable -->
+                    <a asp-action="Details" asp-route-id="@playlist.Id">@playlist.Title</a>
+                </td>
                 <td class="text-center">@playlist.UserName</td>
                 <td class="text-center">
                     <div style="display: flex; justify-content: center;"> 

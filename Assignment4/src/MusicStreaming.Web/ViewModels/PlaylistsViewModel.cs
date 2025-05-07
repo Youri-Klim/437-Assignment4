@@ -30,4 +30,14 @@ namespace MusicStreaming.Web.ViewModels
         public required string Title { get; set; }
         public required string UserId { get; set; }
     }
+
+    public class PlaylistDetailViewModel
+{
+    public int Id { get; set; }
+    public required string Title { get; set; }
+    public DateTime CreationDate { get; set; }
+    public required string UserId { get; set; }
+    public required string UserName { get; set; }
+    public List<SongViewModel> Songs { get; set; } = new List<SongViewModel>();
+}
 }

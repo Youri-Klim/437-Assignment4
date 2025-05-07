@@ -482,7 +482,7 @@ namespace MusicStreaming.Infrastructure.Migrations
                     b.HasOne("MusicStreaming.Core.Entities.Artist", "Artist")
                         .WithMany("Albums")
                         .HasForeignKey("ArtistId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Artist");

@@ -10,51 +10,52 @@
     <input type="hidden" asp-for="Id" />
     
     <div class="form-group">
-        <label asp-for="Title" class="control-label">Playlist Name:</label>
-        <input asp-for="Title" class="form-control" required />
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
     
-    <button type="submit" class="btn btn-primary">Update Name</button>
-</form>
-
-<h3>Songs in this Playlist</h3>
-
-@if (Model.Songs?.Any() == true)
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Album</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var song in Model.Songs)
-            {
+    <!-- Add this section to show and manage songs -->
+    <div class="form-group">
+        <h4>Songs</h4>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@song.Title</td>
-                    <td>@song.ArtistName</td>
-                    <td>@song.AlbumTitle</td>
-                    <td>
-                        <form asp-action="RemoveSong" method="post" onsubmit="return confirm('Remove this song from playlist?');">
-                            <input type="hidden" name="playlistId" value="@Model.Id" />
-                            <input type="hidden" name="songId" value="@song.Id" />
-                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
-                        </form>
-                    </td>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Duration</th>
+                    <th>Action</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>This playlist is empty.</p>
-}
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+            </thead>
+            <tbody>
+                @if (Model.Songs != null && Model.Songs.Any())
+                {
+                    foreach (var song in Model.Songs)
+                    {
+                        <tr>
+                            <td>@song.Title</td>
+                            <td>@song.ArtistName</td>
+                            <td>@song.DurationFormatted</td>
+                            <td>
+                                <a asp-controller="Playlists" asp-action="RemoveSong" 
+                                   asp-route-playlistId="@Model.Id" asp-route-songId="@song.Id" 
+                                   class="btn btn-sm btn-danger">Remove</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4">No songs in this playlist</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>

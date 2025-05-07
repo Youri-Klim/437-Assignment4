@@ -26,8 +26,15 @@
     </div>
     
     <div class="form-group">
+        <label asp-for="ReleaseDate" class="control-label"></label>
+        <input asp-for="ReleaseDate" class="form-control" />
+        <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
         <label asp-for="AlbumId" class="control-label">Album</label>
-        <select asp-for="AlbumId" class="form-control" asp-items="@(new SelectList(ViewBag.Albums, "Id", "Title"))"></select>
+        <!-- KEY CHANGE: Use Model.AlbumOptions instead of ViewBag.Albums -->
+        <select asp-for="AlbumId" class="form-control" asp-items="Model.AlbumOptions"></select>
         <span asp-validation-for="AlbumId" class="text-danger"></span>
     </div>
     
