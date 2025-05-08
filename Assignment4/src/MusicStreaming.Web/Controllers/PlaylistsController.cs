@@ -36,7 +36,6 @@ namespace MusicStreaming.Web.Controllers
     var model = new CreatePlaylistViewModel
     {
         Title = string.Empty,
-        // Default to the first user ID in a real app, you'd use the current user
         UserId = "1" 
     };
     return View(model);
@@ -118,7 +117,6 @@ public async Task<IActionResult> Create(CreatePlaylistViewModel viewModel)
 {
     try
     {
-        // Make sure you have a query handler for GetPlaylistWithSongsQuery
         var playlist = await _mediator.Send(new GetPlaylistWithSongsQuery { Id = id });
         
         if (playlist == null)

@@ -42,12 +42,12 @@ namespace MusicStreaming.Web.Controllers
         {
             var model = new CreateSongViewModel
             {
-                Title = string.Empty,    // Initialize required property
-                Genre = string.Empty,    // Initialize required property
-                ReleaseDate = DateTime.Today // Default to today's date
+                Title = string.Empty, 
+                Genre = string.Empty,    
+                ReleaseDate = DateTime.Today 
             };
     
-            // Populate album dropdown options
+  
             var albums = await _mediator.Send(new GetAlbumsQuery());
             model.AlbumOptions = albums.Select(a => new SelectListItem
             {
@@ -66,13 +66,12 @@ namespace MusicStreaming.Web.Controllers
                 var command = _mapper.Map<CreateSongCommand>(songViewModel);
                 var result = await _mediator.Send(command);
                 
-                if (result > 0) // Success - got the new song ID
+                if (result > 0)
                     return RedirectToAction("Index");
                 
                 ModelState.AddModelError("", "Failed to create song");
             }
-            
-            // If we got here, something failed - redisplay form with album options
+        
             var albums = await _mediator.Send(new GetAlbumsQuery());
             songViewModel.AlbumOptions = albums.Select(a => new SelectListItem
             {
@@ -96,7 +95,7 @@ namespace MusicStreaming.Web.Controllers
                 
                 var viewModel = _mapper.Map<EditSongViewModel>(song);
                 
-                // Populate album dropdown options
+              
                 var albums = await _mediator.Send(new GetAlbumsQuery());
                 viewModel.AlbumOptions = albums.Select(a => new SelectListItem
                 {
@@ -121,13 +120,13 @@ namespace MusicStreaming.Web.Controllers
                 var command = _mapper.Map<UpdateSongCommand>(songViewModel);
                 var result = await _mediator.Send(command);
                 
-                if (result) // Success
+                if (result) 
                     return RedirectToAction("Index");
                     
                 ModelState.AddModelError("", "Failed to update song");
             }
             
-            // If we got here, repopulate the album options dropdown
+      
             var albums = await _mediator.Send(new GetAlbumsQuery());
             songViewModel.AlbumOptions = albums.Select(a => new SelectListItem
             {
@@ -144,20 +143,20 @@ namespace MusicStreaming.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET action to display the form
+    
 public async Task<IActionResult> AddToPlaylist(int id)
 {
     var song = await _mediator.Send(new GetSongByIdQuery { Id = id });
     if (song == null) return NotFound();
 
-    // Get user playlists (using hardcoded user ID "1" for demo)
+
     var playlists = await _mediator.Send(new GetPlaylistsByUserQuery { UserId = "1" });
     ViewBag.Playlists = playlists ?? new List<PlaylistDto>();
     
     return View(_mapper.Map<SongViewModel>(song));
 }
 
-// POST action to process the form
+
 [HttpPost]
 public async Task<IActionResult> AddToPlaylist(int songId, int playlistId)
 {
@@ -166,7 +165,7 @@ public async Task<IActionResult> AddToPlaylist(int songId, int playlistId)
         _logger.LogInformation("Starting AddToPlaylist operation");
         _logger.LogInformation("Parameters - SongId: {SongId}, PlaylistId: {PlaylistId}", songId, playlistId);
         
-        // Verify song exists
+ 
         var song = await _mediator.Send(new GetSongByIdQuery { Id = songId });
         if (song == null)
         {
@@ -175,7 +174,7 @@ public async Task<IActionResult> AddToPlaylist(int songId, int playlistId)
             return RedirectToAction("Index");
         }
         
-        // Verify playlist exists
+ 
         var playlist = await _mediator.Send(new GetPlaylistByIdQuery { Id = playlistId });
         if (playlist == null)
         {

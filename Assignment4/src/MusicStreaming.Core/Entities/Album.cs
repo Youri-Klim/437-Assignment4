@@ -11,7 +11,7 @@ namespace MusicStreaming.Core.Entities
         private readonly List<Song> _songs = new();
         public IReadOnlyCollection<Song> Songs => _songs.AsReadOnly();
         
-        public Album() { } // For EF Core
+        public Album() { }
         
         public Album(string title, int releaseYear, string genre, int artistId)
         {

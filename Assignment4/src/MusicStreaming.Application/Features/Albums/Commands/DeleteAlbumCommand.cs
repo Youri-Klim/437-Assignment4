@@ -38,7 +38,6 @@ namespace MusicStreaming.Application.Features.Albums.Commands
             }
             catch
             {
-                // Consider more specific exception handling if needed
                 return false;
             }
         }

@@ -10,27 +10,21 @@ namespace MusicStreaming.Core.Services
     {
         public bool IsPremiumUser(User user)
         {
-            // Simplified implementation since you don't have a Subscription property
-            // You can implement this based on your actual business rules
-            return false; // Default to free tier for now
+            return false;
         }
         
         public int GetMaxAllowedPlaylists(User user)
         {
-            // Business rule: All users limited to 10 playlists for now
-            // You can enhance this when you implement subscription features
             return 10;
         }
         
         public bool CanCreateNewPlaylist(User user)
         {
-            // Business rule: Check if user can create a new playlist
             return user.Playlists == null || user.Playlists.Count < GetMaxAllowedPlaylists(user);
         }
         
         public string DetermineUserLevel(User user)
         {
-            // Business rule: Determine user level based on activity
             if (user.Playlists == null)
                 return "Newbie";
                 
@@ -75,7 +69,6 @@ namespace MusicStreaming.Core.Services
                 
             try
             {
-                // Simple regex for email validation
                 var regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
                 return regex.IsMatch(email);
             }

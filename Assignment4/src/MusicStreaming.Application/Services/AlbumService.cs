@@ -75,7 +75,7 @@ namespace MusicStreaming.Application.Services
                 albumDto.ArtistId
             );
             
-            // Domain validation - convert to FluentValidation format
+            // Domain validation
             var domainErrors = _albumDomainService.ValidateAlbum(album);
             if (domainErrors.Count > 0)
             {
@@ -105,7 +105,7 @@ namespace MusicStreaming.Application.Services
             album.UpdateReleaseYear(albumDto.ReleaseYear);
             album.UpdateGenre(albumDto.Genre);
             
-            // Domain validation - convert to FluentValidation format
+            // Domain validation
             var domainErrors = _albumDomainService.ValidateAlbum(album);
             if (domainErrors.Count > 0)
             {
@@ -124,7 +124,6 @@ namespace MusicStreaming.Application.Services
             if (album == null)
                 return;
                 
-            // Use domain service to check if album can be deleted
             if (!_albumDomainService.CanDeleteAlbum(album))
             {
                 throw new BusinessRuleException("Cannot delete a classic album");

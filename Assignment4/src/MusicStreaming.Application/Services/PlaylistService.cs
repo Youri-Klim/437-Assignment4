@@ -74,7 +74,7 @@ namespace MusicStreaming.Application.Services
             
             var playlist = new Playlist(playlistDto.Title, playlistDto.UserId);
             
-            // Domain validation - convert to FluentValidation format
+            // Domain validation
             var domainErrors = _playlistDomainService.ValidatePlaylist(playlist);
             if (domainErrors.Count > 0)
             {
@@ -102,7 +102,7 @@ namespace MusicStreaming.Application.Services
             // Update properties
             playlist.UpdateTitle(playlistDto.Title);
             
-            // Domain validation - convert to FluentValidation format
+            // Domain validation
             var domainErrors = _playlistDomainService.ValidatePlaylist(playlist);
             if (domainErrors.Count > 0)
             {

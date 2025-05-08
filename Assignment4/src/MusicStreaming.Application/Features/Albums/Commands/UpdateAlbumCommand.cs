@@ -68,7 +68,6 @@ namespace MusicStreaming.Application.Features.Albums.Commands
             }
             catch
             {
-                // You could log the exception here
                 return false;
             }
         }

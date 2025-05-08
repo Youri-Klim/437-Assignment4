@@ -57,7 +57,7 @@ namespace MusicStreaming.Web.Controllers
         {
             try
             {
-                if (id == "1") // Assuming "1" is the admin user ID
+                if (id == "1")
                 {
                     ModelState.AddModelError("", "Admin user cannot be deleted.");
                     return RedirectToAction("Index");
@@ -125,7 +125,7 @@ namespace MusicStreaming.Web.Controllers
                     SongTitle = viewModel.SongTitle,
                     SongDuration = viewModel.SongDuration,
                     SongGenre = viewModel.SongGenre,
-                    SongReleaseDate = DateTime.Now // Default to current date
+                    SongReleaseDate = DateTime.Now
                 };
 
                 var result = await _mediator.Send(command);

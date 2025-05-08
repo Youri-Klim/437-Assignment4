@@ -23,7 +23,6 @@ namespace MusicStreaming.Application.Features.Artists.Queries
         
         public async Task<IReadOnlyList<ArtistDto>> Handle(GetArtistsWithAlbumsQuery request, CancellationToken cancellationToken)
         {
-    // Actually get artists WITH their albums
     return await _artistService.GetArtistsWithAlbumsAsync();
         }
     }

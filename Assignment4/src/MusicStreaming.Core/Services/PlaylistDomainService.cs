@@ -11,20 +11,17 @@ namespace MusicStreaming.Core.Services
         
         public bool CanAddSongToPlaylist(Playlist playlist, Song song)
         {
-            // Business rule: Check if playlist has reached max song limit
             return playlist.PlaylistSongs == null || playlist.PlaylistSongs.Count < MaxSongsPerPlaylist;
         }
         
         public bool HasSong(Playlist playlist, int songId)
         {
-            // Business rule: Check if song is already in the playlist
             return playlist.PlaylistSongs != null && 
                    playlist.PlaylistSongs.Any(ps => ps.SongId == songId);
         }
         
         public int CalculateTotalDuration(Playlist playlist)
         {
-            // Business rule: Calculate total playlist duration in seconds
             if (playlist.PlaylistSongs == null || !playlist.PlaylistSongs.Any())
                 return 0;
                 
@@ -33,7 +30,6 @@ namespace MusicStreaming.Core.Services
         
         public string GetPlaylistStatistics(Playlist playlist)
         {
-            // Business rule: Generate playlist statistics
             if (playlist.PlaylistSongs == null || !playlist.PlaylistSongs.Any())
                 return "Empty playlist";
                 

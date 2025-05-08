@@ -44,7 +44,6 @@ namespace MusicStreaming.Web.ViewModels
         [Required]
         public int AlbumId { get; set; }
         
-        // Add dropdown options for Create view as well
         public List<SelectListItem>? AlbumOptions { get; set; }
     }
     

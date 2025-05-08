@@ -7,7 +7,7 @@ using AutoMapper;
 using Microsoft.Extensions.Logging;
 using MusicStreaming.Application.Features.Albums.Queries;
 using MusicStreaming.Application.Features.Albums.Commands;
-using MusicStreaming.Application.Features.Artists.Queries; // Added missing using
+using MusicStreaming.Application.Features.Artists.Queries;
 using MusicStreaming.Web.ViewModels;
 using MusicStreaming.Application.DTOs;
 
@@ -38,7 +38,7 @@ namespace MusicStreaming.Web.Controllers
             try
             {
                 var artists = await _mediator.Send(new GetArtistsQuery());
-                ViewBag.Artists = artists ?? new List<ArtistDto>(); // Fix nullability warning
+                ViewBag.Artists = artists ?? new List<ArtistDto>();
                 return View();
             }
             catch (Exception ex)
@@ -72,7 +72,7 @@ namespace MusicStreaming.Web.Controllers
             }
             
             var artists = await _mediator.Send(new GetArtistsQuery());
-            ViewBag.Artists = artists ?? new List<ArtistDto>(); // Fix nullability warning
+            ViewBag.Artists = artists ?? new List<ArtistDto>(); 
             return View(viewModel);
         }
 
@@ -86,7 +86,7 @@ namespace MusicStreaming.Web.Controllers
                 var viewModel = _mapper.Map<EditAlbumViewModel>(album);
                 
                 var artists = await _mediator.Send(new GetArtistsQuery());
-                ViewBag.Artists = artists ?? new List<ArtistDto>(); // Fix nullability warning
+                ViewBag.Artists = artists ?? new List<ArtistDto>(); 
                 
                 return View(viewModel);
             }
@@ -120,7 +120,7 @@ namespace MusicStreaming.Web.Controllers
             }
             
             var artists = await _mediator.Send(new GetArtistsQuery());
-            ViewBag.Artists = artists ?? new List<ArtistDto>(); // Fix nullability warning
+            ViewBag.Artists = artists ?? new List<ArtistDto>(); 
             return View(viewModel);
         }
 

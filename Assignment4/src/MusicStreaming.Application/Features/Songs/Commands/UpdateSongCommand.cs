@@ -74,7 +74,6 @@ namespace MusicStreaming.Application.Features.Songs.Commands
             }
             catch
             {
-                // Consider logging the exception here
                 return false;
             }
         }

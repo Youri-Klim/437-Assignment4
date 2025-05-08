@@ -19,7 +19,6 @@ namespace MusicStreaming.Application.Mapping
                 
             // Artist mappings
             CreateMap<MusicStreaming.Core.Entities.Artist, ArtistDto>();
-            // In Application/Mapping/MappingProfile.cs
            CreateMap<Artist, ArtistDto>()
                 .ForMember(dest => dest.Albums, opt => opt.MapFrom(src => src.Albums));
             
@@ -28,7 +27,7 @@ namespace MusicStreaming.Application.Mapping
             CreateMap<MusicStreaming.Core.Entities.Playlist, PlaylistDto>()
                 .ForMember(d => d.UserName, o => o.MapFrom(s => s.User != null ? s.User.Username : null));
                 
-            // User mappings (assuming you have a User entity)
+            // User mappings
             CreateMap<MusicStreaming.Core.Entities.User, UserDto>();
         }
     }

@@ -7,7 +7,7 @@ namespace MusicStreaming.Core.Entities
         public int SongId { get;  set; }
         public Song Song { get;  set; } = null!;
         
-        public PlaylistSong() { } // For EF Core
+        public PlaylistSong() { }
         
         public PlaylistSong(int playlistId, int songId)
         {

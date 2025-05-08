@@ -10,7 +10,7 @@ namespace MusicStreaming.Core.Entities
         private readonly List<PlaylistSong> _playlistSongs = new();
         public IReadOnlyCollection<PlaylistSong> PlaylistSongs => _playlistSongs.AsReadOnly();
         
-        public Playlist() { } // For EF Core
+        public Playlist() { }
         
         public Playlist(string title, string userId)
         {

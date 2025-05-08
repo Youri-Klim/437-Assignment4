@@ -24,7 +24,7 @@ namespace MusicStreaming.Application.Common.Models
 
     public class Result<T> : Result
     {
-        public T? Data { get; set; }  // Make Data nullable with ?
+        public T? Data { get; set; }
 
         protected Result(T? data, bool succeeded, IEnumerable<string> errors) 
             : base(succeeded, errors)

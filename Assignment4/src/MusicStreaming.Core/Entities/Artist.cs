@@ -7,7 +7,7 @@ namespace MusicStreaming.Core.Entities
         public string Genre { get;  set; } = null!;
         public virtual ICollection<Album> Albums { get; private set; } = new List<Album>();
         
-        public Artist() { } // For EF Core
+        public Artist() { }
         
         public Artist(string name, string genre)
         {

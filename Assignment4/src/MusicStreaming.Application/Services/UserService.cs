@@ -62,14 +62,14 @@ namespace MusicStreaming.Application.Services
                 throw new ValidationException(validationResult.Errors);
             }
             
-            // Create a new User with correct properties (remove PasswordHash)
+            // Create a new User
             var user = new User
             {
                 Username = userDto.Username,
                 Email = userDto.Email
             };
             
-            // Domain validation - convert to FluentValidation format
+            // Domain validation
             var domainErrors = _userDomainService.ValidateUser(user);
             if (domainErrors.Count > 0)
             {
@@ -94,7 +94,7 @@ namespace MusicStreaming.Application.Services
             if (user == null)
                 throw new NotFoundException($"User with ID {userDto.Id} not found");
                 
-            // Update user properties with correct method signature (2 params)
+            // Update user properties
             user.UpdateUserDetails(
                 userDto.Username, 
                 userDto.Email

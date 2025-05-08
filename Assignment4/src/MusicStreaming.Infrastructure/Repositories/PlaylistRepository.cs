@@ -67,7 +67,6 @@ namespace MusicStreaming.Infrastructure.Repositories
 
         public async Task AddSongAsync(int playlistId, int songId)
         {
-            // Check if the relation already exists
             var exists = await _context.PlaylistSongs
                 .AnyAsync(ps => ps.PlaylistId == playlistId && ps.SongId == songId);
                 

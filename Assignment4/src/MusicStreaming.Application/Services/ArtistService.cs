@@ -72,7 +72,7 @@ namespace MusicStreaming.Application.Services
             
             var artist = new Artist(artistDto.Name, artistDto.Genre);
             
-            // Domain validation - convert to FluentValidation format
+            // Domain validation
             var domainErrors = _artistDomainService.ValidateArtist(artist);
             if (domainErrors.Count > 0)
             {
@@ -101,7 +101,7 @@ namespace MusicStreaming.Application.Services
             artist.UpdateName(artistDto.Name);
             artist.UpdateGenre(artistDto.Genre);
             
-            // Domain validation - convert to FluentValidation format
+            // Domain validation
             var domainErrors = _artistDomainService.ValidateArtist(artist);
             if (domainErrors.Count > 0)
             {
@@ -120,7 +120,6 @@ namespace MusicStreaming.Application.Services
             if (artist == null)
                 return;
                 
-            // Check if artist is prolific - might have additional business rules for deletion
             if (_artistDomainService.IsProlificArtist(artist))
             {
                 throw new BusinessRuleException("Cannot delete a prolific artist with extensive catalog");

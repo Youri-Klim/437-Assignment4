@@ -42,7 +42,6 @@ namespace MusicStreaming.Infrastructure.Repositories
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
             
-            // Ensure the ID is not null before returning
             return user.Id ?? throw new InvalidOperationException("User ID was not generated properly");
         }
 

@@ -10,7 +10,7 @@ namespace MusicStreaming.Core.Entities
         public int AlbumId { get;  set; }
         public Album Album { get;  set; } = null!;
         
-        public Song() { } // For EF Core
+        public Song() { }
         
         public Song(string title, int duration, DateTime releaseDate, string genre, int albumId)
         {

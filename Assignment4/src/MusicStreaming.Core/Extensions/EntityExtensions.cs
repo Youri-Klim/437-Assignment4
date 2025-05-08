@@ -7,7 +7,6 @@ namespace MusicStreaming.Core.Extensions
     {
         public static void UpdateTitle(this Album album, string title)
         {
-            // Use reflection to update property with private setter
             var property = typeof(Album).GetProperty("Title");
             property?.SetValue(album, title);
         }

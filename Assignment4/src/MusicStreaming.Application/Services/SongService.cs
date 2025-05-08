@@ -77,7 +77,7 @@ namespace MusicStreaming.Application.Services
                 songDto.AlbumId
             );
             
-            // Domain validation - convert to FluentValidation format
+            // Domain validation
             var domainErrors = _songDomainService.ValidateSong(song);
             if (domainErrors.Count > 0)
             {
@@ -108,7 +108,7 @@ namespace MusicStreaming.Application.Services
             song.UpdateReleaseDate(songDto.ReleaseDate);
             song.UpdateGenre(songDto.Genre);
             
-            // Domain validation - convert to FluentValidation format
+            // Domain validation
             var domainErrors = _songDomainService.ValidateSong(song);
             if (domainErrors.Count > 0)
             {
@@ -127,7 +127,6 @@ namespace MusicStreaming.Application.Services
             if (song == null)
                 return;
                 
-            // Check if song is popular - might have additional business rules for deletion
             if (_songDomainService.IsPopular(song))
             {
                 throw new BusinessRuleException("Cannot delete a popular song with high stream count");

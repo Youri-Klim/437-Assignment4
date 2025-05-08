@@ -9,7 +9,7 @@ namespace MusicStreaming.Core.Interfaces.Repositories
         Task<Artist?> GetByIdAsync(int id);
         Task<Artist?> GetWithAlbumsAsync(int id);
         Task<IReadOnlyList<Artist>> ListAllAsync();
-        Task<IReadOnlyList<Artist>> GetAllWithAlbumsAsync(); // Add this method
+        Task<IReadOnlyList<Artist>> GetAllWithAlbumsAsync();
         Task<int> AddAsync(Artist artist);
         Task UpdateAsync(Artist artist);
         Task DeleteAsync(int id);

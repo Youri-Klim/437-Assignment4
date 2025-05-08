@@ -38,7 +38,6 @@ namespace MusicStreaming.Application.Features.Users.Commands
             }
             catch
             {
-                // Consider logging the error here
                 return false;
             }
         }

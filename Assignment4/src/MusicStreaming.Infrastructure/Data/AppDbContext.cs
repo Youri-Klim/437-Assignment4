@@ -19,10 +19,8 @@ namespace MusicStreaming.Infrastructure.Data
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
-    // Configure entity relationships and constraints
     modelBuilder.ApplyConfigurationsFromAssembly(typeof(MusicStreamingDbContext).Assembly);
     
-    // Configure many-to-many relationship for PlaylistSong
     modelBuilder.Entity<PlaylistSong>()
         .HasKey(ps => new { ps.PlaylistId, ps.SongId });
             
@@ -36,7 +34,6 @@ namespace MusicStreaming.Infrastructure.Data
         .WithMany()
         .HasForeignKey(ps => ps.SongId);
 
-    // Seed data
     modelBuilder.Entity<Artist>().HasData(
         new Artist { Id = 1, Name = "Metallica", Genre = "Metal" },
         new Artist { Id = 2, Name = "Britney Spears", Genre = "Pop" },
@@ -132,7 +129,6 @@ namespace MusicStreaming.Infrastructure.Data
         new PlaylistSong { PlaylistId = 3, SongId = 5 }
     );
 
-    // Additional relationship configurations
     modelBuilder.Entity<Album>()
         .HasOne(a => a.Artist)
         .WithMany(a => a.Albums)

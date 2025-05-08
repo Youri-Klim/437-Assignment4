@@ -22,7 +22,6 @@ namespace MusicStreaming.Application.Features.Albums.Queries
         
         public async Task<AlbumDto?> Handle(GetAlbumWithSongsQuery request, CancellationToken cancellationToken)
         {
-            // Use the service method that fetches album with songs
             return await _albumService.GetWithSongsAsync(request.Id);
         }
     }

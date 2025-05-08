@@ -2929,3 +2929,1339 @@ ORDER BY "a"."Id"
 2025-05-08 15:00:05.468 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
 2025-05-08 15:00:05.469 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Artists - 200 null text/html; charset=utf-8 210.266ms
 2025-05-08 15:00:15.520 +03:00 [INF] Application is shutting down...
+2025-05-08 15:16:01.605 +03:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-08 15:16:02.270 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-05-08 15:16:02.297 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-05-08 15:16:02.307 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-05-08 12:16:02.3031907+00:00');
+SELECT changes();
+2025-05-08 15:16:02.352 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-05-08 15:16:02.358 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-05-08 15:16:02.363 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-05-08 15:16:02.369 +03:00 [INF] No migrations were applied. The database is already up to date.
+2025-05-08 15:16:02.371 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-05-08 15:16:02.420 +03:00 [INF] Now listening on: http://localhost:5103
+2025-05-08 15:16:02.424 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-08 15:16:02.425 +03:00 [INF] Hosting environment: Development
+2025-05-08 15:16:02.426 +03:00 [INF] Content root path: C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web
+2025-05-08 15:16:06.721 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/ - null null
+2025-05-08 15:16:06.727 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-05-08 15:16:06.759 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:06.769 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MusicStreaming.Web.Controllers.HomeController (MusicStreaming.Web).
+2025-05-08 15:16:06.778 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:16:06.834 +03:00 [INF] Executed ViewResult - view Index executed in 57.9408ms.
+2025-05-08 15:16:06.840 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web) in 68.5476ms
+2025-05-08 15:16:06.841 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:06.846 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/ - 200 null text/html; charset=utf-8 126.2736ms
+2025-05-08 15:16:06.895 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/favicon.ico - null null
+2025-05-08 15:16:06.902 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/favicon.ico - 404 0 null 7.0371ms
+2025-05-08 15:16:06.908 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/favicon.ico, Response status code: 404
+2025-05-08 15:16:08.499 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs - null null
+2025-05-08 15:16:08.504 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:08.510 +03:00 [INF] Route matched with {action = "Index", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:16:08.596 +03:00 [INF] Handling GetSongsQuery
+2025-05-08 15:16:08.765 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+2025-05-08 15:16:08.808 +03:00 [INF] Handled GetSongsQuery in 210ms
+2025-05-08 15:16:08.817 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:16:08.836 +03:00 [INF] Executed ViewResult - view Index executed in 19.6882ms.
+2025-05-08 15:16:08.837 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web) in 325.8426ms
+2025-05-08 15:16:08.838 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:08.842 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs - 200 null text/html; charset=utf-8 343.0292ms
+2025-05-08 15:16:11.958 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs/AddToPlaylist/15 - null null
+2025-05-08 15:16:11.961 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web)'
+2025-05-08 15:16:11.967 +03:00 [INF] Route matched with {action = "AddToPlaylist", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToPlaylist(Int32) on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:16:11.977 +03:00 [INF] Handling GetSongByIdQuery
+2025-05-08 15:16:12.086 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+WHERE "s"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:16:12.089 +03:00 [INF] Handled GetSongByIdQuery in 111ms
+2025-05-08 15:16:12.091 +03:00 [INF] Handling GetPlaylistsByUserQuery
+2025-05-08 15:16:12.105 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 1)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+WHERE "p"."UserId" = @__userId_0
+2025-05-08 15:16:12.118 +03:00 [INF] Handled GetPlaylistsByUserQuery in 26ms
+2025-05-08 15:16:12.141 +03:00 [INF] Executing ViewResult, running view AddToPlaylist.
+2025-05-08 15:16:12.177 +03:00 [INF] Executed ViewResult - view AddToPlaylist executed in 36.281ms.
+2025-05-08 15:16:12.179 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web) in 209.4506ms
+2025-05-08 15:16:12.180 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web)'
+2025-05-08 15:16:12.181 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs/AddToPlaylist/15 - 200 null text/html; charset=utf-8 222.4229ms
+2025-05-08 15:16:14.985 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Songs/AddToPlaylist/15 - application/x-www-form-urlencoded 205
+2025-05-08 15:16:14.990 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web)'
+2025-05-08 15:16:14.994 +03:00 [INF] Route matched with {action = "AddToPlaylist", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToPlaylist(Int32, Int32) on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:16:15.004 +03:00 [INF] Starting AddToPlaylist operation
+2025-05-08 15:16:15.004 +03:00 [INF] Parameters - SongId: 15, PlaylistId: 3
+2025-05-08 15:16:15.006 +03:00 [INF] Handling GetSongByIdQuery
+2025-05-08 15:16:15.012 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+WHERE "s"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:16:15.014 +03:00 [INF] Handled GetSongByIdQuery in 6ms
+2025-05-08 15:16:15.016 +03:00 [INF] Handling GetPlaylistByIdQuery
+2025-05-08 15:16:15.023 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+WHERE "p"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:16:15.027 +03:00 [INF] Handled GetPlaylistByIdQuery in 10ms
+2025-05-08 15:16:15.028 +03:00 [INF] Sending AddSongToPlaylist command
+2025-05-08 15:16:15.040 +03:00 [INF] Handling AddSongToPlaylistCommand
+2025-05-08 15:16:15.120 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:16:15.147 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__playlistId_0='?' (DbType = Int32), @__songId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "PlaylistSongs" AS "p"
+    WHERE "p"."PlaylistId" = @__playlistId_0 AND "p"."SongId" = @__songId_1)
+2025-05-08 15:16:15.196 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "PlaylistSongs" ("PlaylistId", "SongId")
+VALUES (@p0, @p1);
+2025-05-08 15:16:15.202 +03:00 [INF] Handled AddSongToPlaylistCommand in 160ms
+2025-05-08 15:16:15.203 +03:00 [INF] Song 15 successfully added to playlist 3
+2025-05-08 15:16:15.205 +03:00 [INF] Executing RedirectResult, redirecting to /Playlists/Details/3.
+2025-05-08 15:16:15.210 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web) in 213.448ms
+2025-05-08 15:16:15.211 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web)'
+2025-05-08 15:16:15.211 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Songs/AddToPlaylist/15 - 302 0 null 226.3827ms
+2025-05-08 15:16:15.214 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Details/3 - null null
+2025-05-08 15:16:15.216 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Details (MusicStreaming.Web)'
+2025-05-08 15:16:15.219 +03:00 [INF] Route matched with {action = "Details", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Details(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:16:15.222 +03:00 [INF] Handling GetPlaylistWithSongsQuery
+2025-05-08 15:16:15.225 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:16:15.227 +03:00 [INF] Handled GetPlaylistWithSongsQuery in 4ms
+2025-05-08 15:16:15.228 +03:00 [INF] Playlist 3 loaded with 4 songs
+2025-05-08 15:16:15.232 +03:00 [INF] Executing ViewResult, running view Details.
+2025-05-08 15:16:15.241 +03:00 [INF] Executed ViewResult - view Details executed in 9.7167ms.
+2025-05-08 15:16:15.242 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Details (MusicStreaming.Web) in 21.9615ms
+2025-05-08 15:16:15.243 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Details (MusicStreaming.Web)'
+2025-05-08 15:16:15.245 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Details/3 - 200 null text/html; charset=utf-8 31.0177ms
+2025-05-08 15:16:16.303 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists - null null
+2025-05-08 15:16:16.305 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:16.308 +03:00 [INF] Route matched with {action = "Index", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:16:16.311 +03:00 [INF] Handling GetPlaylistsQuery
+2025-05-08 15:16:16.316 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+2025-05-08 15:16:16.318 +03:00 [INF] Handled GetPlaylistsQuery in 6ms
+2025-05-08 15:16:16.322 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:16:16.328 +03:00 [INF] Executed ViewResult - view Index executed in 6.2368ms.
+2025-05-08 15:16:16.329 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web) in 19.1644ms
+2025-05-08 15:16:16.330 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:16.331 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists - 200 null text/html; charset=utf-8 27.996ms
+2025-05-08 15:16:17.387 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Artists - null null
+2025-05-08 15:16:17.390 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:17.393 +03:00 [INF] Route matched with {action = "Index", controller = "Artists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.ArtistsController (MusicStreaming.Web).
+2025-05-08 15:16:17.397 +03:00 [INF] Handling GetArtistsWithAlbumsQuery
+2025-05-08 15:16:17.414 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."Genre", "a"."Name", "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title"
+FROM "Artists" AS "a"
+LEFT JOIN "Albums" AS "a0" ON "a"."Id" = "a0"."ArtistId"
+ORDER BY "a"."Id"
+2025-05-08 15:16:17.433 +03:00 [INF] Handled GetArtistsWithAlbumsQuery in 35ms
+2025-05-08 15:16:17.438 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:16:17.444 +03:00 [INF] Executed ViewResult - view Index executed in 6.5306ms.
+2025-05-08 15:16:17.445 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web) in 50.4675ms
+2025-05-08 15:16:17.446 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:17.447 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Artists - 200 null text/html; charset=utf-8 59.6925ms
+2025-05-08 15:16:24.792 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums - null null
+2025-05-08 15:16:24.794 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:24.797 +03:00 [INF] Route matched with {action = "Index", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:16:24.807 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:16:24.818 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:16:24.822 +03:00 [INF] Handled GetAlbumsQuery in 14ms
+2025-05-08 15:16:24.826 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:16:24.831 +03:00 [INF] Executed ViewResult - view Index executed in 5.9192ms.
+2025-05-08 15:16:24.833 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web) in 34.5928ms
+2025-05-08 15:16:24.834 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:24.835 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums - 200 null text/html; charset=utf-8 43.0949ms
+2025-05-08 15:16:29.614 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums/Create - null null
+2025-05-08 15:16:29.617 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Create (MusicStreaming.Web)'
+2025-05-08 15:16:29.619 +03:00 [INF] Route matched with {action = "Create", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:16:29.622 +03:00 [INF] Handling GetArtistsQuery
+2025-05-08 15:16:29.629 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."Genre", "a"."Name"
+FROM "Artists" AS "a"
+2025-05-08 15:16:29.630 +03:00 [INF] Handled GetArtistsQuery in 7ms
+2025-05-08 15:16:29.633 +03:00 [INF] Executing ViewResult, running view Create.
+2025-05-08 15:16:29.674 +03:00 [INF] Executed ViewResult - view Create executed in 41.3663ms.
+2025-05-08 15:16:29.676 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Create (MusicStreaming.Web) in 55.0551ms
+2025-05-08 15:16:29.678 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Create (MusicStreaming.Web)'
+2025-05-08 15:16:29.679 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums/Create - 200 null text/html; charset=utf-8 65.1571ms
+2025-05-08 15:16:29.687 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-05-08 15:16:29.690 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - 404 0 null 2.6485ms
+2025-05-08 15:16:29.691 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - null null
+2025-05-08 15:16:29.693 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js, Response status code: 404
+2025-05-08 15:16:29.695 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - 404 0 null 4.5383ms
+2025-05-08 15:16:29.700 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js, Response status code: 404
+2025-05-08 15:16:41.524 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Albums/Create - application/x-www-form-urlencoded 255
+2025-05-08 15:16:41.528 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Create (MusicStreaming.Web)'
+2025-05-08 15:16:41.532 +03:00 [INF] Route matched with {action = "Create", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(MusicStreaming.Web.ViewModels.CreateAlbumViewModel) on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:16:41.550 +03:00 [INF] Handling CreateAlbumCommand
+2025-05-08 15:16:41.563 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 3), @p2='?' (DbType = Int32), @p3='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Albums" ("ArtistId", "Genre", "ReleaseYear", "Title")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-05-08 15:16:41.576 +03:00 [INF] Handled CreateAlbumCommand in 24ms
+2025-05-08 15:16:41.577 +03:00 [INF] Executing RedirectResult, redirecting to /Albums.
+2025-05-08 15:16:41.578 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Create (MusicStreaming.Web) in 43.9867ms
+2025-05-08 15:16:41.579 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Create (MusicStreaming.Web)'
+2025-05-08 15:16:41.580 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Albums/Create - 302 0 null 55.237ms
+2025-05-08 15:16:41.582 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums - null null
+2025-05-08 15:16:41.584 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:41.585 +03:00 [INF] Route matched with {action = "Index", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:16:41.587 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:16:41.588 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:16:41.590 +03:00 [INF] Handled GetAlbumsQuery in 2ms
+2025-05-08 15:16:41.591 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:16:41.593 +03:00 [INF] Executed ViewResult - view Index executed in 1.845ms.
+2025-05-08 15:16:41.593 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web) in 6.9564ms
+2025-05-08 15:16:41.594 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:41.595 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums - 200 null text/html; charset=utf-8 12.8967ms
+2025-05-08 15:16:47.652 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Artists - null null
+2025-05-08 15:16:47.655 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:47.656 +03:00 [INF] Route matched with {action = "Index", controller = "Artists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.ArtistsController (MusicStreaming.Web).
+2025-05-08 15:16:47.658 +03:00 [INF] Handling GetArtistsWithAlbumsQuery
+2025-05-08 15:16:47.660 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."Genre", "a"."Name", "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title"
+FROM "Artists" AS "a"
+LEFT JOIN "Albums" AS "a0" ON "a"."Id" = "a0"."ArtistId"
+ORDER BY "a"."Id"
+2025-05-08 15:16:47.662 +03:00 [INF] Handled GetArtistsWithAlbumsQuery in 3ms
+2025-05-08 15:16:47.663 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:16:47.665 +03:00 [INF] Executed ViewResult - view Index executed in 2.1768ms.
+2025-05-08 15:16:47.666 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web) in 8.8759ms
+2025-05-08 15:16:47.667 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:47.669 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Artists - 200 null text/html; charset=utf-8 16.8865ms
+2025-05-08 15:16:55.056 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Artists/Edit/4 - null null
+2025-05-08 15:16:55.059 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:16:55.061 +03:00 [INF] Route matched with {action = "Edit", controller = "Artists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.ArtistsController (MusicStreaming.Web).
+2025-05-08 15:16:55.065 +03:00 [INF] Handling GetArtistByIdQuery
+2025-05-08 15:16:55.081 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a1"."Id", "a1"."Genre", "a1"."Name", "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title"
+FROM (
+    SELECT "a"."Id", "a"."Genre", "a"."Name"
+    FROM "Artists" AS "a"
+    WHERE "a"."Id" = @__id_0
+    LIMIT 1
+) AS "a1"
+LEFT JOIN "Albums" AS "a0" ON "a1"."Id" = "a0"."ArtistId"
+ORDER BY "a1"."Id"
+2025-05-08 15:16:55.089 +03:00 [INF] Handled GetArtistByIdQuery in 22ms
+2025-05-08 15:16:55.092 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:16:55.103 +03:00 [INF] Executed ViewResult - view Edit executed in 11.3986ms.
+2025-05-08 15:16:55.105 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.ArtistsController.Edit (MusicStreaming.Web) in 42.5893ms
+2025-05-08 15:16:55.107 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:16:55.108 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Artists/Edit/4 - 200 null text/html; charset=utf-8 52.4876ms
+2025-05-08 15:16:55.119 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-05-08 15:16:55.121 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - 404 0 null 2.2892ms
+2025-05-08 15:16:55.124 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js, Response status code: 404
+2025-05-08 15:16:55.126 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - null null
+2025-05-08 15:16:55.128 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - 404 0 null 2.7024ms
+2025-05-08 15:16:55.131 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js, Response status code: 404
+2025-05-08 15:16:56.583 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Artists - null null
+2025-05-08 15:16:56.585 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:56.586 +03:00 [INF] Route matched with {action = "Index", controller = "Artists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.ArtistsController (MusicStreaming.Web).
+2025-05-08 15:16:56.588 +03:00 [INF] Handling GetArtistsWithAlbumsQuery
+2025-05-08 15:16:56.592 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."Genre", "a"."Name", "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title"
+FROM "Artists" AS "a"
+LEFT JOIN "Albums" AS "a0" ON "a"."Id" = "a0"."ArtistId"
+ORDER BY "a"."Id"
+2025-05-08 15:16:56.594 +03:00 [INF] Handled GetArtistsWithAlbumsQuery in 5ms
+2025-05-08 15:16:56.595 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:16:56.597 +03:00 [INF] Executed ViewResult - view Index executed in 2.1324ms.
+2025-05-08 15:16:56.598 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web) in 10.3022ms
+2025-05-08 15:16:56.599 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:56.600 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Artists - 200 null text/html; charset=utf-8 16.9245ms
+2025-05-08 15:16:57.701 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Artists - null null
+2025-05-08 15:16:57.704 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:57.705 +03:00 [INF] Route matched with {action = "Index", controller = "Artists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.ArtistsController (MusicStreaming.Web).
+2025-05-08 15:16:57.706 +03:00 [INF] Handling GetArtistsWithAlbumsQuery
+2025-05-08 15:16:57.708 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."Genre", "a"."Name", "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title"
+FROM "Artists" AS "a"
+LEFT JOIN "Albums" AS "a0" ON "a"."Id" = "a0"."ArtistId"
+ORDER BY "a"."Id"
+2025-05-08 15:16:57.710 +03:00 [INF] Handled GetArtistsWithAlbumsQuery in 3ms
+2025-05-08 15:16:57.712 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:16:57.713 +03:00 [INF] Executed ViewResult - view Index executed in 1.3875ms.
+2025-05-08 15:16:57.714 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web) in 7.874ms
+2025-05-08 15:16:57.715 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:57.717 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Artists - 200 null text/html; charset=utf-8 15.4629ms
+2025-05-08 15:16:58.565 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists - null null
+2025-05-08 15:16:58.567 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:58.568 +03:00 [INF] Route matched with {action = "Index", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:16:58.569 +03:00 [INF] Handling GetPlaylistsQuery
+2025-05-08 15:16:58.571 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+2025-05-08 15:16:58.573 +03:00 [INF] Handled GetPlaylistsQuery in 3ms
+2025-05-08 15:16:58.576 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:16:58.577 +03:00 [INF] Executed ViewResult - view Index executed in 1.3016ms.
+2025-05-08 15:16:58.578 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web) in 8.9315ms
+2025-05-08 15:16:58.580 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:16:58.581 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists - 200 null text/html; charset=utf-8 15.9676ms
+2025-05-08 15:17:02.364 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Details/3 - null null
+2025-05-08 15:17:02.368 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Details (MusicStreaming.Web)'
+2025-05-08 15:17:02.368 +03:00 [INF] Route matched with {action = "Details", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Details(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:02.370 +03:00 [INF] Handling GetPlaylistWithSongsQuery
+2025-05-08 15:17:02.373 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:02.376 +03:00 [INF] Handled GetPlaylistWithSongsQuery in 4ms
+2025-05-08 15:17:02.378 +03:00 [INF] Playlist 3 loaded with 4 songs
+2025-05-08 15:17:02.379 +03:00 [INF] Executing ViewResult, running view Details.
+2025-05-08 15:17:02.380 +03:00 [INF] Executed ViewResult - view Details executed in 1.5859ms.
+2025-05-08 15:17:02.381 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Details (MusicStreaming.Web) in 11.2651ms
+2025-05-08 15:17:02.382 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Details (MusicStreaming.Web)'
+2025-05-08 15:17:02.383 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Details/3 - 200 null text/html; charset=utf-8 19.0442ms
+2025-05-08 15:17:04.433 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Playlists/RemoveSong - application/x-www-form-urlencoded 205
+2025-05-08 15:17:04.436 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.RemoveSong (MusicStreaming.Web)'
+2025-05-08 15:17:04.439 +03:00 [INF] Route matched with {action = "RemoveSong", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RemoveSong(Int32, Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:04.447 +03:00 [INF] Handling RemoveSongFromPlaylistCommand
+2025-05-08 15:17:04.450 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:04.456 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__playlistId_0='?' (DbType = Int32), @__songId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."PlaylistId", "p"."SongId"
+FROM "PlaylistSongs" AS "p"
+WHERE "p"."PlaylistId" = @__playlistId_0 AND "p"."SongId" = @__songId_1
+LIMIT 1
+2025-05-08 15:17:04.465 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "PlaylistSongs"
+WHERE "PlaylistId" = @p0 AND "SongId" = @p1
+RETURNING 1;
+2025-05-08 15:17:04.471 +03:00 [INF] Handled RemoveSongFromPlaylistCommand in 22ms
+2025-05-08 15:17:04.472 +03:00 [INF] Executing RedirectResult, redirecting to /Playlists/Edit/3.
+2025-05-08 15:17:04.473 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.RemoveSong (MusicStreaming.Web) in 32.3218ms
+2025-05-08 15:17:04.474 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.RemoveSong (MusicStreaming.Web)'
+2025-05-08 15:17:04.474 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Playlists/RemoveSong - 302 0 null 41.0424ms
+2025-05-08 15:17:04.477 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Edit/3 - null null
+2025-05-08 15:17:04.479 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:04.481 +03:00 [INF] Route matched with {action = "Edit", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:04.483 +03:00 [INF] Handling GetPlaylistWithSongsQuery
+2025-05-08 15:17:04.487 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:04.489 +03:00 [INF] Handled GetPlaylistWithSongsQuery in 5ms
+2025-05-08 15:17:04.493 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:17:04.502 +03:00 [INF] Executed ViewResult - view Edit executed in 8.651ms.
+2025-05-08 15:17:04.503 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web) in 19.8938ms
+2025-05-08 15:17:04.504 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:04.505 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Edit/3 - 200 null text/html; charset=utf-8 27.9751ms
+2025-05-08 15:17:06.487 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Playlists/Edit/3 - application/x-www-form-urlencoded 212
+2025-05-08 15:17:06.492 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:06.495 +03:00 [INF] Route matched with {action = "Edit", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32, System.String) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:06.502 +03:00 [INF] Handling UpdatePlaylistCommand
+2025-05-08 15:17:06.507 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+WHERE "p"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:17:06.517 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 18), @p2='?' (Size = 1)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Playlists" SET "CreationDate" = @p0, "Title" = @p1, "UserId" = @p2
+WHERE "Id" = @p3
+RETURNING 1;
+2025-05-08 15:17:06.521 +03:00 [INF] Handled UpdatePlaylistCommand in 17ms
+2025-05-08 15:17:06.522 +03:00 [INF] Executing RedirectResult, redirecting to /Playlists/Edit/3.
+2025-05-08 15:17:06.523 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web) in 24.5771ms
+2025-05-08 15:17:06.525 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:06.526 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Playlists/Edit/3 - 302 0 null 38.9191ms
+2025-05-08 15:17:06.529 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Edit/3 - null null
+2025-05-08 15:17:06.531 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:06.532 +03:00 [INF] Route matched with {action = "Edit", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:06.533 +03:00 [INF] Handling GetPlaylistWithSongsQuery
+2025-05-08 15:17:06.534 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:06.536 +03:00 [INF] Handled GetPlaylistWithSongsQuery in 2ms
+2025-05-08 15:17:06.537 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:17:06.540 +03:00 [INF] Executed ViewResult - view Edit executed in 2.1402ms.
+2025-05-08 15:17:06.541 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web) in 7.8448ms
+2025-05-08 15:17:06.542 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:06.543 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Edit/3 - 200 null text/html; charset=utf-8 14.4018ms
+2025-05-08 15:17:07.288 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists - null null
+2025-05-08 15:17:07.290 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:07.291 +03:00 [INF] Route matched with {action = "Index", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:07.293 +03:00 [INF] Handling GetPlaylistsQuery
+2025-05-08 15:17:07.295 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+2025-05-08 15:17:07.297 +03:00 [INF] Handled GetPlaylistsQuery in 3ms
+2025-05-08 15:17:07.298 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:07.300 +03:00 [INF] Executed ViewResult - view Index executed in 1.2807ms.
+2025-05-08 15:17:07.301 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web) in 8.4153ms
+2025-05-08 15:17:07.302 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:07.304 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists - 200 null text/html; charset=utf-8 15.9007ms
+2025-05-08 15:17:11.186 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Edit/1 - null null
+2025-05-08 15:17:11.188 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:11.189 +03:00 [INF] Route matched with {action = "Edit", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:11.190 +03:00 [INF] Handling GetPlaylistWithSongsQuery
+2025-05-08 15:17:11.192 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:11.195 +03:00 [INF] Handled GetPlaylistWithSongsQuery in 3ms
+2025-05-08 15:17:11.196 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:17:11.198 +03:00 [INF] Executed ViewResult - view Edit executed in 1.7879ms.
+2025-05-08 15:17:11.199 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web) in 8.3819ms
+2025-05-08 15:17:11.200 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:11.201 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Edit/1 - 200 null text/html; charset=utf-8 15.2728ms
+2025-05-08 15:17:13.134 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs - null null
+2025-05-08 15:17:13.136 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:13.137 +03:00 [INF] Route matched with {action = "Index", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:17:13.139 +03:00 [INF] Handling GetSongsQuery
+2025-05-08 15:17:13.141 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+2025-05-08 15:17:13.143 +03:00 [INF] Handled GetSongsQuery in 3ms
+2025-05-08 15:17:13.144 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:13.145 +03:00 [INF] Executed ViewResult - view Index executed in 1.4594ms.
+2025-05-08 15:17:13.146 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web) in 8.0583ms
+2025-05-08 15:17:13.147 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:13.148 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs - 200 null text/html; charset=utf-8 14.4802ms
+2025-05-08 15:17:16.018 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs/AddToPlaylist/16 - null null
+2025-05-08 15:17:16.021 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web)'
+2025-05-08 15:17:16.022 +03:00 [INF] Route matched with {action = "AddToPlaylist", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToPlaylist(Int32) on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:17:16.023 +03:00 [INF] Handling GetSongByIdQuery
+2025-05-08 15:17:16.028 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+WHERE "s"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:17:16.029 +03:00 [INF] Handled GetSongByIdQuery in 5ms
+2025-05-08 15:17:16.031 +03:00 [INF] Handling GetPlaylistsByUserQuery
+2025-05-08 15:17:16.032 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 1)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+WHERE "p"."UserId" = @__userId_0
+2025-05-08 15:17:16.033 +03:00 [INF] Handled GetPlaylistsByUserQuery in 1ms
+2025-05-08 15:17:16.034 +03:00 [INF] Executing ViewResult, running view AddToPlaylist.
+2025-05-08 15:17:16.036 +03:00 [INF] Executed ViewResult - view AddToPlaylist executed in 2.3397ms.
+2025-05-08 15:17:16.037 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web) in 14.4789ms
+2025-05-08 15:17:16.038 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web)'
+2025-05-08 15:17:16.040 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs/AddToPlaylist/16 - 200 null text/html; charset=utf-8 21.4427ms
+2025-05-08 15:17:17.216 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Songs/AddToPlaylist/16 - application/x-www-form-urlencoded 205
+2025-05-08 15:17:17.220 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web)'
+2025-05-08 15:17:17.221 +03:00 [INF] Route matched with {action = "AddToPlaylist", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToPlaylist(Int32, Int32) on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:17:17.223 +03:00 [INF] Starting AddToPlaylist operation
+2025-05-08 15:17:17.223 +03:00 [INF] Parameters - SongId: 16, PlaylistId: 1
+2025-05-08 15:17:17.224 +03:00 [INF] Handling GetSongByIdQuery
+2025-05-08 15:17:17.226 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+WHERE "s"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:17:17.228 +03:00 [INF] Handled GetSongByIdQuery in 2ms
+2025-05-08 15:17:17.229 +03:00 [INF] Handling GetPlaylistByIdQuery
+2025-05-08 15:17:17.231 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+WHERE "p"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:17:17.232 +03:00 [INF] Handled GetPlaylistByIdQuery in 2ms
+2025-05-08 15:17:17.233 +03:00 [INF] Sending AddSongToPlaylist command
+2025-05-08 15:17:17.234 +03:00 [INF] Handling AddSongToPlaylistCommand
+2025-05-08 15:17:17.236 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:17.238 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__playlistId_0='?' (DbType = Int32), @__songId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "PlaylistSongs" AS "p"
+    WHERE "p"."PlaylistId" = @__playlistId_0 AND "p"."SongId" = @__songId_1)
+2025-05-08 15:17:17.241 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "PlaylistSongs" ("PlaylistId", "SongId")
+VALUES (@p0, @p1);
+2025-05-08 15:17:17.242 +03:00 [INF] Handled AddSongToPlaylistCommand in 7ms
+2025-05-08 15:17:17.243 +03:00 [INF] Song 16 successfully added to playlist 1
+2025-05-08 15:17:17.245 +03:00 [INF] Executing RedirectResult, redirecting to /Playlists/Details/1.
+2025-05-08 15:17:17.246 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web) in 23.9641ms
+2025-05-08 15:17:17.247 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.AddToPlaylist (MusicStreaming.Web)'
+2025-05-08 15:17:17.248 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Songs/AddToPlaylist/16 - 302 0 null 31.6984ms
+2025-05-08 15:17:17.250 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Details/1 - null null
+2025-05-08 15:17:17.252 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Details (MusicStreaming.Web)'
+2025-05-08 15:17:17.253 +03:00 [INF] Route matched with {action = "Details", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Details(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:17.254 +03:00 [INF] Handling GetPlaylistWithSongsQuery
+2025-05-08 15:17:17.256 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:17.258 +03:00 [INF] Handled GetPlaylistWithSongsQuery in 3ms
+2025-05-08 15:17:17.259 +03:00 [INF] Playlist 1 loaded with 4 songs
+2025-05-08 15:17:17.260 +03:00 [INF] Executing ViewResult, running view Details.
+2025-05-08 15:17:17.261 +03:00 [INF] Executed ViewResult - view Details executed in 1.4196ms.
+2025-05-08 15:17:17.262 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Details (MusicStreaming.Web) in 8.2167ms
+2025-05-08 15:17:17.263 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Details (MusicStreaming.Web)'
+2025-05-08 15:17:17.264 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Details/1 - 200 null text/html; charset=utf-8 13.9035ms
+2025-05-08 15:17:18.100 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Artists - null null
+2025-05-08 15:17:18.102 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:18.103 +03:00 [INF] Route matched with {action = "Index", controller = "Artists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.ArtistsController (MusicStreaming.Web).
+2025-05-08 15:17:18.104 +03:00 [INF] Handling GetArtistsWithAlbumsQuery
+2025-05-08 15:17:18.106 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."Genre", "a"."Name", "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title"
+FROM "Artists" AS "a"
+LEFT JOIN "Albums" AS "a0" ON "a"."Id" = "a0"."ArtistId"
+ORDER BY "a"."Id"
+2025-05-08 15:17:18.109 +03:00 [INF] Handled GetArtistsWithAlbumsQuery in 3ms
+2025-05-08 15:17:18.110 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:18.111 +03:00 [INF] Executed ViewResult - view Index executed in 1.2214ms.
+2025-05-08 15:17:18.112 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web) in 8.0543ms
+2025-05-08 15:17:18.113 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:18.114 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Artists - 200 null text/html; charset=utf-8 14.6038ms
+2025-05-08 15:17:20.135 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Artists - null null
+2025-05-08 15:17:20.139 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:20.140 +03:00 [INF] Route matched with {action = "Index", controller = "Artists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.ArtistsController (MusicStreaming.Web).
+2025-05-08 15:17:20.142 +03:00 [INF] Handling GetArtistsWithAlbumsQuery
+2025-05-08 15:17:20.143 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."Genre", "a"."Name", "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title"
+FROM "Artists" AS "a"
+LEFT JOIN "Albums" AS "a0" ON "a"."Id" = "a0"."ArtistId"
+ORDER BY "a"."Id"
+2025-05-08 15:17:20.145 +03:00 [INF] Handled GetArtistsWithAlbumsQuery in 2ms
+2025-05-08 15:17:20.146 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:20.147 +03:00 [INF] Executed ViewResult - view Index executed in 1.4142ms.
+2025-05-08 15:17:20.149 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web) in 7.083ms
+2025-05-08 15:17:20.150 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:20.151 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Artists - 200 null text/html; charset=utf-8 15.4267ms
+2025-05-08 15:17:22.854 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums - null null
+2025-05-08 15:17:22.856 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:22.858 +03:00 [INF] Route matched with {action = "Index", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:17:22.859 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:17:22.863 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:17:22.864 +03:00 [INF] Handled GetAlbumsQuery in 4ms
+2025-05-08 15:17:22.865 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:22.867 +03:00 [INF] Executed ViewResult - view Index executed in 1.4137ms.
+2025-05-08 15:17:22.868 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web) in 8.71ms
+2025-05-08 15:17:22.869 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:22.870 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums - 200 null text/html; charset=utf-8 15.8877ms
+2025-05-08 15:17:26.043 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Artists - null null
+2025-05-08 15:17:26.046 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:26.047 +03:00 [INF] Route matched with {action = "Index", controller = "Artists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.ArtistsController (MusicStreaming.Web).
+2025-05-08 15:17:26.048 +03:00 [INF] Handling GetArtistsWithAlbumsQuery
+2025-05-08 15:17:26.050 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."Genre", "a"."Name", "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title"
+FROM "Artists" AS "a"
+LEFT JOIN "Albums" AS "a0" ON "a"."Id" = "a0"."ArtistId"
+ORDER BY "a"."Id"
+2025-05-08 15:17:26.052 +03:00 [INF] Handled GetArtistsWithAlbumsQuery in 3ms
+2025-05-08 15:17:26.054 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:26.055 +03:00 [INF] Executed ViewResult - view Index executed in 1.6961ms.
+2025-05-08 15:17:26.057 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web) in 8.3365ms
+2025-05-08 15:17:26.057 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:26.059 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Artists - 200 null text/html; charset=utf-8 15.1439ms
+2025-05-08 15:17:27.354 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists - null null
+2025-05-08 15:17:27.356 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:27.357 +03:00 [INF] Route matched with {action = "Index", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:27.358 +03:00 [INF] Handling GetPlaylistsQuery
+2025-05-08 15:17:27.360 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+2025-05-08 15:17:27.362 +03:00 [INF] Handled GetPlaylistsQuery in 2ms
+2025-05-08 15:17:27.363 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:27.364 +03:00 [INF] Executed ViewResult - view Index executed in 1.2436ms.
+2025-05-08 15:17:27.365 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web) in 6.9835ms
+2025-05-08 15:17:27.366 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:27.367 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists - 200 null text/html; charset=utf-8 13.6739ms
+2025-05-08 15:17:28.571 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Edit/1 - null null
+2025-05-08 15:17:28.573 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:28.574 +03:00 [INF] Route matched with {action = "Edit", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:28.575 +03:00 [INF] Handling GetPlaylistWithSongsQuery
+2025-05-08 15:17:28.577 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:28.579 +03:00 [INF] Handled GetPlaylistWithSongsQuery in 3ms
+2025-05-08 15:17:28.580 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:17:28.581 +03:00 [INF] Executed ViewResult - view Edit executed in 1.204ms.
+2025-05-08 15:17:28.582 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web) in 7.4017ms
+2025-05-08 15:17:28.583 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:28.585 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Edit/1 - 200 null text/html; charset=utf-8 14.2271ms
+2025-05-08 15:17:30.650 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Playlists/RemoveSong - application/x-www-form-urlencoded 205
+2025-05-08 15:17:30.652 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.RemoveSong (MusicStreaming.Web)'
+2025-05-08 15:17:30.653 +03:00 [INF] Route matched with {action = "RemoveSong", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RemoveSong(Int32, Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:30.655 +03:00 [INF] Handling RemoveSongFromPlaylistCommand
+2025-05-08 15:17:30.657 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:30.660 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__playlistId_0='?' (DbType = Int32), @__songId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."PlaylistId", "p"."SongId"
+FROM "PlaylistSongs" AS "p"
+WHERE "p"."PlaylistId" = @__playlistId_0 AND "p"."SongId" = @__songId_1
+LIMIT 1
+2025-05-08 15:17:30.661 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "PlaylistSongs"
+WHERE "PlaylistId" = @p0 AND "SongId" = @p1
+RETURNING 1;
+2025-05-08 15:17:30.664 +03:00 [INF] Handled RemoveSongFromPlaylistCommand in 8ms
+2025-05-08 15:17:30.665 +03:00 [INF] Executing RedirectResult, redirecting to /Playlists/Edit/1.
+2025-05-08 15:17:30.666 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.RemoveSong (MusicStreaming.Web) in 12.1085ms
+2025-05-08 15:17:30.667 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.RemoveSong (MusicStreaming.Web)'
+2025-05-08 15:17:30.668 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Playlists/RemoveSong - 302 0 null 18.1621ms
+2025-05-08 15:17:30.670 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Edit/1 - null null
+2025-05-08 15:17:30.671 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:30.672 +03:00 [INF] Route matched with {action = "Edit", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:30.673 +03:00 [INF] Handling GetPlaylistWithSongsQuery
+2025-05-08 15:17:30.674 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:30.676 +03:00 [INF] Handled GetPlaylistWithSongsQuery in 2ms
+2025-05-08 15:17:30.677 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:17:30.678 +03:00 [INF] Executed ViewResult - view Edit executed in 1.1472ms.
+2025-05-08 15:17:30.679 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web) in 6.086ms
+2025-05-08 15:17:30.681 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:30.683 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Edit/1 - 200 null text/html; charset=utf-8 12.9838ms
+2025-05-08 15:17:31.948 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Playlists/Edit/1 - application/x-www-form-urlencoded 211
+2025-05-08 15:17:31.951 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:31.952 +03:00 [INF] Route matched with {action = "Edit", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32, System.String) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:31.955 +03:00 [INF] Handling UpdatePlaylistCommand
+2025-05-08 15:17:31.957 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+WHERE "p"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:17:31.959 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 17), @p2='?' (Size = 1)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Playlists" SET "CreationDate" = @p0, "Title" = @p1, "UserId" = @p2
+WHERE "Id" = @p3
+RETURNING 1;
+2025-05-08 15:17:31.962 +03:00 [INF] Handled UpdatePlaylistCommand in 6ms
+2025-05-08 15:17:31.963 +03:00 [INF] Executing RedirectResult, redirecting to /Playlists/Edit/1.
+2025-05-08 15:17:31.964 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web) in 10.2991ms
+2025-05-08 15:17:31.965 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:31.965 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Playlists/Edit/1 - 302 0 null 17.5641ms
+2025-05-08 15:17:31.968 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Edit/1 - null null
+2025-05-08 15:17:31.970 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:31.971 +03:00 [INF] Route matched with {action = "Edit", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:31.972 +03:00 [INF] Handling GetPlaylistWithSongsQuery
+2025-05-08 15:17:31.973 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:31.975 +03:00 [INF] Handled GetPlaylistWithSongsQuery in 2ms
+2025-05-08 15:17:31.976 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:17:31.978 +03:00 [INF] Executed ViewResult - view Edit executed in 1.788ms.
+2025-05-08 15:17:31.978 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web) in 6.6628ms
+2025-05-08 15:17:31.979 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:31.980 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Edit/1 - 200 null text/html; charset=utf-8 12.5955ms
+2025-05-08 15:17:32.565 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists - null null
+2025-05-08 15:17:32.568 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:32.569 +03:00 [INF] Route matched with {action = "Index", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:32.571 +03:00 [INF] Handling GetPlaylistsQuery
+2025-05-08 15:17:32.572 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+2025-05-08 15:17:32.573 +03:00 [INF] Handled GetPlaylistsQuery in 2ms
+2025-05-08 15:17:32.574 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:32.576 +03:00 [INF] Executed ViewResult - view Index executed in 1.2947ms.
+2025-05-08 15:17:32.577 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web) in 6.1972ms
+2025-05-08 15:17:32.578 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:32.579 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists - 200 null text/html; charset=utf-8 13.6665ms
+2025-05-08 15:17:41.160 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Edit/3 - null null
+2025-05-08 15:17:41.164 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:41.165 +03:00 [INF] Route matched with {action = "Edit", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:41.167 +03:00 [INF] Handling GetPlaylistWithSongsQuery
+2025-05-08 15:17:41.168 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p1"."Id", "p1"."CreationDate", "p1"."Title", "p1"."UserId", "s0"."PlaylistId", "s0"."SongId", "s0"."Id", "s0"."AlbumId", "s0"."Duration", "s0"."Genre", "s0"."ReleaseDate", "s0"."Title"
+FROM (
+    SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+    FROM "Playlists" AS "p"
+    WHERE "p"."Id" = @__id_0
+    LIMIT 1
+) AS "p1"
+LEFT JOIN (
+    SELECT "p0"."PlaylistId", "p0"."SongId", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+    FROM "PlaylistSongs" AS "p0"
+    INNER JOIN "Songs" AS "s" ON "p0"."SongId" = "s"."Id"
+) AS "s0" ON "p1"."Id" = "s0"."PlaylistId"
+ORDER BY "p1"."Id", "s0"."PlaylistId", "s0"."SongId"
+2025-05-08 15:17:41.171 +03:00 [INF] Handled GetPlaylistWithSongsQuery in 3ms
+2025-05-08 15:17:41.172 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:17:41.173 +03:00 [INF] Executed ViewResult - view Edit executed in 1.2725ms.
+2025-05-08 15:17:41.174 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web) in 7.1764ms
+2025-05-08 15:17:41.175 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:17:41.176 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Edit/3 - 200 null text/html; charset=utf-8 15.654ms
+2025-05-08 15:17:44.579 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists - null null
+2025-05-08 15:17:44.582 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:44.583 +03:00 [INF] Route matched with {action = "Index", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:17:44.584 +03:00 [INF] Handling GetPlaylistsQuery
+2025-05-08 15:17:44.586 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+2025-05-08 15:17:44.588 +03:00 [INF] Handled GetPlaylistsQuery in 2ms
+2025-05-08 15:17:44.589 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:44.590 +03:00 [INF] Executed ViewResult - view Index executed in 1.2745ms.
+2025-05-08 15:17:44.591 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web) in 6.8958ms
+2025-05-08 15:17:44.593 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:44.594 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists - 200 null text/html; charset=utf-8 14.8392ms
+2025-05-08 15:17:46.366 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums - null null
+2025-05-08 15:17:46.368 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:46.369 +03:00 [INF] Route matched with {action = "Index", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:17:46.371 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:17:46.372 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:17:46.374 +03:00 [INF] Handled GetAlbumsQuery in 2ms
+2025-05-08 15:17:46.375 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:46.376 +03:00 [INF] Executed ViewResult - view Index executed in 0.978ms.
+2025-05-08 15:17:46.377 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web) in 5.8769ms
+2025-05-08 15:17:46.378 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:46.379 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums - 200 null text/html; charset=utf-8 12.9538ms
+2025-05-08 15:17:48.109 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/ - null null
+2025-05-08 15:17:48.112 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:48.113 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MusicStreaming.Web.Controllers.HomeController (MusicStreaming.Web).
+2025-05-08 15:17:48.114 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:17:48.115 +03:00 [INF] Executed ViewResult - view Index executed in 0.9271ms.
+2025-05-08 15:17:48.116 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web) in 2.2173ms
+2025-05-08 15:17:48.117 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:17:48.119 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/ - 200 null text/html; charset=utf-8 9.2517ms
+2025-05-08 15:17:51.979 +03:00 [INF] Application is shutting down...
+2025-05-08 15:37:53.217 +03:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-08 15:37:53.883 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-05-08 15:37:53.911 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-05-08 15:37:53.921 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-05-08 12:37:53.9169418+00:00');
+SELECT changes();
+2025-05-08 15:37:53.967 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-05-08 15:37:53.972 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-05-08 15:37:53.975 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-05-08 15:37:53.982 +03:00 [INF] No migrations were applied. The database is already up to date.
+2025-05-08 15:37:53.984 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-05-08 15:37:54.049 +03:00 [INF] Now listening on: http://localhost:5103
+2025-05-08 15:37:54.053 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-08 15:37:54.054 +03:00 [INF] Hosting environment: Development
+2025-05-08 15:37:54.054 +03:00 [INF] Content root path: C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web
+2025-05-08 15:39:09.186 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/ - null null
+2025-05-08 15:39:09.194 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-05-08 15:39:09.241 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:09.253 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MusicStreaming.Web.Controllers.HomeController (MusicStreaming.Web).
+2025-05-08 15:39:09.266 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:39:09.327 +03:00 [INF] Executed ViewResult - view Index executed in 64.834ms.
+2025-05-08 15:39:09.332 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web) in 76.8659ms
+2025-05-08 15:39:09.334 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:09.337 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/ - 200 null text/html; charset=utf-8 152.8655ms
+2025-05-08 15:39:09.394 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/favicon.ico - null null
+2025-05-08 15:39:09.402 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/favicon.ico - 404 0 null 7.9355ms
+2025-05-08 15:39:09.406 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/favicon.ico, Response status code: 404
+2025-05-08 15:39:10.603 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/ - null null
+2025-05-08 15:39:10.608 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:10.609 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MusicStreaming.Web.Controllers.HomeController (MusicStreaming.Web).
+2025-05-08 15:39:10.611 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:39:10.615 +03:00 [INF] Executed ViewResult - view Index executed in 4.7572ms.
+2025-05-08 15:39:10.617 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web) in 6.3266ms
+2025-05-08 15:39:10.618 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:10.620 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/ - 200 null text/html; charset=utf-8 17.3013ms
+2025-05-08 15:39:11.150 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs - null null
+2025-05-08 15:39:11.153 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:11.158 +03:00 [INF] Route matched with {action = "Index", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:39:11.241 +03:00 [INF] Handling GetSongsQuery
+2025-05-08 15:39:11.417 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+2025-05-08 15:39:11.460 +03:00 [INF] Handled GetSongsQuery in 217ms
+2025-05-08 15:39:11.469 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:39:11.477 +03:00 [INF] Executed ViewResult - view Index executed in 8.7127ms.
+2025-05-08 15:39:11.478 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web) in 317.5717ms
+2025-05-08 15:39:11.480 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:11.484 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs - 200 null text/html; charset=utf-8 333.5687ms
+2025-05-08 15:39:15.372 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs/Edit/16 - null null
+2025-05-08 15:39:15.375 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:39:15.382 +03:00 [INF] Route matched with {action = "Edit", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:39:15.390 +03:00 [INF] Handling GetSongByIdQuery
+2025-05-08 15:39:15.501 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+WHERE "s"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:39:15.505 +03:00 [INF] Handled GetSongByIdQuery in 113ms
+2025-05-08 15:39:15.508 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:39:15.518 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:39:15.544 +03:00 [INF] Handled GetAlbumsQuery in 34ms
+2025-05-08 15:39:15.547 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:39:15.587 +03:00 [INF] Executed ViewResult - view Edit executed in 41.1098ms.
+2025-05-08 15:39:15.589 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Edit (MusicStreaming.Web) in 205.0255ms
+2025-05-08 15:39:15.590 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:39:15.591 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs/Edit/16 - 200 null text/html; charset=utf-8 218.6256ms
+2025-05-08 15:39:15.863 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-05-08 15:39:15.867 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - 404 0 null 4.2151ms
+2025-05-08 15:39:15.867 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - null null
+2025-05-08 15:39:15.870 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js, Response status code: 404
+2025-05-08 15:39:15.873 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - 404 0 null 5.4546ms
+2025-05-08 15:39:15.877 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js, Response status code: 404
+2025-05-08 15:39:23.614 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs - null null
+2025-05-08 15:39:23.616 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:23.617 +03:00 [INF] Route matched with {action = "Index", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:39:23.621 +03:00 [INF] Handling GetSongsQuery
+2025-05-08 15:39:23.624 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+2025-05-08 15:39:23.626 +03:00 [INF] Handled GetSongsQuery in 4ms
+2025-05-08 15:39:23.627 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:39:23.630 +03:00 [INF] Executed ViewResult - view Index executed in 2.2238ms.
+2025-05-08 15:39:23.631 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web) in 10.6516ms
+2025-05-08 15:39:23.632 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:23.633 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs - 200 null text/html; charset=utf-8 18.2801ms
+2025-05-08 15:39:25.745 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs/Edit/16 - null null
+2025-05-08 15:39:25.748 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:39:25.749 +03:00 [INF] Route matched with {action = "Edit", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:39:25.751 +03:00 [INF] Handling GetSongByIdQuery
+2025-05-08 15:39:25.756 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+WHERE "s"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:39:25.758 +03:00 [INF] Handled GetSongByIdQuery in 5ms
+2025-05-08 15:39:25.759 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:39:25.761 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:39:25.763 +03:00 [INF] Handled GetAlbumsQuery in 3ms
+2025-05-08 15:39:25.764 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:39:25.770 +03:00 [INF] Executed ViewResult - view Edit executed in 5.7097ms.
+2025-05-08 15:39:25.771 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Edit (MusicStreaming.Web) in 21.1421ms
+2025-05-08 15:39:25.773 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:39:25.774 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs/Edit/16 - 200 null text/html; charset=utf-8 29.1821ms
+2025-05-08 15:39:25.784 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-05-08 15:39:25.786 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - 404 0 null 2.1979ms
+2025-05-08 15:39:25.789 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js, Response status code: 404
+2025-05-08 15:39:25.790 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - null null
+2025-05-08 15:39:25.794 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - 404 0 null 3.1027ms
+2025-05-08 15:39:25.797 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js, Response status code: 404
+2025-05-08 15:39:31.694 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Songs/Edit/16 - application/x-www-form-urlencoded 307
+2025-05-08 15:39:31.697 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:39:31.707 +03:00 [INF] Route matched with {action = "Edit", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(MusicStreaming.Web.ViewModels.EditSongViewModel) on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:39:31.740 +03:00 [INF] Handling UpdateSongCommand
+2025-05-08 15:39:31.744 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+WHERE "s"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:39:31.790 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 3), @p3='?' (DbType = DateTime), @p4='?' (Size = 10)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Songs" SET "AlbumId" = @p0, "Duration" = @p1, "Genre" = @p2, "ReleaseDate" = @p3, "Title" = @p4
+WHERE "Id" = @p5
+RETURNING 1;
+2025-05-08 15:39:31.796 +03:00 [INF] Handled UpdateSongCommand in 55ms
+2025-05-08 15:39:31.799 +03:00 [INF] Executing RedirectResult, redirecting to /Songs.
+2025-05-08 15:39:31.799 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Edit (MusicStreaming.Web) in 90.407ms
+2025-05-08 15:39:31.800 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:39:31.801 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Songs/Edit/16 - 302 0 null 106.7815ms
+2025-05-08 15:39:31.804 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs - null null
+2025-05-08 15:39:31.805 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:31.806 +03:00 [INF] Route matched with {action = "Index", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:39:31.808 +03:00 [INF] Handling GetSongsQuery
+2025-05-08 15:39:31.813 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+2025-05-08 15:39:31.815 +03:00 [INF] Handled GetSongsQuery in 5ms
+2025-05-08 15:39:31.816 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:39:31.817 +03:00 [INF] Executed ViewResult - view Index executed in 1.7166ms.
+2025-05-08 15:39:31.818 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web) in 10.6405ms
+2025-05-08 15:39:31.819 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:31.820 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs - 200 null text/html; charset=utf-8 16.6134ms
+2025-05-08 15:39:33.933 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs/Details/16 - null null
+2025-05-08 15:39:33.935 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Details (MusicStreaming.Web)'
+2025-05-08 15:39:33.938 +03:00 [INF] Route matched with {action = "Details", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Details(Int32) on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:39:33.941 +03:00 [INF] Handling GetSongByIdQuery
+2025-05-08 15:39:33.943 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+WHERE "s"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:39:33.945 +03:00 [INF] Handled GetSongByIdQuery in 3ms
+2025-05-08 15:39:33.949 +03:00 [INF] Executing ViewResult, running view Details.
+2025-05-08 15:39:33.954 +03:00 [INF] Executed ViewResult - view Details executed in 5.1681ms.
+2025-05-08 15:39:33.955 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Details (MusicStreaming.Web) in 14.6967ms
+2025-05-08 15:39:33.956 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Details (MusicStreaming.Web)'
+2025-05-08 15:39:33.957 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs/Details/16 - 200 null text/html; charset=utf-8 23.8984ms
+2025-05-08 15:39:37.311 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs - null null
+2025-05-08 15:39:37.313 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:37.315 +03:00 [INF] Route matched with {action = "Index", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:39:37.316 +03:00 [INF] Handling GetSongsQuery
+2025-05-08 15:39:37.345 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+2025-05-08 15:39:37.347 +03:00 [INF] Handled GetSongsQuery in 30ms
+2025-05-08 15:39:37.348 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:39:37.349 +03:00 [INF] Executed ViewResult - view Index executed in 1.2117ms.
+2025-05-08 15:39:37.351 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web) in 34.4121ms
+2025-05-08 15:39:37.352 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:37.353 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs - 200 null text/html; charset=utf-8 41.8898ms
+2025-05-08 15:39:46.736 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/ - null null
+2025-05-08 15:39:46.739 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:46.740 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MusicStreaming.Web.Controllers.HomeController (MusicStreaming.Web).
+2025-05-08 15:39:46.741 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:39:46.742 +03:00 [INF] Executed ViewResult - view Index executed in 1.145ms.
+2025-05-08 15:39:46.743 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web) in 2.3115ms
+2025-05-08 15:39:46.744 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:46.745 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/ - 200 null text/html; charset=utf-8 8.8538ms
+2025-05-08 15:39:47.433 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs - null null
+2025-05-08 15:39:47.435 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:47.436 +03:00 [INF] Route matched with {action = "Index", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:39:47.438 +03:00 [INF] Handling GetSongsQuery
+2025-05-08 15:39:47.439 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+2025-05-08 15:39:47.441 +03:00 [INF] Handled GetSongsQuery in 2ms
+2025-05-08 15:39:47.442 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:39:47.443 +03:00 [INF] Executed ViewResult - view Index executed in 1.1744ms.
+2025-05-08 15:39:47.445 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web) in 6.8742ms
+2025-05-08 15:39:47.446 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:47.447 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs - 200 null text/html; charset=utf-8 14.3613ms
+2025-05-08 15:39:51.082 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums - null null
+2025-05-08 15:39:51.084 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:51.088 +03:00 [INF] Route matched with {action = "Index", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:39:51.091 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:39:51.095 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:39:51.097 +03:00 [INF] Handled GetAlbumsQuery in 5ms
+2025-05-08 15:39:51.102 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:39:51.109 +03:00 [INF] Executed ViewResult - view Index executed in 8.6602ms.
+2025-05-08 15:39:51.111 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web) in 21.0385ms
+2025-05-08 15:39:51.112 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:51.113 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums - 200 null text/html; charset=utf-8 30.6805ms
+2025-05-08 15:39:55.490 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums/Details/1 - null null
+2025-05-08 15:39:55.493 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Details (MusicStreaming.Web)'
+2025-05-08 15:39:55.496 +03:00 [INF] Route matched with {action = "Details", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Details(Int32) on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:39:55.499 +03:00 [INF] Handling GetAlbumWithSongsQuery
+2025-05-08 15:39:55.552 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM (
+    SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+    FROM "Albums" AS "a"
+    WHERE "a"."Id" = @__id_0
+    LIMIT 1
+) AS "a0"
+LEFT JOIN "Songs" AS "s" ON "a0"."Id" = "s"."AlbumId"
+ORDER BY "a0"."Id"
+2025-05-08 15:39:55.560 +03:00 [INF] Handled GetAlbumWithSongsQuery in 59ms
+2025-05-08 15:39:55.563 +03:00 [INF] Executing ViewResult, running view Details.
+2025-05-08 15:39:55.567 +03:00 [INF] Executed ViewResult - view Details executed in 4.1851ms.
+2025-05-08 15:39:55.569 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Details (MusicStreaming.Web) in 71.0804ms
+2025-05-08 15:39:55.570 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Details (MusicStreaming.Web)'
+2025-05-08 15:39:55.571 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums/Details/1 - 200 null text/html; charset=utf-8 80.658ms
+2025-05-08 15:39:56.825 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums - null null
+2025-05-08 15:39:56.827 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:56.828 +03:00 [INF] Route matched with {action = "Index", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:39:56.829 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:39:56.832 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:39:56.834 +03:00 [INF] Handled GetAlbumsQuery in 3ms
+2025-05-08 15:39:56.835 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:39:56.837 +03:00 [INF] Executed ViewResult - view Index executed in 1.6623ms.
+2025-05-08 15:39:56.838 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web) in 8.7268ms
+2025-05-08 15:39:56.839 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:39:56.840 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums - 200 null text/html; charset=utf-8 14.5939ms
+2025-05-08 15:39:58.985 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums/Edit/11 - null null
+2025-05-08 15:39:58.988 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:39:58.991 +03:00 [INF] Route matched with {action = "Edit", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:39:58.995 +03:00 [INF] Handling GetAlbumByIdQuery
+2025-05-08 15:39:59.002 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:39:59.004 +03:00 [INF] Handled GetAlbumByIdQuery in 7ms
+2025-05-08 15:39:59.006 +03:00 [INF] Handling GetArtistsQuery
+2025-05-08 15:39:59.014 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."Genre", "a"."Name"
+FROM "Artists" AS "a"
+2025-05-08 15:39:59.025 +03:00 [INF] Handled GetArtistsQuery in 18ms
+2025-05-08 15:39:59.047 +03:00 [INF] Executing ViewResult, running view Edit.
+2025-05-08 15:39:59.074 +03:00 [INF] Executed ViewResult - view Edit executed in 27.7299ms.
+2025-05-08 15:39:59.077 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Edit (MusicStreaming.Web) in 84.2684ms
+2025-05-08 15:39:59.078 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:39:59.080 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums/Edit/11 - 200 null text/html; charset=utf-8 94.3338ms
+2025-05-08 15:39:59.090 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-05-08 15:39:59.095 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - 404 0 null 4.1664ms
+2025-05-08 15:39:59.097 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js, Response status code: 404
+2025-05-08 15:39:59.099 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - null null
+2025-05-08 15:39:59.102 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - 404 0 null 2.5432ms
+2025-05-08 15:39:59.104 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js, Response status code: 404
+2025-05-08 15:40:00.931 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Albums/Edit/11 - application/x-www-form-urlencoded 261
+2025-05-08 15:40:00.933 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:40:00.936 +03:00 [INF] Route matched with {action = "Edit", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(MusicStreaming.Web.ViewModels.EditAlbumViewModel) on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:40:00.944 +03:00 [INF] Handling UpdateAlbumCommand
+2025-05-08 15:40:00.948 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:40:00.956 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 3), @p2='?' (DbType = Int32), @p3='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Albums" SET "ArtistId" = @p0, "Genre" = @p1, "ReleaseYear" = @p2, "Title" = @p3
+WHERE "Id" = @p4
+RETURNING 1;
+2025-05-08 15:40:00.961 +03:00 [INF] Handled UpdateAlbumCommand in 15ms
+2025-05-08 15:40:00.962 +03:00 [INF] Executing RedirectResult, redirecting to /Albums.
+2025-05-08 15:40:00.962 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Edit (MusicStreaming.Web) in 24.2097ms
+2025-05-08 15:40:00.963 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Edit (MusicStreaming.Web)'
+2025-05-08 15:40:00.964 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Albums/Edit/11 - 302 0 null 33.2689ms
+2025-05-08 15:40:00.968 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums - null null
+2025-05-08 15:40:00.970 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:00.970 +03:00 [INF] Route matched with {action = "Index", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:40:00.973 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:40:00.974 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:40:00.976 +03:00 [INF] Handled GetAlbumsQuery in 2ms
+2025-05-08 15:40:00.976 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:40:00.978 +03:00 [INF] Executed ViewResult - view Index executed in 1.359ms.
+2025-05-08 15:40:00.979 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web) in 6.6478ms
+2025-05-08 15:40:00.980 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:00.981 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums - 200 null text/html; charset=utf-8 13.3321ms
+2025-05-08 15:40:02.777 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums/Details/11 - null null
+2025-05-08 15:40:02.779 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Details (MusicStreaming.Web)'
+2025-05-08 15:40:02.780 +03:00 [INF] Route matched with {action = "Details", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Details(Int32) on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:40:02.782 +03:00 [INF] Handling GetAlbumWithSongsQuery
+2025-05-08 15:40:02.785 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title", "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM (
+    SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+    FROM "Albums" AS "a"
+    WHERE "a"."Id" = @__id_0
+    LIMIT 1
+) AS "a0"
+LEFT JOIN "Songs" AS "s" ON "a0"."Id" = "s"."AlbumId"
+ORDER BY "a0"."Id"
+2025-05-08 15:40:02.788 +03:00 [INF] Handled GetAlbumWithSongsQuery in 4ms
+2025-05-08 15:40:02.789 +03:00 [INF] Executing ViewResult, running view Details.
+2025-05-08 15:40:02.791 +03:00 [INF] Executed ViewResult - view Details executed in 1.7488ms.
+2025-05-08 15:40:02.792 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Details (MusicStreaming.Web) in 10.2702ms
+2025-05-08 15:40:02.793 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Details (MusicStreaming.Web)'
+2025-05-08 15:40:02.794 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums/Details/11 - 200 null text/html; charset=utf-8 16.2992ms
+2025-05-08 15:40:05.621 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums - null null
+2025-05-08 15:40:05.623 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:05.624 +03:00 [INF] Route matched with {action = "Index", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:40:05.626 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:40:05.628 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:40:05.629 +03:00 [INF] Handled GetAlbumsQuery in 2ms
+2025-05-08 15:40:05.630 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:40:05.631 +03:00 [INF] Executed ViewResult - view Index executed in 1.3179ms.
+2025-05-08 15:40:05.632 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web) in 6.7305ms
+2025-05-08 15:40:05.634 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:05.635 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums - 200 null text/html; charset=utf-8 13.7243ms
+2025-05-08 15:40:08.904 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Albums - null null
+2025-05-08 15:40:08.907 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:08.908 +03:00 [INF] Route matched with {action = "Index", controller = "Albums", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.AlbumsController (MusicStreaming.Web).
+2025-05-08 15:40:08.909 +03:00 [INF] Handling GetAlbumsQuery
+2025-05-08 15:40:08.911 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ArtistId", "a"."Genre", "a"."ReleaseYear", "a"."Title"
+FROM "Albums" AS "a"
+2025-05-08 15:40:08.912 +03:00 [INF] Handled GetAlbumsQuery in 2ms
+2025-05-08 15:40:08.913 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:40:08.914 +03:00 [INF] Executed ViewResult - view Index executed in 1.0555ms.
+2025-05-08 15:40:08.915 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web) in 6.104ms
+2025-05-08 15:40:08.916 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.AlbumsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:08.917 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Albums - 200 null text/html; charset=utf-8 13.0917ms
+2025-05-08 15:40:12.880 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Artists - null null
+2025-05-08 15:40:12.883 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:12.886 +03:00 [INF] Route matched with {action = "Index", controller = "Artists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.ArtistsController (MusicStreaming.Web).
+2025-05-08 15:40:12.888 +03:00 [INF] Handling GetArtistsWithAlbumsQuery
+2025-05-08 15:40:12.902 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."Genre", "a"."Name", "a0"."Id", "a0"."ArtistId", "a0"."Genre", "a0"."ReleaseYear", "a0"."Title"
+FROM "Artists" AS "a"
+LEFT JOIN "Albums" AS "a0" ON "a"."Id" = "a0"."ArtistId"
+ORDER BY "a"."Id"
+2025-05-08 15:40:12.905 +03:00 [INF] Handled GetArtistsWithAlbumsQuery in 15ms
+2025-05-08 15:40:12.909 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:40:12.923 +03:00 [INF] Executed ViewResult - view Index executed in 14.6834ms.
+2025-05-08 15:40:12.924 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web) in 36.9443ms
+2025-05-08 15:40:12.926 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.ArtistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:12.927 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Artists - 200 null text/html; charset=utf-8 46.5754ms
+2025-05-08 15:40:17.374 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists - null null
+2025-05-08 15:40:17.375 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:17.378 +03:00 [INF] Route matched with {action = "Index", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:40:17.381 +03:00 [INF] Handling GetPlaylistsQuery
+2025-05-08 15:40:17.398 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+2025-05-08 15:40:17.411 +03:00 [INF] Handled GetPlaylistsQuery in 28ms
+2025-05-08 15:40:17.415 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:40:17.420 +03:00 [INF] Executed ViewResult - view Index executed in 6.4562ms.
+2025-05-08 15:40:17.422 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web) in 41.6373ms
+2025-05-08 15:40:17.423 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:17.424 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists - 200 null text/html; charset=utf-8 50.249ms
+2025-05-08 15:40:20.841 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Create - null null
+2025-05-08 15:40:20.843 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Create (MusicStreaming.Web)'
+2025-05-08 15:40:20.844 +03:00 [INF] Route matched with {action = "Create", controller = "Playlists", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:40:20.846 +03:00 [INF] Executing ViewResult, running view Create.
+2025-05-08 15:40:20.855 +03:00 [INF] Executed ViewResult - view Create executed in 8.7177ms.
+2025-05-08 15:40:20.856 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Create (MusicStreaming.Web) in 10.3213ms
+2025-05-08 15:40:20.857 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Create (MusicStreaming.Web)'
+2025-05-08 15:40:20.858 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Create - 200 null text/html; charset=utf-8 17.107ms
+2025-05-08 15:40:20.868 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-05-08 15:40:20.870 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js - 404 0 null 2.6014ms
+2025-05-08 15:40:20.873 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation/dist/jquery.validate.min.js, Response status code: 404
+2025-05-08 15:40:20.874 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - null null
+2025-05-08 15:40:20.877 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js - 404 0 null 2.2995ms
+2025-05-08 15:40:20.879 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5103/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js, Response status code: 404
+2025-05-08 15:40:22.153 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Playlists/Create - application/x-www-form-urlencoded 199
+2025-05-08 15:40:22.156 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Create (MusicStreaming.Web)'
+2025-05-08 15:40:22.159 +03:00 [INF] Route matched with {action = "Create", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(MusicStreaming.Web.ViewModels.CreatePlaylistViewModel) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:40:22.167 +03:00 [INF] Handling CreatePlaylistCommand
+2025-05-08 15:40:22.188 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 1), @p2='?' (Size = 1)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Playlists" ("CreationDate", "Title", "UserId")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-05-08 15:40:22.201 +03:00 [INF] Handled CreatePlaylistCommand in 33ms
+2025-05-08 15:40:22.202 +03:00 [INF] Executing RedirectResult, redirecting to /Playlists.
+2025-05-08 15:40:22.203 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Create (MusicStreaming.Web) in 42.094ms
+2025-05-08 15:40:22.204 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Create (MusicStreaming.Web)'
+2025-05-08 15:40:22.205 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Playlists/Create - 302 0 null 51.7219ms
+2025-05-08 15:40:22.207 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists - null null
+2025-05-08 15:40:22.209 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:22.210 +03:00 [INF] Route matched with {action = "Index", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:40:22.212 +03:00 [INF] Handling GetPlaylistsQuery
+2025-05-08 15:40:22.213 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+2025-05-08 15:40:22.215 +03:00 [INF] Handled GetPlaylistsQuery in 2ms
+2025-05-08 15:40:22.216 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:40:22.217 +03:00 [INF] Executed ViewResult - view Index executed in 1.2921ms.
+2025-05-08 15:40:22.218 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web) in 6.6619ms
+2025-05-08 15:40:22.219 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:22.220 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists - 200 null text/html; charset=utf-8 12.3834ms
+2025-05-08 15:40:23.183 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists/Delete/8 - null null
+2025-05-08 15:40:23.186 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Delete (MusicStreaming.Web)'
+2025-05-08 15:40:23.189 +03:00 [INF] Route matched with {action = "Delete", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:40:23.192 +03:00 [INF] Handling GetPlaylistByIdQuery
+2025-05-08 15:40:23.198 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+WHERE "p"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:40:23.202 +03:00 [INF] Handled GetPlaylistByIdQuery in 9ms
+2025-05-08 15:40:23.204 +03:00 [INF] Executing ViewResult, running view Delete.
+2025-05-08 15:40:23.209 +03:00 [INF] Executed ViewResult - view Delete executed in 6.0647ms.
+2025-05-08 15:40:23.210 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Delete (MusicStreaming.Web) in 19.9879ms
+2025-05-08 15:40:23.212 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Delete (MusicStreaming.Web)'
+2025-05-08 15:40:23.213 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists/Delete/8 - 200 null text/html; charset=utf-8 29.0764ms
+2025-05-08 15:40:24.308 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5103/Playlists/Delete/8 - application/x-www-form-urlencoded 187
+2025-05-08 15:40:24.312 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.DeleteConfirmed (MusicStreaming.Web)'
+2025-05-08 15:40:24.315 +03:00 [INF] Route matched with {action = "Delete", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteConfirmed(Int32) on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:40:24.319 +03:00 [INF] Handling DeletePlaylistCommand
+2025-05-08 15:40:24.321 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+WHERE "p"."Id" = @__p_0
+LIMIT 1
+2025-05-08 15:40:24.328 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Playlists"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-08 15:40:24.334 +03:00 [INF] Handled DeletePlaylistCommand in 14ms
+2025-05-08 15:40:24.335 +03:00 [INF] Executing RedirectResult, redirecting to /Playlists.
+2025-05-08 15:40:24.336 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.DeleteConfirmed (MusicStreaming.Web) in 19.5824ms
+2025-05-08 15:40:24.337 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.DeleteConfirmed (MusicStreaming.Web)'
+2025-05-08 15:40:24.338 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5103/Playlists/Delete/8 - 302 0 null 30.3632ms
+2025-05-08 15:40:24.340 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Playlists - null null
+2025-05-08 15:40:24.342 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:24.342 +03:00 [INF] Route matched with {action = "Index", controller = "Playlists", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.PlaylistsController (MusicStreaming.Web).
+2025-05-08 15:40:24.344 +03:00 [INF] Handling GetPlaylistsQuery
+2025-05-08 15:40:24.347 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."CreationDate", "p"."Title", "p"."UserId"
+FROM "Playlists" AS "p"
+2025-05-08 15:40:24.349 +03:00 [INF] Handled GetPlaylistsQuery in 4ms
+2025-05-08 15:40:24.350 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:40:24.352 +03:00 [INF] Executed ViewResult - view Index executed in 1.4523ms.
+2025-05-08 15:40:24.352 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web) in 8.5439ms
+2025-05-08 15:40:24.353 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.PlaylistsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:24.354 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Playlists - 200 null text/html; charset=utf-8 14.2476ms
+2025-05-08 15:40:30.887 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/ - null null
+2025-05-08 15:40:30.888 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:30.889 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MusicStreaming.Web.Controllers.HomeController (MusicStreaming.Web).
+2025-05-08 15:40:30.891 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:40:30.892 +03:00 [INF] Executed ViewResult - view Index executed in 1.1116ms.
+2025-05-08 15:40:30.893 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web) in 2.1248ms
+2025-05-08 15:40:30.894 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.HomeController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:30.895 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/ - 200 null text/html; charset=utf-8 8.7452ms
+2025-05-08 15:40:31.733 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5103/Songs - null null
+2025-05-08 15:40:31.736 +03:00 [INF] Executing endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:31.736 +03:00 [INF] Route matched with {action = "Index", controller = "Songs", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MusicStreaming.Web.Controllers.SongsController (MusicStreaming.Web).
+2025-05-08 15:40:31.738 +03:00 [INF] Handling GetSongsQuery
+2025-05-08 15:40:31.740 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."AlbumId", "s"."Duration", "s"."Genre", "s"."ReleaseDate", "s"."Title"
+FROM "Songs" AS "s"
+2025-05-08 15:40:31.742 +03:00 [INF] Handled GetSongsQuery in 2ms
+2025-05-08 15:40:31.743 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-08 15:40:31.744 +03:00 [INF] Executed ViewResult - view Index executed in 1.378ms.
+2025-05-08 15:40:31.746 +03:00 [INF] Executed action MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web) in 7.4987ms
+2025-05-08 15:40:31.747 +03:00 [INF] Executed endpoint 'MusicStreaming.Web.Controllers.SongsController.Index (MusicStreaming.Web)'
+2025-05-08 15:40:31.748 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5103/Songs - 200 null text/html; charset=utf-8 15.5617ms
+2025-05-08 15:40:35.617 +03:00 [INF] Application is shutting down...

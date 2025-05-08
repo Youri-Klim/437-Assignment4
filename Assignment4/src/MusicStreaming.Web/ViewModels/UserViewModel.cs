@@ -36,7 +36,7 @@ namespace MusicStreaming.Web.ViewModels
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
-        public DateTime DateOfBirth { get; set; } = DateTime.Now.AddYears(-18); // Default to 18 years ago
+        public DateTime DateOfBirth { get; set; } = DateTime.Now.AddYears(-18);
     }
 
     public class LoginUserViewModel

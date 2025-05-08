@@ -9,13 +9,11 @@ namespace MusicStreaming.Core.Services
     {
         public bool IsVerifiedArtist(Artist artist)
         {
-            // Business rule: Artists with at least 3 albums are considered verified
             return artist.Albums != null && artist.Albums.Count >= 3;
         }
         
         public bool IsProlificArtist(Artist artist)
         {
-            // Business rule: Artists with more than 50 songs are considered prolific
             if (artist.Albums == null) return false;
             
             int totalSongs = artist.Albums.Sum(a => a.Songs?.Count ?? 0);
@@ -24,7 +22,6 @@ namespace MusicStreaming.Core.Services
         
         public string DetermineArtistTier(Artist artist)
         {
-            // Business rule: Determine artist tier based on albums and songs
             if (artist.Albums == null || artist.Albums.Count == 0)
                 return "New";
                 

@@ -23,7 +23,6 @@ namespace MusicStreaming.Application.Features.Users.Queries
         
         public async Task<IReadOnlyList<UserDto>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
-            // Get users directly as DTOs from the service
             return await _userService.ListAllAsync();
         }
     }

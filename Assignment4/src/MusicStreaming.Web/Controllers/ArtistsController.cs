@@ -105,7 +105,6 @@ namespace MusicStreaming.Web.Controllers
         return NotFound();
     }
 
-    // Log the number of albums to see if they're coming through
     _logger.LogInformation($"Artist {artistDto.Name} has {artistDto.Albums?.Count ?? 0} albums");
 
     var viewModel = _mapper.Map<ArtistDetailViewModel>(artistDto);

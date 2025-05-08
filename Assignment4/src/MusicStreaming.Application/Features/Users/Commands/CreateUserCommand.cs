@@ -49,7 +49,6 @@ namespace MusicStreaming.Application.Features.Users.Commands
             {
                 Username = request.Username,
                 Email = request.Email
-                // Note: DateOfBirth removed as it's not in your UserDto model
             };
             
             return await _userService.AddAsync(userDto);
