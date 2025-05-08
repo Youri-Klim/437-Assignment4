@@ -7,10 +7,7 @@ using MusicStreaming.Core.Entities;
 using MusicStreaming.Core.Extensions;
 using MusicStreaming.Core.Interfaces.Repositories;
 using MusicStreaming.Core.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MusicStreaming.Application.Common.Models;
 
 namespace MusicStreaming.Application.Services
 {
@@ -157,6 +154,28 @@ namespace MusicStreaming.Application.Services
         public string FormatDuration(int id, int duration)
         {
             return TimeSpan.FromSeconds(duration).ToString(@"mm\:ss");
+        }
+
+        public async Task<PaginatedList<SongDto>> GetPaginatedSongsAsync(int pageNumber, int pageSize)
+        {
+            // Validate parameters
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageSize < 1) pageSize = 10;
+            
+            // Get paginated data from repository
+            var (songs, totalCount) = await _songRepository.GetPaginatedAsync(pageNumber, pageSize);
+            
+            // Map to DTOs
+            var songDtos = _mapper.Map<List<SongDto>>(songs);
+            
+            // Create paginated response
+            return new PaginatedList<SongDto>(songDtos, totalCount, pageNumber, pageSize);
+        }
+
+        public async Task<(List<SongDto> songs, int totalCount)> GetPaginatedAsync(int pageNumber, int pageSize)
+        {
+            var (songs, totalCount) = await _songRepository.GetPaginatedAsync(pageNumber, pageSize);
+            return (_mapper.Map<List<SongDto>>(songs), totalCount);
         }
     }
 }

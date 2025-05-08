@@ -13,5 +13,6 @@ namespace MusicStreaming.Core.Interfaces.Repositories
         Task UpdateAsync(Song song);
         Task DeleteAsync(int id);
         Task<IReadOnlyList<Song>> SearchAsync(string searchTerm);
+        Task<(List<Song> songs, int totalCount)> GetPaginatedAsync(int pageNumber, int pageSize);
     }
 }

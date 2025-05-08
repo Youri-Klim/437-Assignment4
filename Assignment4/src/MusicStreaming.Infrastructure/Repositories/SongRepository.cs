@@ -66,5 +66,20 @@ namespace MusicStreaming.Infrastructure.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<(List<Song> songs, int totalCount)> GetPaginatedAsync(int pageNumber, int pageSize)
+        {
+            var totalCount = await _context.Songs.CountAsync();
+            
+            var songs = await _context.Songs
+                .Include(s => s.Album)
+                    .ThenInclude(a => a.Artist)
+                .OrderBy(s => s.Title)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+                
+            return (songs, totalCount);
+        }
     }
 }

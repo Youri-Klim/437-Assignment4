@@ -1,4 +1,4 @@
-@model IEnumerable<MusicStreaming.Web.ViewModels.SongViewModel>
+@model MusicStreaming.Application.Common.Models.PaginatedList<MusicStreaming.Web.ViewModels.SongViewModel>
 
 @{
     ViewData["Title"] = "Songs List";
@@ -26,7 +26,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var song in Model) {
+        @foreach (var song in Model.Items) {
             <tr class="song-row">
                 <td>@song.Title</td>
                 <td>@song.ArtistName</td>
@@ -41,6 +41,86 @@
         }
     </tbody>
 </table>
+
+<!-- Pagination Controls -->
+<div class="d-flex justify-content-between align-items-center mt-4">
+    <!-- Count display -->
+    <div>
+        <strong>Showing @Model.Items.Count of @Model.TotalCount</strong>
+    </div>
+    
+    <!-- Navigation -->
+    <nav aria-label="Song pages">
+        <ul class="pagination pagination-sm mb-0">
+            <!-- Previous Page -->
+            @if (Model.HasPreviousPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="@(Model.PageNumber - 1)">Previous</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <span class="page-link">Previous</span>
+                </li>
+            }
+            
+            <!-- Page Numbers -->
+            @{
+                int startPage = Math.Max(1, Model.PageNumber - 2);
+                int endPage = Math.Min(Model.TotalPages, Model.PageNumber + 2);
+            }
+            
+            @if (startPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="1">1</a>
+                </li>
+                @if (startPage > 2)
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link">...</span>
+                    </li>
+                }
+            }
+            
+            @for (int i = startPage; i <= endPage; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+            
+            @if (endPage < Model.TotalPages)
+            {
+                @if (endPage < Model.TotalPages - 1)
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link">...</span>
+                    </li>
+                }
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="@Model.TotalPages">@Model.TotalPages</a>
+                </li>
+            }
+            
+            <!-- Next Page -->
+            @if (Model.HasNextPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="@(Model.PageNumber + 1)">Next</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <span class="page-link">Next</span>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

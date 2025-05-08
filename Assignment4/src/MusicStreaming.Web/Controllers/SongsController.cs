@@ -31,13 +31,35 @@ namespace MusicStreaming.Web.Controllers
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            var songs = await _mediator.Send(new GetSongsQuery());
-            var songViewModels = _mapper.Map<List<SongViewModel>>(songs);
-            return View(songViewModels);
-        }
-
+        public async Task<IActionResult> Index(int page = 1, int pageSize = 10)
+{
+    try
+    {
+        _logger.LogInformation("Fetching songs page {Page} with page size {PageSize}", page, pageSize);
+        
+        var query = new GetPaginatedSongsQuery { PageNumber = page, PageSize = pageSize };
+        var (songs, totalCount) = await _mediator.Send(query);
+        
+        var songViewModels = _mapper.Map<List<SongViewModel>>(songs);
+        
+        var model = new MusicStreaming.Application.Common.Models.PaginatedList<SongViewModel>(
+            songViewModels,
+            totalCount,
+            page,
+            pageSize
+        );
+        
+        return View(model);
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "Error fetching paginated songs list");
+        return View("Error", new ErrorViewModel { 
+            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+            ErrorMessage = "Unable to retrieve songs. Please try again later."
+        });
+    }
+}
         public async Task<IActionResult> Create()
         {
             var model = new CreateSongViewModel
