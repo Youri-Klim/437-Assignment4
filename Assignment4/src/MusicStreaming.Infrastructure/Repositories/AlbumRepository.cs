@@ -27,6 +27,7 @@ namespace MusicStreaming.Infrastructure.Repositories
         {
             return await _context.Albums
                 .Include(a => a.Songs)
+                .Include(a => a.Artist)
                 .FirstOrDefaultAsync(a => a.Id == id);
         }
 

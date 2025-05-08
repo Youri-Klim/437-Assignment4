@@ -26,7 +26,9 @@ namespace MusicStreaming.Infrastructure.Repositories
         {
             return await _context.Playlists
                 .Include(p => p.PlaylistSongs)
-                .ThenInclude(ps => ps.Song)
+                    .ThenInclude(ps => ps.Song)
+                        .ThenInclude(s => s.Album)
+                            .ThenInclude(a => a.Artist)
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 

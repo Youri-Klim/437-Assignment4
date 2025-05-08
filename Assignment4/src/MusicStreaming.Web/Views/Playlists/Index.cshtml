@@ -10,7 +10,6 @@
     <thead>
         <tr>
             <th class="text-center">Name</th>
-            <th class="text-center">User</th>
             <th class="text-center">Actions</th>
         </tr>
     </thead>
@@ -21,7 +20,6 @@
                     <!-- Make the playlist title clickable -->
                     <a asp-action="Details" asp-route-id="@playlist.Id">@playlist.Title</a>
                 </td>
-                <td class="text-center">@playlist.UserName</td>
                 <td class="text-center">
                     <div style="display: flex; justify-content: center;"> 
                         <a asp-action="Edit" asp-route-id="@playlist.Id" class="btn btn-warning">Edit</a>

@@ -24,7 +24,10 @@ namespace MusicStreaming.Infrastructure.Repositories
 
         public async Task<IReadOnlyList<Song>> ListAllAsync()
         {
-            return await _context.Songs.ToListAsync();
+            return await _context.Songs
+                .Include(s => s.Album)
+                    .ThenInclude(a => a.Artist)
+                .ToListAsync();
         }
 
         public async Task<IReadOnlyList<Song>> GetByAlbumIdAsync(int albumId)
