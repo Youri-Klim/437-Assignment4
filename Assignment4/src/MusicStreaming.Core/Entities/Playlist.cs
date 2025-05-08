@@ -1,6 +1,10 @@
+using MusicStreaming.Core.Events;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 namespace MusicStreaming.Core.Entities
 {
-    public class Playlist
+    public class Playlist : Entity
     {
         public int Id { get;  set; }
         public string Title { get;  set; } = null!;
@@ -17,6 +21,7 @@ namespace MusicStreaming.Core.Entities
             Title = title;
             UserId = userId;
             CreationDate = DateTime.UtcNow;
+            AddDomainEvent(new PlaylistCreatedEvent(0, title, userId));
         }
         
         public void AddSong(int songId)

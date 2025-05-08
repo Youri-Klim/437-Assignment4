@@ -18,6 +18,9 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using MusicStreaming.Application.Services;
 using MusicStreaming.Core.Services;
+using MusicStreaming.Core.Interfaces;
+using MusicStreaming.Core.Events;
+using MusicStreaming.Infrastructure.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -83,6 +86,9 @@ builder.Services.AddScoped<FluentValidation.IValidator<MusicStreaming.Applicatio
 // Song
 builder.Services.AddScoped<FluentValidation.IValidator<MusicStreaming.Application.DTOs.CreateSongDto>, MusicStreaming.Application.Validators.CreateSongDtoValidator>();
 builder.Services.AddScoped<FluentValidation.IValidator<MusicStreaming.Application.DTOs.UpdateSongDto>, MusicStreaming.Application.Validators.UpdateSongDtoValidator>();
+
+builder.Services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
+builder.Services.AddScoped<IDomainEventHandler<PlaylistCreatedEvent>, PlaylistCreatedEventHandler>();
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()

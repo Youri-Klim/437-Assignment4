@@ -1,25 +1,35 @@
 using Microsoft.EntityFrameworkCore;
-using MusicStreaming.Core.Interfaces.Repositories;
 using MusicStreaming.Core.Entities;
+using MusicStreaming.Core.Interfaces;
+using MusicStreaming.Core.Interfaces.Repositories;
 using MusicStreaming.Infrastructure.Data;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MusicStreaming.Infrastructure.Repositories
 {
     public class PlaylistRepository : IPlaylistRepository
     {
         private readonly MusicStreamingDbContext _context;
+        private readonly IDomainEventDispatcher _domainEventDispatcher;
 
-        public PlaylistRepository(MusicStreamingDbContext context)
+        public PlaylistRepository(MusicStreamingDbContext context, IDomainEventDispatcher domainEventDispatcher)
         {
             _context = context;
+            _domainEventDispatcher = domainEventDispatcher;
         }
 
         public async Task<Playlist?> GetByIdAsync(int id)
         {
             return await _context.Playlists.FindAsync(id);
+        }
+
+        public async Task<IReadOnlyList<Playlist>> GetByUserIdAsync(string userId)
+        {
+            return await _context.Playlists
+                .Where(p => p.UserId == userId)
+                .ToListAsync();
         }
 
         public async Task<Playlist?> GetWithSongsAsync(int id)
@@ -37,17 +47,18 @@ namespace MusicStreaming.Infrastructure.Repositories
             return await _context.Playlists.ToListAsync();
         }
 
-        public async Task<IReadOnlyList<Playlist>> GetByUserIdAsync(string userId)
-        {
-            return await _context.Playlists
-                .Where(p => p.UserId == userId)
-                .ToListAsync();
-        }
-
         public async Task<int> AddAsync(Playlist playlist)
         {
             _context.Playlists.Add(playlist);
             await _context.SaveChangesAsync();
+            
+            foreach (var domainEvent in playlist.DomainEvents)
+            {
+                await _domainEventDispatcher.DispatchAsync(domainEvent);
+            }
+            
+            playlist.ClearDomainEvents();
+            
             return playlist.Id;
         }
 
@@ -69,25 +80,20 @@ namespace MusicStreaming.Infrastructure.Repositories
 
         public async Task AddSongAsync(int playlistId, int songId)
         {
-            var exists = await _context.PlaylistSongs
-                .AnyAsync(ps => ps.PlaylistId == playlistId && ps.SongId == songId);
-                
-            if (!exists)
+            var playlist = await _context.Playlists.FindAsync(playlistId);
+            if (playlist != null)
             {
-                var playlistSong = new PlaylistSong { PlaylistId = playlistId, SongId = songId };
-                _context.PlaylistSongs.Add(playlistSong);
+                playlist.AddSong(songId);
                 await _context.SaveChangesAsync();
             }
         }
 
         public async Task RemoveSongAsync(int playlistId, int songId)
         {
-            var playlistSong = await _context.PlaylistSongs
-                .FirstOrDefaultAsync(ps => ps.PlaylistId == playlistId && ps.SongId == songId);
-                
-            if (playlistSong != null)
+            var playlist = await _context.Playlists.FindAsync(playlistId);
+            if (playlist != null)
             {
-                _context.PlaylistSongs.Remove(playlistSong);
+                playlist.RemoveSong(songId);
                 await _context.SaveChangesAsync();
             }
         }
