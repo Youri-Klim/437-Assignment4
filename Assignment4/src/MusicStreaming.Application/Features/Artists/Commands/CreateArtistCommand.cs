@@ -1,7 +1,7 @@
 using FluentValidation;
 using MediatR;
 using MusicStreaming.Application.DTOs;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29,11 +29,11 @@ namespace MusicStreaming.Application.Features.Artists.Commands
 
     public class CreateArtistCommandHandler : IRequestHandler<CreateArtistCommand, int>
     {
-        private readonly IArtistRepository _artistRepository;
+        private readonly ArtistService _artistService;
         
-        public CreateArtistCommandHandler(IArtistRepository artistRepository)
+        public CreateArtistCommandHandler(ArtistService artistService)
         {
-            _artistRepository = artistRepository;
+            _artistService = artistService;
         }
         
         public async Task<int> Handle(CreateArtistCommand request, CancellationToken cancellationToken)
@@ -44,7 +44,7 @@ namespace MusicStreaming.Application.Features.Artists.Commands
                 Genre = request.Genre
             };
             
-            return await _artistRepository.AddAsync(artistDto);
+            return await _artistService.AddAsync(artistDto);
         }
     }
 }

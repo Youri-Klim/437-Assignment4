@@ -89,5 +89,27 @@ namespace MusicStreaming.Web.Controllers
             await _mediator.Send(new DeleteArtistCommand { Id = id });
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Details(int? id)
+{
+    if (id == null)
+    {
+        return NotFound();
+    }
+
+    var query = new GetArtistByIdQuery { Id = id.Value };
+    var artistDto = await _mediator.Send(query);
+
+    if (artistDto == null)
+    {
+        return NotFound();
+    }
+
+    // Log the number of albums to see if they're coming through
+    _logger.LogInformation($"Artist {artistDto.Name} has {artistDto.Albums?.Count ?? 0} albums");
+
+    var viewModel = _mapper.Map<ArtistDetailViewModel>(artistDto);
+    return View(viewModel);
+}
     }
 }

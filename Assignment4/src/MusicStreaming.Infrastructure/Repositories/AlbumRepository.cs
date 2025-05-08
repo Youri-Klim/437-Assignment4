@@ -1,79 +1,57 @@
 using Microsoft.EntityFrameworkCore;
-using MusicStreaming.Application.DTOs;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Core.Interfaces.Repositories;
 using MusicStreaming.Core.Entities;
 using MusicStreaming.Infrastructure.Data;
-using AutoMapper;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MusicStreaming.Infrastructure.Repositories
 {
     public class AlbumRepository : IAlbumRepository
     {
         private readonly MusicStreamingDbContext _context;
-        private readonly IMapper _mapper;
 
-        public AlbumRepository(MusicStreamingDbContext context, IMapper mapper)
+        public AlbumRepository(MusicStreamingDbContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
 
-        public async Task<AlbumDto> GetByIdAsync(int id)
+        public async Task<Album?> GetByIdAsync(int id)
         {
-            var album = await _context.Albums
-                .Include(a => a.Artist)
+            return await _context.Albums.FindAsync(id);
+        }
+
+        public async Task<Album?> GetWithSongsAsync(int id)
+        {
+            return await _context.Albums
+                .Include(a => a.Songs)
                 .FirstOrDefaultAsync(a => a.Id == id);
-            
-            return _mapper.Map<AlbumDto>(album);
         }
 
-        public async Task<IReadOnlyList<AlbumDto>> ListAllAsync()
+        public async Task<IReadOnlyList<Album>> ListAllAsync()
         {
-            var albums = await _context.Albums
-                .Include(a => a.Artist)
+            return await _context.Albums.ToListAsync();
+        }
+
+        public async Task<IReadOnlyList<Album>> GetByArtistIdAsync(int artistId)
+        {
+            return await _context.Albums
+                .Where(a => a.ArtistId == artistId)
                 .ToListAsync();
-            
-            return _mapper.Map<IReadOnlyList<AlbumDto>>(albums);
         }
 
-        public async Task<int> AddAsync(CreateAlbumDto albumDto)
+        public async Task<int> AddAsync(Album album)
         {
-            // Use the parameterized constructor
-            var album = new Album(
-                albumDto.Title,
-                albumDto.ReleaseYear,
-                albumDto.Genre,
-                albumDto.ArtistId
-            );
-            
             _context.Albums.Add(album);
             await _context.SaveChangesAsync();
-            
             return album.Id;
         }
 
-        public async Task UpdateAsync(UpdateAlbumDto albumDto)
+        public async Task UpdateAsync(Album album)
         {
-            var album = await _context.Albums.FindAsync(albumDto.Id);
-            if (album != null)
-            {
-                // Use reflection to update properties with private setters
-                var entityType = _context.Entry(album).Entity.GetType();
-                var titleProperty = entityType.GetProperty("Title");
-                var releaseYearProperty = entityType.GetProperty("ReleaseYear");
-                var genreProperty = entityType.GetProperty("Genre");
-                var artistIdProperty = entityType.GetProperty("ArtistId");
-                
-                titleProperty?.SetValue(album, albumDto.Title);
-                releaseYearProperty?.SetValue(album, albumDto.ReleaseYear);
-                genreProperty?.SetValue(album, albumDto.Genre);
-                artistIdProperty?.SetValue(album, albumDto.ArtistId);
-                
-                await _context.SaveChangesAsync();
-            }
+            _context.Entry(album).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)

@@ -1,91 +1,59 @@
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using MusicStreaming.Application.DTOs;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Core.Interfaces.Repositories;
 using MusicStreaming.Core.Entities;
 using MusicStreaming.Infrastructure.Data;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MusicStreaming.Infrastructure.Repositories
 {
     public class SongRepository : ISongRepository
     {
         private readonly MusicStreamingDbContext _context;
-        private readonly IMapper _mapper;
-        
-        public SongRepository(MusicStreamingDbContext context, IMapper mapper)
+
+        public SongRepository(MusicStreamingDbContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
-        
-        public async Task<SongDto> GetByIdAsync(int id)
+
+        public async Task<Song?> GetByIdAsync(int id)
         {
-            var song = await _context.Songs
-                .Include(s => s.Album)
-                .ThenInclude(a => a.Artist)
-                .FirstOrDefaultAsync(s => s.Id == id);
-                
-            return _mapper.Map<SongDto>(song);
+            return await _context.Songs.FindAsync(id);
         }
-        
-        public async Task<IReadOnlyList<SongDto>> ListAllAsync()
+
+        public async Task<IReadOnlyList<Song>> ListAllAsync()
         {
-            var songs = await _context.Songs
-                .Include(s => s.Album)
-                .ThenInclude(a => a.Artist)
-                .ToListAsync();
-                
-            return _mapper.Map<IReadOnlyList<SongDto>>(songs);
+            return await _context.Songs.ToListAsync();
         }
-        
-        public async Task<IReadOnlyList<SongDto>> GetByAlbumIdAsync(int albumId)
+
+        public async Task<IReadOnlyList<Song>> GetByAlbumIdAsync(int albumId)
         {
-            var songs = await _context.Songs
-                .Include(s => s.Album)
-                .ThenInclude(a => a.Artist)
+            return await _context.Songs
                 .Where(s => s.AlbumId == albumId)
                 .ToListAsync();
-                
-            return _mapper.Map<IReadOnlyList<SongDto>>(songs);
         }
-        
-        public async Task<int> AddAsync(CreateSongDto songDto)
+
+        public async Task<IReadOnlyList<Song>> SearchAsync(string searchTerm)
         {
-            var song = new Song(
-                songDto.Title,
-                songDto.Duration,
-                songDto.ReleaseDate,
-                songDto.Genre,
-                songDto.AlbumId);
-                
+            return await _context.Songs
+                .Where(s => s.Title.Contains(searchTerm))
+                .ToListAsync();
+        }
+
+        public async Task<int> AddAsync(Song song)
+        {
             _context.Songs.Add(song);
             await _context.SaveChangesAsync();
-            
             return song.Id;
         }
-        
-        public async Task UpdateAsync(UpdateSongDto songDto)
+
+        public async Task UpdateAsync(Song song)
         {
-            var song = await _context.Songs.FindAsync(songDto.Id);
-            if (song == null) return;
-            
-            // Update song properties - typically you'd have a method in the entity
-            // for this but since we don't, we'll update via EF Core
-            
-            _context.Entry(song).CurrentValues.SetValues(new
-            {
-                songDto.Title,
-                songDto.Duration,
-                songDto.ReleaseDate,
-                songDto.Genre,
-                songDto.AlbumId
-            });
-            
+            _context.Entry(song).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
-        
+
         public async Task DeleteAsync(int id)
         {
             var song = await _context.Songs.FindAsync(id);

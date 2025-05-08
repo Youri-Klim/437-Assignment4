@@ -1,7 +1,7 @@
 using FluentValidation;
 using MediatR;
 using MusicStreaming.Application.DTOs;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -43,26 +43,34 @@ namespace MusicStreaming.Application.Features.Albums.Commands
 
     public class UpdateAlbumCommandHandler : IRequestHandler<UpdateAlbumCommand, bool>
     {
-        private readonly IAlbumRepository _albumRepository;
+        private readonly AlbumService _albumService;
         
-        public UpdateAlbumCommandHandler(IAlbumRepository albumRepository)
+        public UpdateAlbumCommandHandler(AlbumService albumService)
         {
-            _albumRepository = albumRepository;
+            _albumService = albumService;
         }
         
         public async Task<bool> Handle(UpdateAlbumCommand request, CancellationToken cancellationToken)
         {
-            var albumDto = new UpdateAlbumDto
+            try 
             {
-                Id = request.Id,
-                Title = request.Title,
-                ReleaseYear = request.ReleaseYear,
-                Genre = request.Genre,
-                ArtistId = request.ArtistId
-            };
-            
-            await _albumRepository.UpdateAsync(albumDto);
-            return true;
+                var albumDto = new UpdateAlbumDto
+                {
+                    Id = request.Id,
+                    Title = request.Title,
+                    ReleaseYear = request.ReleaseYear,
+                    Genre = request.Genre,
+                    ArtistId = request.ArtistId
+                };
+                
+                await _albumService.UpdateAsync(albumDto);
+                return true;
+            }
+            catch
+            {
+                // You could log the exception here
+                return false;
+            }
         }
     }
 }

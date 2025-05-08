@@ -1,10 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Core.Interfaces.Repositories;
 using MusicStreaming.Core.Entities;
 using MusicStreaming.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MusicStreaming.Infrastructure.Repositories
 {
@@ -19,36 +20,38 @@ namespace MusicStreaming.Infrastructure.Repositories
 
         public async Task<User?> GetByIdAsync(string id)
         {
-            return await _context.Users
-                .Include(u => u.Playlists)
-                .FirstOrDefaultAsync(u => u.Id == id);
+            return await _context.Users.FindAsync(id);
         }
 
-        public async Task<User?> GetUserByEmailAsync(string email)
+        public async Task<User?> GetByUsernameAsync(string username)
         {
             return await _context.Users
-                .FirstOrDefaultAsync(u => u.Email == email);
+                .FirstOrDefaultAsync(u => u.Username == username);
         }
 
-        public async Task<IEnumerable<User>> GetAllAsync()
+        public async Task<IReadOnlyList<User>> ListAllAsync()
         {
             return await _context.Users.ToListAsync();
         }
 
-        public async Task<string> CreateAsync(string username, string email, string password, DateTime dateOfBirth)
+        public async Task<string> AddAsync(User user)
         {
-            var id = Guid.NewGuid().ToString();
-            var user = new User(id, username, email, password, dateOfBirth);
-            
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+                
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
             
-            return id;
+            // Ensure the ID is not null before returning
+            return user.Id ?? throw new InvalidOperationException("User ID was not generated properly");
         }
 
         public async Task UpdateAsync(User user)
         {
-            _context.Users.Update(user);
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+                
+            _context.Entry(user).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
 
@@ -60,6 +63,13 @@ namespace MusicStreaming.Infrastructure.Repositories
                 _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<User?> GetWithPlaylistsAsync(string id)
+        {
+            return await _context.Users
+                .Include(u => u.Playlists)
+                .FirstOrDefaultAsync(u => u.Id == id);
         }
     }
 }

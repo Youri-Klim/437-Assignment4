@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Core.Interfaces.Repositories;
 using MusicStreaming.Infrastructure.Data;
 using MusicStreaming.Infrastructure.Repositories;
 namespace MusicStreaming.Infrastructure

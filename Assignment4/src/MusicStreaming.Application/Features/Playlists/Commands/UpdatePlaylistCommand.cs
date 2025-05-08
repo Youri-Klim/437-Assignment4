@@ -1,7 +1,7 @@
 using FluentValidation;
 using MediatR;
 using MusicStreaming.Application.DTOs;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,11 +28,11 @@ namespace MusicStreaming.Application.Features.Playlists.Commands
 
     public class UpdatePlaylistCommandHandler : IRequestHandler<UpdatePlaylistCommand, bool>
     {
-        private readonly IPlaylistRepository _playlistRepository;
+        private readonly PlaylistService _playlistService;
         
-        public UpdatePlaylistCommandHandler(IPlaylistRepository playlistRepository)
+        public UpdatePlaylistCommandHandler(PlaylistService playlistService)
         {
-            _playlistRepository = playlistRepository;
+            _playlistService = playlistService;
         }
         
         public async Task<bool> Handle(UpdatePlaylistCommand request, CancellationToken cancellationToken)
@@ -43,7 +43,7 @@ namespace MusicStreaming.Application.Features.Playlists.Commands
                 Title = request.Title
             };
             
-            await _playlistRepository.UpdateAsync(playlistDto);
+            await _playlistService.UpdateAsync(playlistDto);
             return true;
         }
     }

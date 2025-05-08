@@ -144,6 +144,13 @@ namespace MusicStreaming.Infrastructure.Data
         .WithMany(a => a.Songs)
         .HasForeignKey(s => s.AlbumId)
         .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Artist>()
+    .HasMany(a => a.Albums)
+    .WithOne(a => a.Artist)
+    .HasForeignKey(a => a.ArtistId);
 }
+
+
     }
 }

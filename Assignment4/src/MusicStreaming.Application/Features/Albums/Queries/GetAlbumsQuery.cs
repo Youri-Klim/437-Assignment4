@@ -1,6 +1,6 @@
 using MediatR;
 using MusicStreaming.Application.DTOs;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,16 +13,16 @@ namespace MusicStreaming.Application.Features.Albums.Queries
 
     public class GetAlbumsQueryHandler : IRequestHandler<GetAlbumsQuery, IReadOnlyList<AlbumDto>>
     {
-        private readonly IAlbumRepository _albumRepository;
+        private readonly AlbumService _albumService;
         
-        public GetAlbumsQueryHandler(IAlbumRepository albumRepository)
+        public GetAlbumsQueryHandler(AlbumService albumService)
         {
-            _albumRepository = albumRepository;
+            _albumService = albumService;
         }
         
         public async Task<IReadOnlyList<AlbumDto>> Handle(GetAlbumsQuery request, CancellationToken cancellationToken)
         {
-            return await _albumRepository.ListAllAsync();
+            return await _albumService.ListAllAsync();
         }
     }
 }

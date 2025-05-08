@@ -1,9 +1,8 @@
 using MediatR;
 using MusicStreaming.Application.DTOs;
-using System;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
-using MusicStreaming.Application.Interfaces.Repositories;
 
 namespace MusicStreaming.Application.Features.Playlists.Queries
 {
@@ -14,16 +13,16 @@ namespace MusicStreaming.Application.Features.Playlists.Queries
 
     public class GetPlaylistWithSongsQueryHandler : IRequestHandler<GetPlaylistWithSongsQuery, PlaylistDto?>
     {
-        private readonly IPlaylistRepository _playlistRepository;
-
-        public GetPlaylistWithSongsQueryHandler(IPlaylistRepository playlistRepository)
+        private readonly PlaylistService _playlistService;
+        
+        public GetPlaylistWithSongsQueryHandler(PlaylistService playlistService)
         {
-            _playlistRepository = playlistRepository;
+            _playlistService = playlistService;
         }
-
+        
         public async Task<PlaylistDto?> Handle(GetPlaylistWithSongsQuery request, CancellationToken cancellationToken)
         {
-            return await _playlistRepository.GetWithSongsAsync(request.Id);
+            return await _playlistService.GetWithSongsAsync(request.Id);
         }
     }
 }

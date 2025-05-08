@@ -1,6 +1,6 @@
 using FluentValidation;
 using MediatR;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,17 +22,25 @@ namespace MusicStreaming.Application.Features.Playlists.Commands
 
     public class DeletePlaylistCommandHandler : IRequestHandler<DeletePlaylistCommand, bool>
     {
-        private readonly IPlaylistRepository _playlistRepository;
+        private readonly PlaylistService _playlistService;
         
-        public DeletePlaylistCommandHandler(IPlaylistRepository playlistRepository)
+        public DeletePlaylistCommandHandler(PlaylistService playlistService)
         {
-            _playlistRepository = playlistRepository;
+            _playlistService = playlistService;
         }
         
         public async Task<bool> Handle(DeletePlaylistCommand request, CancellationToken cancellationToken)
         {
-            await _playlistRepository.DeleteAsync(request.Id);
-            return true;
+            try
+            {
+                await _playlistService.DeleteAsync(request.Id);
+                return true;
+            }
+            catch
+            {
+                // Consider logging the exception here
+                return false;
+            }
         }
     }
 }

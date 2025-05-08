@@ -1,7 +1,7 @@
 using FluentValidation;
 using MediatR;
 using MusicStreaming.Application.DTOs;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,11 +28,11 @@ namespace MusicStreaming.Application.Features.Playlists.Commands
 
     public class CreatePlaylistCommandHandler : IRequestHandler<CreatePlaylistCommand, int>
     {
-        private readonly IPlaylistRepository _playlistRepository;
+        private readonly PlaylistService _playlistService;
         
-        public CreatePlaylistCommandHandler(IPlaylistRepository playlistRepository)
+        public CreatePlaylistCommandHandler(PlaylistService playlistService)
         {
-            _playlistRepository = playlistRepository;
+            _playlistService = playlistService;
         }
         
         public async Task<int> Handle(CreatePlaylistCommand request, CancellationToken cancellationToken)
@@ -43,7 +43,7 @@ namespace MusicStreaming.Application.Features.Playlists.Commands
                 UserId = request.UserId
             };
                 
-            return await _playlistRepository.AddAsync(playlistDto);
+            return await _playlistService.AddAsync(playlistDto);
         }
     }
 }

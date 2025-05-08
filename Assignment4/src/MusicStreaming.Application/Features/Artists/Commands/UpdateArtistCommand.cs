@@ -1,7 +1,7 @@
 using FluentValidation;
 using MediatR;
 using MusicStreaming.Application.DTOs;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -33,24 +33,32 @@ namespace MusicStreaming.Application.Features.Artists.Commands
 
     public class UpdateArtistCommandHandler : IRequestHandler<UpdateArtistCommand, bool>
     {
-        private readonly IArtistRepository _artistRepository;
+        private readonly ArtistService _artistService;
         
-        public UpdateArtistCommandHandler(IArtistRepository artistRepository)
+        public UpdateArtistCommandHandler(ArtistService artistService)
         {
-            _artistRepository = artistRepository;
+            _artistService = artistService;
         }
         
         public async Task<bool> Handle(UpdateArtistCommand request, CancellationToken cancellationToken)
         {
-            var artistDto = new UpdateArtistDto
+            try
             {
-                Id = request.Id,
-                Name = request.Name,
-                Genre = request.Genre
-            };
-            
-            await _artistRepository.UpdateAsync(artistDto);
-            return true;
+                var artistDto = new UpdateArtistDto
+                {
+                    Id = request.Id,
+                    Name = request.Name,
+                    Genre = request.Genre
+                };
+                
+                await _artistService.UpdateAsync(artistDto);
+                return true;
+            }
+            catch
+            {
+                // Consider logging the exception here
+                return false;
+            }
         }
     }
 }

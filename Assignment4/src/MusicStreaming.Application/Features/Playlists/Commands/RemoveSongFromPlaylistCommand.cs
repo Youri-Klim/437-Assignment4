@@ -1,6 +1,6 @@
 using FluentValidation;
 using MediatR;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,16 +26,16 @@ namespace MusicStreaming.Application.Features.Playlists.Commands
 
     public class RemoveSongFromPlaylistCommandHandler : IRequestHandler<RemoveSongFromPlaylistCommand, bool>
     {
-        private readonly IPlaylistRepository _playlistRepository;
+        private readonly PlaylistService _playlistService;
         
-        public RemoveSongFromPlaylistCommandHandler(IPlaylistRepository playlistRepository)
+        public RemoveSongFromPlaylistCommandHandler(PlaylistService playlistService)
         {
-            _playlistRepository = playlistRepository;
+            _playlistService = playlistService;
         }
         
         public async Task<bool> Handle(RemoveSongFromPlaylistCommand request, CancellationToken cancellationToken)
         {
-            await _playlistRepository.RemoveSongAsync(request.PlaylistId, request.SongId);
+            await _playlistService.RemoveSongFromPlaylistAsync(request.PlaylistId, request.SongId);
             return true;
         }
     }

@@ -1,123 +1,58 @@
 using Microsoft.EntityFrameworkCore;
-using MusicStreaming.Application.DTOs;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Core.Interfaces.Repositories;
 using MusicStreaming.Core.Entities;
 using MusicStreaming.Infrastructure.Data;
-using AutoMapper;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MusicStreaming.Infrastructure.Repositories
 {
     public class PlaylistRepository : IPlaylistRepository
     {
         private readonly MusicStreamingDbContext _context;
-        private readonly IMapper _mapper;
 
-        public PlaylistRepository(MusicStreamingDbContext context, IMapper mapper)
+        public PlaylistRepository(MusicStreamingDbContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
 
-        public async Task<PlaylistDto?> GetByIdAsync(int id)
+        public async Task<Playlist?> GetByIdAsync(int id)
         {
-            var playlist = await _context.Playlists
-                .Include(p => p.User)
+            return await _context.Playlists.FindAsync(id);
+        }
+
+        public async Task<Playlist?> GetWithSongsAsync(int id)
+        {
+            return await _context.Playlists
+                .Include(p => p.PlaylistSongs)
+                .ThenInclude(ps => ps.Song)
                 .FirstOrDefaultAsync(p => p.Id == id);
-                
-            return _mapper.Map<PlaylistDto>(playlist);
         }
 
-        public async Task<PlaylistDto?> GetWithSongsAsync(int id)
-{
-    var playlist = await _context.Playlists
-        .Include(p => p.User)
-        .Include(p => p.PlaylistSongs)
-            .ThenInclude(ps => ps.Song)
-                .ThenInclude(s => s.Album)
-                    .ThenInclude(a => a.Artist)
-        .FirstOrDefaultAsync(p => p.Id == id);
-        
-    if (playlist == null)
-        return null;
-        
-    // Basic mapping
-    var playlistDto = _mapper.Map<PlaylistDto>(playlist);
-    
-    // Manually populate songs
-    playlistDto.Songs = new List<SongDto>();
-    if (playlist.PlaylistSongs != null)
-    {
-        foreach (var ps in playlist.PlaylistSongs)
+        public async Task<IReadOnlyList<Playlist>> ListAllAsync()
         {
-            if (ps.Song != null)
-            {
-                var songDto = new SongDto
-                {
-                    Id = ps.Song.Id,
-                    Title = ps.Song.Title,
-                    Duration = ps.Song.Duration,
-                    Genre = ps.Song.Genre,
-                    ReleaseDate = ps.Song.ReleaseDate,
-                    AlbumId = ps.Song.AlbumId,
-                    AlbumTitle = ps.Song.Album?.Title ?? "Unknown Album",
-                    ArtistName = ps.Song.Album?.Artist?.Name ?? "Unknown Artist"
-                };
-                
-                playlistDto.Songs.Add(songDto);
-            }
-        }
-    }
-    
-    return playlistDto;
-}
-
-        public async Task<IReadOnlyList<PlaylistDto>> ListAllAsync()
-        {
-            var playlists = await _context.Playlists
-                .Include(p => p.User)
-                .ToListAsync();
-                
-            return _mapper.Map<IReadOnlyList<PlaylistDto>>(playlists);
+            return await _context.Playlists.ToListAsync();
         }
 
-        public async Task<IReadOnlyList<PlaylistDto>> GetByUserIdAsync(string userId)
+        public async Task<IReadOnlyList<Playlist>> GetByUserIdAsync(string userId)
         {
-            var playlists = await _context.Playlists
+            return await _context.Playlists
                 .Where(p => p.UserId == userId)
-                .Include(p => p.User)
                 .ToListAsync();
-                
-            return _mapper.Map<IReadOnlyList<PlaylistDto>>(playlists);
         }
 
-        public async Task<int> AddAsync(CreatePlaylistDto playlistDto)
+        public async Task<int> AddAsync(Playlist playlist)
         {
-            // Use the parameterized constructor
-            var playlist = new Playlist(playlistDto.Title, playlistDto.UserId);
-            
             _context.Playlists.Add(playlist);
             await _context.SaveChangesAsync();
-            
             return playlist.Id;
         }
 
-        public async Task UpdateAsync(UpdatePlaylistDto playlistDto)
+        public async Task UpdateAsync(Playlist playlist)
         {
-            var playlist = await _context.Playlists.FindAsync(playlistDto.Id);
-            if (playlist != null)
-            {
-                // Use reflection to update property with private setter
-                var entityType = _context.Entry(playlist).Entity.GetType();
-                var titleProperty = entityType.GetProperty("Title");
-                
-                titleProperty?.SetValue(playlist, playlistDto.Title);
-                
-                await _context.SaveChangesAsync();
-            }
+            _context.Entry(playlist).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
@@ -132,24 +67,16 @@ namespace MusicStreaming.Infrastructure.Repositories
 
         public async Task AddSongAsync(int playlistId, int songId)
         {
-            // First check if the song is already in the playlist
+            // Check if the relation already exists
             var exists = await _context.PlaylistSongs
                 .AnyAsync(ps => ps.PlaylistId == playlistId && ps.SongId == songId);
                 
-            if (exists)
+            if (!exists)
             {
-                // Song is already in the playlist, just return
-                return;
+                var playlistSong = new PlaylistSong { PlaylistId = playlistId, SongId = songId };
+                _context.PlaylistSongs.Add(playlistSong);
+                await _context.SaveChangesAsync();
             }
-            
-            // Add the song if it's not already in the playlist
-            _context.PlaylistSongs.Add(new PlaylistSong
-            {
-                PlaylistId = playlistId,
-                SongId = songId
-            });
-            
-            await _context.SaveChangesAsync();
         }
 
         public async Task RemoveSongAsync(int playlistId, int songId)

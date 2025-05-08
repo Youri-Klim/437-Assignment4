@@ -1,6 +1,6 @@
 using FluentValidation;
 using MediatR;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,17 +22,25 @@ namespace MusicStreaming.Application.Features.Songs.Commands
 
     public class DeleteSongCommandHandler : IRequestHandler<DeleteSongCommand, bool>
     {
-        private readonly ISongRepository _songRepository;
+        private readonly SongService _songService;
         
-        public DeleteSongCommandHandler(ISongRepository songRepository)
+        public DeleteSongCommandHandler(SongService songService)
         {
-            _songRepository = songRepository;
+            _songService = songService;
         }
         
         public async Task<bool> Handle(DeleteSongCommand request, CancellationToken cancellationToken)
         {
-            await _songRepository.DeleteAsync(request.Id);
-            return true;
+            try
+            {
+                await _songService.DeleteAsync(request.Id);
+                return true;
+            }
+            catch
+            {
+                // Consider logging the exception here
+                return false;
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 using FluentValidation;
 using MediatR;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,16 +26,16 @@ namespace MusicStreaming.Application.Features.Playlists.Commands
 
     public class AddSongToPlaylistCommandHandler : IRequestHandler<AddSongToPlaylistCommand, bool>
     {
-        private readonly IPlaylistRepository _playlistRepository;
+        private readonly PlaylistService _playlistService;
         
-        public AddSongToPlaylistCommandHandler(IPlaylistRepository playlistRepository)
+        public AddSongToPlaylistCommandHandler(PlaylistService playlistService)
         {
-            _playlistRepository = playlistRepository;
+            _playlistService = playlistService;
         }
         
         public async Task<bool> Handle(AddSongToPlaylistCommand request, CancellationToken cancellationToken)
         {
-            await _playlistRepository.AddSongAsync(request.PlaylistId, request.SongId);
+            await _playlistService.AddSongToPlaylistAsync(request.PlaylistId, request.SongId);
             return true;
         }
     }

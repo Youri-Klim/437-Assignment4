@@ -5,8 +5,7 @@ namespace MusicStreaming.Core.Entities
         public int Id { get;  set; }
         public string Name { get;  set; } = null!;
         public string Genre { get;  set; } = null!;
-        private readonly List<Album> _albums = new();
-        public IReadOnlyCollection<Album> Albums => _albums.AsReadOnly();
+        public virtual ICollection<Album> Albums { get; private set; } = new List<Album>();
         
         public Artist() { } // For EF Core
         
@@ -21,7 +20,5 @@ namespace MusicStreaming.Core.Entities
             Name = name;
             Genre = genre;
         }
-
-        
     }
 }

@@ -1,5 +1,6 @@
+using FluentValidation;
 using MediatR;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,21 +11,36 @@ namespace MusicStreaming.Application.Features.Users.Commands
         public required string Id { get; set; }
     }
 
+    public class DeleteUserCommandValidator : AbstractValidator<DeleteUserCommand>
+    {
+        public DeleteUserCommandValidator()
+        {
+            RuleFor(x => x.Id)
+                .NotEmpty().WithMessage("User ID is required");
+        }
+    }
+
     public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, bool>
     {
-        private readonly IUserRepository _userRepository;
+        private readonly UserService _userService;
         
-        public DeleteUserCommandHandler(IUserRepository userRepository)
+        public DeleteUserCommandHandler(UserService userService)
         {
-            _userRepository = userRepository;
+            _userService = userService;
         }
         
         public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            // Since DeleteAsync returns void, we'll call it and then return true 
-            // to indicate successful completion
-            await _userRepository.DeleteAsync(request.Id);
-            return true;
+            try
+            {
+                await _userService.DeleteAsync(request.Id);
+                return true;
+            }
+            catch
+            {
+                // Consider logging the error here
+                return false;
+            }
         }
     }
 }

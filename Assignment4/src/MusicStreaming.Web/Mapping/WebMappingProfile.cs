@@ -5,6 +5,7 @@ using MusicStreaming.Application.Features.Albums.Commands;
 using MusicStreaming.Application.Features.Artists.Commands;
 using MusicStreaming.Application.Features.Playlists.Commands;
 using MusicStreaming.Web.ViewModels;
+using MusicStreaming.Core.Entities;
 
 namespace MusicStreaming.Web.Mapping
 {
@@ -39,7 +40,8 @@ namespace MusicStreaming.Web.Mapping
             
             // Artist mappings
             CreateMap<ArtistDto, ArtistViewModel>();
-            CreateMap<ArtistDto, ArtistDetailViewModel>();
+            CreateMap<ArtistDto, ArtistDetailViewModel>()
+                .ForMember(dest => dest.Albums, opt => opt.MapFrom(src => src.Albums));
             CreateMap<ArtistDto, EditArtistViewModel>();
             CreateMap<CreateArtistViewModel, CreateArtistCommand>();
             CreateMap<EditArtistViewModel, UpdateArtistCommand>();
@@ -51,6 +53,9 @@ namespace MusicStreaming.Web.Mapping
             CreateMap<PlaylistDto, EditPlaylistViewModel>();
             CreateMap<EditPlaylistViewModel, UpdatePlaylistCommand>();
             CreateMap<CreatePlaylistViewModel, CreatePlaylistCommand>();
+            CreateMap<Playlist, PlaylistDto>()
+    .ForMember(dest => dest.Songs, opt => opt.MapFrom(src => 
+        src.PlaylistSongs.Select(ps => ps.Song)));
             
             // User mappings
             CreateMap<UserDto, UserViewModel>();

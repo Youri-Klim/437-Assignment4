@@ -1,5 +1,6 @@
 using AutoMapper;
 using MusicStreaming.Application.DTOs;
+using MusicStreaming.Core.Entities;
 
 namespace MusicStreaming.Application.Mapping
 {
@@ -18,6 +19,10 @@ namespace MusicStreaming.Application.Mapping
                 
             // Artist mappings
             CreateMap<MusicStreaming.Core.Entities.Artist, ArtistDto>();
+            // In Application/Mapping/MappingProfile.cs
+           CreateMap<Artist, ArtistDto>()
+                .ForMember(dest => dest.Albums, opt => opt.MapFrom(src => src.Albums));
+            
             
             // Playlist mappings
             CreateMap<MusicStreaming.Core.Entities.Playlist, PlaylistDto>()

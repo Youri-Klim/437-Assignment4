@@ -1,7 +1,7 @@
 using FluentValidation;
 using MediatR;
 using MusicStreaming.Application.DTOs;
-using MusicStreaming.Application.Interfaces.Repositories;
+using MusicStreaming.Application.Services;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -60,18 +60,18 @@ namespace MusicStreaming.Application.Features.Albums.Commands
 
     public class CreateAlbumWithSongCommandHandler : IRequestHandler<CreateAlbumWithSongCommand, int>
     {
-        private readonly IAlbumRepository _albumRepository;
-        private readonly ISongRepository _songRepository;
+        private readonly AlbumService _albumService;
+        private readonly SongService _songService;
         
-        public CreateAlbumWithSongCommandHandler(IAlbumRepository albumRepository, ISongRepository songRepository)
+        public CreateAlbumWithSongCommandHandler(AlbumService albumService, SongService songService)
         {
-            _albumRepository = albumRepository;
-            _songRepository = songRepository;
+            _albumService = albumService;
+            _songService = songService;
         }
         
         public async Task<int> Handle(CreateAlbumWithSongCommand request, CancellationToken cancellationToken)
         {
-            // Create album
+            // Create album using AlbumService
             var albumDto = new CreateAlbumDto
             {
                 Title = request.Title,
@@ -80,11 +80,11 @@ namespace MusicStreaming.Application.Features.Albums.Commands
                 ArtistId = request.ArtistId
             };
             
-            var albumId = await _albumRepository.AddAsync(albumDto);
+            var albumId = await _albumService.AddAsync(albumDto);
             
             if (albumId > 0)
             {
-                // Create song associated with the album
+                // Create song associated with the album using SongService
                 var songDto = new CreateSongDto
                 {
                     Title = request.SongTitle,
@@ -94,7 +94,7 @@ namespace MusicStreaming.Application.Features.Albums.Commands
                     AlbumId = albumId
                 };
                 
-                await _songRepository.AddAsync(songDto);
+                await _songService.AddAsync(songDto);
             }
             
             return albumId;
