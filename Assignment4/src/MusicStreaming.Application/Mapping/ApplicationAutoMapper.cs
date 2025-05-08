@@ -17,6 +17,18 @@ namespace MusicStreaming.Application.Mapping
             CreateMap<Album, AlbumDto>()
                 .ForMember(dest => dest.ArtistName, opt => opt.MapFrom(src => src.Artist != null ? src.Artist.Name : string.Empty));
                 
+            CreateMap<UpdateAlbumDto, Album>()
+                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
+                .ForMember(dest => dest.ReleaseYear, opt => opt.MapFrom(src => src.ReleaseYear))
+                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre))
+                .ForMember(dest => dest.ArtistId, opt => opt.MapFrom(src => src.ArtistId));
+                
+            CreateMap<CreateAlbumDto, Album>()
+                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
+                .ForMember(dest => dest.ReleaseYear, opt => opt.MapFrom(src => src.ReleaseYear))
+                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre))
+                .ForMember(dest => dest.ArtistId, opt => opt.MapFrom(src => src.ArtistId));
+                
             // Artist mappings
             CreateMap<MusicStreaming.Core.Entities.Artist, ArtistDto>();
            CreateMap<Artist, ArtistDto>()

@@ -107,6 +107,7 @@ namespace MusicStreaming.Application.Services
             song.UpdateDuration(songDto.Duration);
             song.UpdateReleaseDate(songDto.ReleaseDate);
             song.UpdateGenre(songDto.Genre);
+            song.AlbumId = songDto.AlbumId;
             
             // Domain validation
             var domainErrors = _songDomainService.ValidateSong(song);

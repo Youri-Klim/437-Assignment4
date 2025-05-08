@@ -29,7 +29,8 @@ namespace MusicStreaming.Web.Mapping
             CreateMap<EditSongViewModel, UpdateSongCommand>();
             
             // Album mappings
-            CreateMap<AlbumDto, AlbumViewModel>();
+            CreateMap<AlbumDto, AlbumViewModel>()
+                .ForMember(dest => dest.ArtistName, opt => opt.MapFrom(src => src.ArtistName));
             CreateMap<AlbumDto, AlbumDetailViewModel>();
             CreateMap<AlbumDto, EditAlbumViewModel>();
             CreateMap<CreateAlbumViewModel, CreateAlbumCommand>();

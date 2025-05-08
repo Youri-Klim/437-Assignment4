@@ -104,6 +104,7 @@ namespace MusicStreaming.Application.Services
             album.UpdateTitle(albumDto.Title);
             album.UpdateReleaseYear(albumDto.ReleaseYear);
             album.UpdateGenre(albumDto.Genre);
+            album.ArtistId = albumDto.ArtistId;
             
             // Domain validation
             var domainErrors = _albumDomainService.ValidateAlbum(album);
