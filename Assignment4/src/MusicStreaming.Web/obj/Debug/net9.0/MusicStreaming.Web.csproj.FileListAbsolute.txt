@@ -287,3 +287,4 @@ C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignmen
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\MusicStreaming.Web.pdb
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\MusicStreaming.Web.genruntimeconfig.cache
 C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\obj\Debug\net9.0\ref\MusicStreaming.Web.dll
+C:\Users\User\OneDrive - American University of Beirut\Desktop\EECE437-Assignment4\437-Assignment4\Assignment4\src\MusicStreaming.Web\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -8,7 +8,6 @@ namespace MusicStreaming.Core.Events
     {
         public Task HandleAsync(PlaylistCreatedEvent domainEvent, CancellationToken cancellationToken = default)
         {
-            // Use Console.WriteLine instead of _logger
             Console.WriteLine("====== PLAYLIST CREATED EVENT HANDLED ======");
             Console.WriteLine($"🎉 New playlist '{domainEvent.PlaylistTitle}' created by User {domainEvent.UserId}");
             return Task.CompletedTask;

@@ -20,7 +20,6 @@ namespace MusicStreaming.Infrastructure.Events
         {
             var handlerType = typeof(IDomainEventHandler<>).MakeGenericType(domainEvent.GetType());
             
-            // Change to declare the variable as nullable
             dynamic? handler = _serviceProvider.GetService(handlerType);
             if (handler != null)
             {

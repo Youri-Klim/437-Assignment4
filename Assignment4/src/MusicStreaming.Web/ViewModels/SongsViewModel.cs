@@ -20,7 +20,6 @@ namespace MusicStreaming.Web.ViewModels
     
     public class SongDetailViewModel : SongViewModel
     {
-        // Additional properties for details view if needed
     }
     
     public class CreateSongViewModel

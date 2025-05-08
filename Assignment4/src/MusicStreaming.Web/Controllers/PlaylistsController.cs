@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using System;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using AutoMapper;
-using Microsoft.Extensions.Logging;
 using MusicStreaming.Application.Features.Playlists.Queries;
 using MusicStreaming.Application.Features.Playlists.Commands;
 using MusicStreaming.Web.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace MusicStreaming.Web.Controllers
 {
@@ -31,31 +29,36 @@ namespace MusicStreaming.Web.Controllers
             return View(viewModels);
         }
 
-        public IActionResult Create()
-{
-    var model = new CreatePlaylistViewModel
-    {
-        Title = string.Empty,
-        UserId = "1" 
-    };
-    return View(model);
-}
 
-[HttpPost]
-public async Task<IActionResult> Create(CreatePlaylistViewModel viewModel)
-{
-    if (ModelState.IsValid)
-    {
-        var command = _mapper.Map<CreatePlaylistCommand>(viewModel);
-        var result = await _mediator.Send(command);
+        public IActionResult Create()
+        {
+            var model = new CreatePlaylistViewModel
+            {
+                Title = string.Empty,
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "1" 
+            };
+            return View(model);
+        }
+
+        [HttpPost]
         
-        if (result > 0)
-            return RedirectToAction(nameof(Index));
+        public async Task<IActionResult> Create(CreatePlaylistViewModel viewModel)
+        {
+          
+            viewModel.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "1";
             
-        ModelState.AddModelError("", "Failed to create playlist");
-    }
-    return View(viewModel);
-}
+            if (ModelState.IsValid)
+            {
+                var command = _mapper.Map<CreatePlaylistCommand>(viewModel);
+                var result = await _mediator.Send(command);
+                
+                if (result > 0)
+                    return RedirectToAction(nameof(Index));
+                    
+                ModelState.AddModelError("", "Failed to create playlist");
+            }
+            return View(viewModel);
+        }
 
         public async Task<IActionResult> Edit(int id)
         {

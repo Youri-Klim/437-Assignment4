@@ -1,26 +1,19 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore;
 using MusicStreaming.Application;
-using MusicStreaming.Core.Interfaces.Repositories;
 using MusicStreaming.Application.Features.Songs.Queries;
-using MusicStreaming.Application.Mapping;
-using MusicStreaming.Core.Entities;
 using MusicStreaming.Infrastructure;
 using MusicStreaming.Infrastructure.Data;
-using MusicStreaming.Infrastructure.Repositories;
-using MusicStreaming.Web.Mapping;
-using System;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using MusicStreaming.Application.Services;
 using MusicStreaming.Core.Services;
 using MusicStreaming.Core.Interfaces;
 using MusicStreaming.Core.Events;
 using MusicStreaming.Infrastructure.Events;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using MusicStreaming.Infrastructure.Services;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,7 +50,7 @@ builder.Services.AddScoped<AlbumService>();
 builder.Services.AddScoped<ArtistService>();
 builder.Services.AddScoped<UserService>();
 
-// Add Identity - UPDATED to use your User class
+// Add Identity
 builder.Services.AddDefaultIdentity<IdentityUser>(options => 
     options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<MusicStreamingDbContext>();
@@ -67,6 +60,35 @@ builder.Services.AddControllersWithViews();
 
 // Add Razor Pages
 builder.Services.AddRazorPages();
+
+// Configure JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    // Use cookies as the default scheme for browser requests
+    options.DefaultAuthenticateScheme = "Identity.Application";
+    options.DefaultChallengeScheme = "Identity.Application";
+    options.DefaultScheme = "Identity.Application";
+})
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
+        ValidAudience = builder.Configuration["JWT:ValidAudience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"] ?? 
+                throw new InvalidOperationException("JWT:Secret is not configured in appsettings.json")))
+    };
+});
+
+// Register the JWT Service
+builder.Services.AddScoped<JwtService>();
 
 // Register FluentValidation validators for DTOs
 builder.Services.AddScoped<FluentValidation.IValidator<MusicStreaming.Application.DTOs.CreateUserDto>, MusicStreaming.Application.Validators.CreateUserDtoValidator>();

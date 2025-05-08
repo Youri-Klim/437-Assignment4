@@ -6,6 +6,7 @@ using MusicStreaming.Application.Features.Playlists.Queries;
 using MusicStreaming.Application.Features.Playlists.Commands;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MusicStreaming.Web.Controllers.Api
 {
@@ -54,6 +55,7 @@ namespace MusicStreaming.Web.Controllers.Api
 
         // POST: api/Playlists
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<ApiResponse<int>>> Create(CreatePlaylistCommand command)
         {
             try
@@ -69,6 +71,7 @@ namespace MusicStreaming.Web.Controllers.Api
 
         // PUT: api/Playlists/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<ActionResult<ApiResponse<bool>>> Update(int id, UpdatePlaylistCommand command)
         {
             if (id != command.Id)
@@ -91,6 +94,7 @@ namespace MusicStreaming.Web.Controllers.Api
 
         // DELETE: api/Playlists/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<ApiResponse<bool>>> Delete(int id)
         {
             try
