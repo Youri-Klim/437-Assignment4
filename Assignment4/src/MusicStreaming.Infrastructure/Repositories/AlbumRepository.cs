@@ -19,9 +19,10 @@ namespace MusicStreaming.Infrastructure.Repositories
 
         public async Task<Album?> GetByIdAsync(int id)
         {
-            return await _context.Albums.FindAsync(id);
+            return await _context.Albums
+                .Include(a => a.Artist)
+                .FirstOrDefaultAsync(a => a.Id == id);
         }
-
         public async Task<Album?> GetWithSongsAsync(int id)
         {
             return await _context.Albums
@@ -31,7 +32,9 @@ namespace MusicStreaming.Infrastructure.Repositories
 
         public async Task<IReadOnlyList<Album>> ListAllAsync()
         {
-            return await _context.Albums.ToListAsync();
+            return await _context.Albums
+                .Include(a => a.Artist)
+                .ToListAsync();
         }
 
         public async Task<IReadOnlyList<Album>> GetByArtistIdAsync(int artistId)

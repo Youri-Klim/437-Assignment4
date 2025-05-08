@@ -6,8 +6,8 @@ namespace MusicStreaming.Core.Entities
         public string Title { get;  set; } = null!;
         public int ReleaseYear { get;  set; }
         public string Genre { get;  set; } = null!;
-        public int ArtistId { get;  set; }
-        public Artist Artist { get;  set; } = null!;
+        public int ArtistId { get; set; }
+        public virtual Artist Artist { get; set; } = null!;
         private readonly List<Song> _songs = new();
         public IReadOnlyCollection<Song> Songs => _songs.AsReadOnly();
         
