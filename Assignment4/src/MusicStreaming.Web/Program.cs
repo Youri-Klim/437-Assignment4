@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using MusicStreaming.Infrastructure.Services;
 using System.Text;
+using MusicStreaming.Infrastructure.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -112,13 +113,7 @@ builder.Services.AddScoped<FluentValidation.IValidator<MusicStreaming.Applicatio
 builder.Services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
 builder.Services.AddScoped<IDomainEventHandler<PlaylistCreatedEvent>, PlaylistCreatedEventHandler>();
 
-Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Debug()
-    .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Information)
-    .Enrich.FromLogContext()
-    .WriteTo.Console()
-    .WriteTo.File("logs/musicstreaming.txt", rollingInterval: RollingInterval.Day)
-    .CreateLogger();
+builder.Services.AddLoggingServices(builder.Configuration);
 
 builder.Host.UseSerilog();
 

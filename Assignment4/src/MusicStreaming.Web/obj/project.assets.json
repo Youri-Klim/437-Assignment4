@@ -2330,7 +2330,11 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.4",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.4",
           "MusicStreaming.Application": "1.0.0",
-          "MusicStreaming.Core": "1.0.0"
+          "MusicStreaming.Core": "1.0.0",
+          "Serilog": "4.2.0",
+          "Serilog.AspNetCore": "9.0.0",
+          "Serilog.Sinks.Console": "6.0.0",
+          "Serilog.Sinks.File": "7.0.0"
         },
         "compile": {
           "bin/placeholder/MusicStreaming.Infrastructure.dll": {}
