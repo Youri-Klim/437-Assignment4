@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MusicStreaming.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22c6242813f3cc0d759a54aac8d0e0e636a548ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dda7166a001d45aaea62cfa28b400966e349b981")]
 [assembly: System.Reflection.AssemblyProductAttribute("MusicStreaming.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MusicStreaming.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
