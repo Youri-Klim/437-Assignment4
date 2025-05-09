@@ -31,15 +31,8 @@ namespace MusicStreaming.Application.Features.Albums.Commands
         
         public async Task<bool> Handle(DeleteAlbumCommand request, CancellationToken cancellationToken)
         {
-            try
-            {
-                await _albumService.DeleteAsync(request.Id);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+        await _albumService.DeleteAsync(request.Id);
+        return true;
         }
     }
 }

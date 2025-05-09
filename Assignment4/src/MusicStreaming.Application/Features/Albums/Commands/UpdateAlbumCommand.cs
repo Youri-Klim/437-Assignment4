@@ -29,7 +29,7 @@ namespace MusicStreaming.Application.Features.Albums.Commands
                 
             RuleFor(x => x.ReleaseYear)
                 .NotEmpty().WithMessage("Release year is required")
-                .GreaterThan(1900).WithMessage("Release year must be after 1900")
+                .GreaterThanOrEqualTo(1900).WithMessage("Release year must be after 1900")
                 .LessThanOrEqualTo(System.DateTime.Now.Year).WithMessage("Release year cannot be in the future");
                 
             RuleFor(x => x.Genre)

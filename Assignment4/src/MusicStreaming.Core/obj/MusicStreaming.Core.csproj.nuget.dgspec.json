@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {}
+    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {
+    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj",
         "projectName": "MusicStreaming.Core",
-        "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj",
+        "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\obj\\",
+        "outputPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

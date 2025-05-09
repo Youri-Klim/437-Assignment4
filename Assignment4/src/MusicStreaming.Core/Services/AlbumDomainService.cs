@@ -18,9 +18,9 @@ namespace MusicStreaming.Core.Services
         }
         
         public bool CanDeleteAlbum(Album album)
-{
-    return !IsAlbumClassic(album);
-}
+        {
+            return true;
+        }
         
         public List<string> ValidateAlbum(Album album)
         {

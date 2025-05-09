@@ -168,20 +168,21 @@ public async Task<IActionResult> CheckDatabase(int id)
     }
 }
 
+        [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            try
-            {
-                await _mediator.Send(new DeleteAlbumCommand { Id = id });
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error deleting album");
-                TempData["ErrorMessage"] = "Failed to delete the album.";
-                return RedirectToAction(nameof(Index));
-            }
+        try
+        {
+            await _mediator.Send(new DeleteAlbumCommand { Id = id });
+            return RedirectToAction(nameof(Index));
         }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error deleting album");
+            TempData["ErrorMessage"] = "Failed to delete the album.";
+            return RedirectToAction(nameof(Index));
+        }
+    }   
 
         public async Task<IActionResult> Details(int id)
         {

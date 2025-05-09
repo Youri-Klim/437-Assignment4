@@ -124,11 +124,6 @@ namespace MusicStreaming.Application.Services
             var album = await _albumRepository.GetByIdAsync(id);
             if (album == null)
                 return;
-                
-            if (!_albumDomainService.CanDeleteAlbum(album))
-            {
-                throw new BusinessRuleException("Cannot delete a classic album");
-            }
             
             await _albumRepository.DeleteAsync(id);
         }

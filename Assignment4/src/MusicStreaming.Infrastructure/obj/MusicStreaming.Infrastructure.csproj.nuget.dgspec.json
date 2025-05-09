@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj": {}
+    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj": {
+    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj",
         "projectName": "MusicStreaming.Application",
-        "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj",
+        "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Application\\obj\\",
+        "outputPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,8 +31,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {
-                "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj"
+              "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {
+                "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj"
               }
             }
           }
@@ -106,14 +106,14 @@
         }
       }
     },
-    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {
+    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj",
         "projectName": "MusicStreaming.Core",
-        "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj",
+        "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\obj\\",
+        "outputPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -176,14 +176,14 @@
         }
       }
     },
-    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj": {
+    "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj",
         "projectName": "MusicStreaming.Infrastructure",
-        "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Infrastructure\\MusicStreaming.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -203,11 +203,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj": {
-                "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj"
+              "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj": {
+                "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Application\\MusicStreaming.Application.csproj"
               },
-              "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {
-                "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\EECE437-Assignment4\\437-Assignment4\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj"
+              "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj": {
+                "projectPath": "C:\\Users\\User\\OneDrive - American University of Beirut\\Desktop\\Test\\test\\Assignment4\\src\\MusicStreaming.Core\\MusicStreaming.Core.csproj"
               }
             }
           }
